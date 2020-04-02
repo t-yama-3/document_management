@@ -1,0 +1,88 @@
+.header {
+  height: 50px;
+  width: 100%;
+  background-color: #333333;
+}
+
+.heading {
+  padding: 0 10px;
+  line-height: 50px;
+  font-size: 18px;
+  color: white;
+}
+
+.main {
+  height: calc(100vh - 100px);
+  width: 100%;
+  display: flex;
+  font-weight: unset;
+}
+
+.side {
+  margin: 0;
+  height: 100%;
+  width: 240px;
+  background-color: #444444;
+}
+
+.search {
+  width: 100%;
+  background-color: #666666;
+}
+
+h4 {
+  padding: 5px 15px 0px;
+  color: white;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.search-input {
+  margin: 5px 0px 5px 10px;
+  width: 180px;
+  height: 20px;
+}
+
+.search-btn {
+  padding: 1px 4px;
+  font-size: 13px;
+  background-color: #eeeeee;
+  border-radius: 5px;
+}
+
+.abstract {
+  height: calc(100vh - 160px);
+  width: 240px;
+  overflow: hidden;
+  background-color: #666666;
+}
+
+.abstract_area {
+  height: 50px;
+  width: 220px;
+  margin: 10px;
+  background-color: #cccccc;
+}
+
+.content {
+  height: 100%;
+  width: calc(100vw - 240px);
+  background-color: #cccccc;
+}
+
+.pdf-area {
+  height: calc(100vh - 120px);
+  width: calc(100vw - 260px);
+  margin: 10px;
+}
+
+.pdf-view {
+  height: 100%;
+  width: 100%;
+}
+
+.footer {
+  height: 50px;
+  width: 100%;
+  background-color: #333333;
+}

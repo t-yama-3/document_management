@@ -1,0 +1,21 @@
+    
+%header.header
+  %p.heading
+    文書管理システム
+%main.main
+  %div.side
+    %div.search
+      %h4
+        検索
+      %form.search_form
+        %input{type: "text", name: "search-input1", class: :"search-input"}
+        %input{type: "submit", value: "検索", class: :"search-btn"}
+    %div.abstract
+      %div.abstract_area
+      %div.abstract_area
+      %div.abstract_area
+      %div.abstract_area
+  %div.content
+    %div.pdf-area
+      %iframe{src: :"/tmp/test20200129.pdf", class: :"pdf-view"}
+%footer.footer
