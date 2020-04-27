@@ -1,21 +1,13 @@
-    
-%header.header
-  %p.heading
-    文書管理システム
-%main.main
-  %div.side
-    %div.search
-      %h4
-        検索
-      %form.search_form
-        %input{type: "text", name: "search-input1", class: :"search-input"}
-        %input{type: "submit", value: "検索", class: :"search-btn"}
-    %div.abstract
-      %div.abstract_area
-      %div.abstract_area
-      %div.abstract_area
-      %div.abstract_area
-  %div.content
-    %div.pdf-area
-      %iframe{src: :"/tmp/test20200129.pdf", class: :"pdf-view"}
-%footer.footer
+.main
+  .content
+    - @groups.each do |group|
+      .contentGroup
+        .contentGroup__title
+          = link_to group_path(group.id), class: :contentGroup__link do
+            = group.group_name
+          - (group.documents.limit(5)).each do |document|
+            = link_to document_path(document.id), class: :contentGroup__link do
+              .contentGroup__doc
+                %span.contentGroup__doc--title= document.title
+                %span.contentGroup__doc--note= document.note
+  = render partial: 'shared/side', locals: {tab_index: 1}

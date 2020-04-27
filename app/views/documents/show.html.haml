@@ -1,0 +1,5 @@
+%main.main
+  .content
+    .contentArea
+      %iframe{src: @document.src, class: :contentArea__view}
+  = render partial: 'shared/side', locals: {tab_index: 1}

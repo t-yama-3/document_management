@@ -1,3 +1,163 @@
-// Place all the styles related to the documents controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+h4 {
+  padding: 5px 15px 0px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.header {
+  height: 40px;
+  width: 100%;
+  background-color: #4b4bec;
+  display: inline-flex;
+  justify-content: space-between;
+  &__heading {
+    padding: 0 10px;
+    line-height: 40px;
+    font-size: 18px;
+    color: white;
+  }
+  &__link {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  &__devise {
+    padding: 0 10px;
+    line-height: 40px;
+    font-size: 18px;
+    color: white;
+  }
+  &__btn {
+    padding: 2pt;
+    background-color: #222222;
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    border: solid 1px;
+  }
+}
+
+
+
+.main {
+  height: calc(100vh - 60px);
+  width: 100%;
+  display: flex;
+  font-weight: unset;
+}
+
+.side {
+  margin: 0;
+  height: 100%;
+  width: 240px;
+  background-color: #444444;
+}
+
+.search {
+  width: 100%;
+  background-color: #666666;
+}
+
+.search-input {
+  margin: 5px 0px 5px 10px;
+  width: 180px;
+  height: 20px;
+}
+
+.search-btn {
+  padding: 1px 4px;
+  font-size: 13px;
+  background-color: #eeeeee;
+  border-radius: 5px;
+}
+
+.abstract {
+  height: calc(100vh - 120px);
+  width: 240px;
+  overflow: hidden;
+  background-color: #666666;
+  &__area {
+    height: 50px;
+    width: 220px;
+    margin: 10px;
+    background-color: #cccccc;
+  }
+}
+
+
+.content {
+  height: 100%;
+  width: calc(100vw - 240px);
+  padding: 20px;
+  background-color: #cccccc;
+}
+
+.contentGroup {
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #444444;
+  &__title {
+    font-size: 18px;
+  }
+  &__link {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  &__doc {
+    // max-height: 20px;
+    padding-left: 10px;
+    // padding: 0px, 10px;
+    height: 30px;
+    // padding: 10px;
+    margin: 10px 0 0;
+    font-size: 14px;
+    background: #666666;
+    line-height: 30px;
+    &--title {
+      display: inline-block;
+      width: 150px;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: scroll;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    &--note {
+      display: inline-block;
+      width: calc(100vw - 470px);
+      white-space: nowrap;
+      overflow: scroll;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
+
+.contentArea {
+  height: calc(100vh - 100px);
+  width: calc(100vw - 280px);
+  &__view {
+    height: 100%;
+    width: 100%;
+    // object-fit: cover;
+  }
+}
+
+
+.footer {
+  height: 20px;
+  width: 100%;
+  background-color: #4b4bec;
+}
