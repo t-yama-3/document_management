@@ -6,7 +6,7 @@
           = link_to group_path(group.id), class: :contentGroup__link do
             = group.group_name
           - (group.documents.limit(5)).each do |document|
-            = link_to document_path(document.id), class: :contentGroup__link do
+            = link_to document_path(document.id), class: :'contentGroup__link contentGroup__link--white' do
               .contentGroup__doc
                 %span.contentGroup__doc--title= document.title
                 %span.contentGroup__doc--note= document.note

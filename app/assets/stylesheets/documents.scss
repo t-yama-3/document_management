@@ -16,7 +16,8 @@ h4 {
 .header {
   height: 40px;
   width: 100%;
-  background-color: #4b4bec;
+  // background-color: #3737c4;
+  background-color: #2d3e6d;
   display: inline-flex;
   justify-content: space-between;
   &__heading {
@@ -58,12 +59,12 @@ h4 {
   margin: 0;
   height: 100%;
   width: 240px;
-  background-color: #444444;
+  background-color: #2d3e6d;
 }
 
 .search {
   width: 100%;
-  background-color: #666666;
+  // background-color: #222222;
 }
 
 .search-input {
@@ -83,7 +84,7 @@ h4 {
   height: calc(100vh - 120px);
   width: 240px;
   overflow: hidden;
-  background-color: #666666;
+  // background-color: #666666;
   &__area {
     height: 50px;
     width: 220px;
@@ -103,24 +104,26 @@ h4 {
 .contentGroup {
   padding: 10px;
   margin-bottom: 20px;
-  background-color: #444444;
+  background-color: #eeeeee;
   &__title {
     font-size: 18px;
+    font-weight: bold;
   }
   &__link {
     text-decoration: none;
-    color: #ffffff;
+    color: #222222;
+    &--white {
+      color: #2e38d1;
+    }
   }
   &__doc {
-    // max-height: 20px;
     padding-left: 10px;
-    // padding: 0px, 10px;
-    height: 30px;
-    // padding: 10px;
+    height: 25px;
     margin: 10px 0 0;
     font-size: 14px;
-    background: #666666;
-    line-height: 30px;
+    // background: #333391;
+    line-height: 25px;
+    border-bottom: 1px solid #2e38d1;
     &--title {
       display: inline-block;
       width: 150px;
@@ -135,6 +138,8 @@ h4 {
     &--note {
       display: inline-block;
       width: calc(100vw - 470px);
+      font-weight: unset;
+      color: #222222;
       white-space: nowrap;
       overflow: scroll;
       -ms-overflow-style: none;
@@ -159,5 +164,5 @@ h4 {
 .footer {
   height: 20px;
   width: 100%;
-  background-color: #4b4bec;
+  background-color: #2d3e6d;
 }
