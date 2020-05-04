@@ -1,0 +1,147 @@
+@media screen and (max-width: 1020px) {
+  .heading {
+    width: 700px;
+    &Title {
+      &__link {
+        font-size: 20px;
+        &--sub {
+          display: none;
+        }
+      }
+    }
+    &Search {
+      padding: 5px 10px 0;
+      background-color: $main_color;
+      &__form {
+        max-width: 360px;
+      }
+      &__input {
+        height: 24px;
+        max-width: 280px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1020px) and (max-width: 1200px) {
+  .heading {
+    max-width: 1020px;
+    &Search {
+      padding: 5px 10px 0;
+      background-color: $main_color;
+      &__form {
+        width: 360px;
+      }
+      &__input {
+        height: 24px;
+        width: 280px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .heading {
+    width: 1200px;
+    &Search {
+      padding: 5px 10px 0;
+      background-color: $main_color;
+      &__form {
+        width: 360px;
+      }
+      &__input {
+        height: 24px;
+        width: 280px;
+      }
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100%;
+  background-color: $back_color;
+  // font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro',"メイリオ",'Meiryo','Osaka','ＭＳ Ｐゴシック','MS PGothic',sans-serif;;
+}
+
+h4 {
+  padding: 5px 15px 0px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.header {
+  overflow: scroll;
+  background-color: $main_color;
+  min-width: calc(100vw);
+  padding: 10px;
+}
+
+.heading {
+  // width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  &Wrap {
+    display: flex;
+  }
+  &Title {
+    font-size: 24px;
+    font-family: 'GlimChe';
+    color: #ffffff;
+    &__link {
+      text-decoration: none;
+      color: #ffffff;
+      &--sub {
+        color: #dddddd;
+        font-size: 14px;
+        margin-left: 5px;
+      }
+    }
+  }
+  &Search {
+    padding: 5px 10px 0;
+    background-color: $main_color;
+    &__form {
+      // width: 360px;
+    }
+    &__input {
+      height: 24px;
+      // width: 280px;
+    }
+    &__btn {
+      padding: 0px 4px;
+      margin-left: 5px;
+      font-size: 13px;
+      background-color: #eeeeee;
+      border-radius: 5px;
+    }
+  }
+  &User {
+    padding: 5px 10px 0;
+    font-size: 18px;
+    color: #ffffff;
+    &__btn {
+      padding: 2pt;
+      font-size: 14px;
+      text-decoration: none;
+      color: #ffffff;
+      border: solid 1px;
+    }
+  }
+}
+
+.footer {
+  height: 20px;
+  width: 100%;
+  // position: fixed;
+  // bottom: 0;
+  background-color: $main_color;
+}
+

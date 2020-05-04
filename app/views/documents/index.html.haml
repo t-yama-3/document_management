@@ -1,16 +1,30 @@
 .main
   -# = render partial: 'shared/search', locals: {tab_index: 1}
-  .content
-    - @groups.each do |group|
-      .contentGroup
-        .contentGroup__title
-          = link_to group_path(group.id), class: :contentGroup__link do
-            = group.group_name
-          - (group.documents.limit(5)).each do |document|
-            = link_to document_path(document.id), class: :'contentGroup__link contentGroup__link--white' do
-              .contentGroup__doc
-                .contentGroup__doc--title
-                  %span= document.title
-                .contentGroup__doc--note
-                  %span= document.note
-  .side
+  .menu
+    .menu__list
+      = icon 'fas', 'address-card'
+      マイページ
+    .menu__list
+      = icon 'fas', 'users-cog'
+      グループ一覧
+    .menu__list
+      = icon 'fas', 'search'
+      詳細検索
+    .menu__list
+      = icon 'fas', 'file-alt'
+      新規文書登録
+  .mainWrap
+    .content
+      - @groups.each do |group|
+        .contentGroup
+          .contentGroup__title
+            = link_to group_path(group.id), class: :contentGroup__link do
+              = group.group_name
+            - (group.documents.limit(5)).each do |document|
+              = link_to document_path(document.id), class: :'contentGroup__link contentGroup__link--white' do
+                .contentGroup__doc
+                  .contentGroup__doc--title
+                    %span= document.title
+                  .contentGroup__doc--note
+                    %span= document.note
+    .side
