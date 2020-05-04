@@ -1,5 +1,18 @@
-%main.main
+.main
+  -# = render partial: 'shared/search', locals: {tab_index: 1}
   .content
     .contentArea
       %iframe{src: @document.src, class: :contentArea__view}
-  = render partial: 'shared/side', locals: {tab_index: 1}
+  .side
+    %table.sideTable
+      %tr
+        %th.sideTable__th 区分名
+        %td.sideTable__td= @document.group.group_name
+      %tr
+        %th.sideTable__th 文書名
+        %td.sideTable__td= @document.title
+      %tr
+        %th.sideTable__th 説明
+        %td.sideTable__td= @document.note
+    .sideComment
+

@@ -1,4 +1,5 @@
 .main
+  -# = render partial: 'shared/search', locals: {tab_index: 1}
   .content
     - @groups.each do |group|
       .contentGroup
@@ -8,6 +9,8 @@
           - (group.documents.limit(5)).each do |document|
             = link_to document_path(document.id), class: :'contentGroup__link contentGroup__link--white' do
               .contentGroup__doc
-                %span.contentGroup__doc--title= document.title
-                %span.contentGroup__doc--note= document.note
-  = render partial: 'shared/side', locals: {tab_index: 1}
+                .contentGroup__doc--title
+                  %span= document.title
+                .contentGroup__doc--note
+                  %span= document.note
+  .side

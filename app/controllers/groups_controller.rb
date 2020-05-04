@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
   def show
-    @documents = Group.find(params[:id]).documents
+    @group = Group.find(params[:id])
+    # binding.pry
+    @documents = @group.documents
   end
 end
