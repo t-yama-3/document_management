@@ -1,17 +1,18 @@
-.main
-  .content
-    .contentArea
-      %iframe{src: @document.src, class: :contentArea__view}
-  .side
-    %table.sideTable
-      %tr
-        %th.sideTable__th 区分名
-        %td.sideTable__td= @document.group.group_name
-      %tr
-        %th.sideTable__th 文書名
-        %td.sideTable__td= @document.title
-      %tr
-        %th.sideTable__th 説明
-        %td.sideTable__td= @document.note
-    .sideComment
+.details
+  .detailsWrap
+    .detailsContent
+      .detailsContent__area
+        %iframe{src: @document.src, class: :detailsContent__view}
+    .detailsSide
+      %table.detailsTable
+        %tr
+          %th.detailsTable__th 区分名
+          %td.detailsTable__td= @document.group.group_name
+        %tr
+          %th.detailsTable__th 文書名
+          %td.detailsTable__td= @document.title
+        %tr
+          %th.detailsTable__th 説明
+          %td.detailsTable__td= @document.note
+      .detailsComment
 

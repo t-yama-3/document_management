@@ -1,0 +1,114 @@
+@media screen and (min-width: 380px) {
+  .main {
+    max-width: 700px;
+    .menu {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+    }
+  }
+}
+
+@media screen and (min-width: 1020px) and (max-width: 1200px) {
+  .main {
+    min-width: 1020px;
+    .menu {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+    }
+    .mainWrap {
+      display: flex;
+      .mainContent {
+        min-width: 700px;
+      }
+      .mainSide {
+        min-width: 320px;
+        height: auto;
+        min-height: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .main {
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    .menu {
+      display: block;
+      min-width: 180px;
+      padding: 20px;
+      line-height: 40px;
+    }
+    .mainWrap {
+      display: flex;
+      .mainContent {
+        min-width: 700px;
+      }  
+      .mainSide {
+        min-width: 320px;
+        height: auto;
+        min-height: 100%;
+      }
+    }
+  }
+}
+
+.main {
+  margin: 0 auto;
+}
+
+.menu {
+  width: 100%;
+  // min-height: calc(100vh - 76px);
+  color: #ffffff;
+  font-size: 16px;
+  background-color: $menu_color;
+  overflow: scroll;
+  &__list i {
+    font-size: 16px;
+    width: 20px;
+  }
+}
+
+.mainContent {
+  min-height: calc(100vh - 76px);
+  padding: 20px;
+  background-color: #dddddd;
+}
+
+.mainContentGroup {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #eeeeee;
+  &__title {
+    font-size: 18px;
+  }
+  &__link {
+    text-decoration: none;
+    color: #222222;
+  }
+}
+
+.mainSide {
+  padding: 20px;
+  background-color: $sub_color;
+}
+
+.mainSideGroup {
+  &__heading {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  &__title {
+    padding: 10px 10px 0;
+  }
+  &__link {
+    font-size: 16px;
+    text-decoration: none;
+    color: $main_color;
+  }
+}
+
