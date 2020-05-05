@@ -1,9 +1,9 @@
-.main
-  .content
-    .contentGroup
-      .contentGroup__title
-        - @documents.each do |document|
-          .contentGroup__doc
-            = link_to document_path(document.id), class: :contentGroup__link do
-              = document.title
-  = render partial: 'shared/side', locals: {tab_index: 1}
+.group
+  = render partial: 'shared/menu'
+  .groupWrap
+    .groupContent
+      .groupContent__box
+        .groupContent__title= @group.group_name
+        - @group.documents.each do |document|
+          = render partial: 'shared/group_doc', locals: {document: document}
+    = render partial: 'shared/side'

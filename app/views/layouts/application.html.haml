@@ -2,23 +2,30 @@
 %html
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
-    %title DocumentManagement
+    %title Document Manager
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .header
-      .header__heading
-        = link_to root_path, class: :header__link do
-          文書管理システム
-      .header__devise
-        - if user_signed_in?
-          = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :header__btn
-          %span.devise_user.devise_user-label ユーザ名:
-          = link_to current_user.name, '#', class: 'devise_user devise_user-name'
-        - else
-          = link_to '新規登録', new_user_registration_path, class: :header__btn
-          = link_to 'ログイン', new_user_session_path, class: :header__btn
+      .heading
+        .headingWrap
+          .headingTitle
+            = link_to root_path, class: :headingTitle__link do
+              Document Manager
+              %span.headingTitle__link--sub 文書管理ツール
+          .headingSearch
+            = form_with url: "#", method: :get, local: true, class: :headingSearch__form do |f|
+              = f.text_field :search, class: :headingSearch__input
+              = f.submit "文書検索", class: :headingSearch__btn
+        .headingUser
+          - if user_signed_in?
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :headingUser__btn
+            %span.devise_user.devise_user-label ユーザ名:
+            = link_to current_user.name, '#', class: 'devise_user devise_user-name'
+          - else
+            = link_to '新規登録', new_user_registration_path, class: :headingUser__btn
+            = link_to 'ログイン', new_user_session_path, class: :headingUser__btn
     = yield
     .footer
