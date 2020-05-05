@@ -1,0 +1,41 @@
+.register {
+  display: flex;
+  width: 1200px;
+  margin: 0 auto;
+  .registerWrap {
+    display: flex;
+  }
+  &__content {
+    min-width: 700px;
+    min-height: calc(100vh - 76px);
+    margin: 0 auto;
+    background-color: #dddddd;
+  }
+  &__heading {
+    font-size: 24px;
+    padding: 30px 30px 0px;
+    color: $text_color;
+  }
+  &__form {
+    width: 100%;
+    padding: 20px;
+    & table {
+      width: 100%;
+    }
+    & th {
+      width: 15%;
+      padding: 10px 0px 10px 20px;
+    }
+    & td {
+      width: 85%;
+      padding: 10px 20px;
+    }
+  }
+  &__text {
+    width: 100%;
+    height: 40px;
+    &--area {
+      height: 200px;
+    }
+  }
+}

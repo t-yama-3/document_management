@@ -6,6 +6,4 @@
         .groupContent__title= @group.group_name
         - @group.documents.each do |document|
           = render partial: 'shared/group_doc', locals: {document: document}
-    .groupSide
-      .groupSide__title
-      .groupSide__note 
+    = render partial: 'shared/side'

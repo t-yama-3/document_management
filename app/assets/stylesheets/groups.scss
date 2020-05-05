@@ -1,33 +1,33 @@
 @media screen and (min-width: 380px) {
   .group {
     max-width: 700px;
-    .menu {
-      display: flex;
-      justify-content: space-around;
-      padding: 10px;
-    }
+  }
+  .menu {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
   }
 }
 
 @media screen and (min-width: 1020px) and (max-width: 1200px) {
   .group {
     min-width: 1020px;
-    .menu {
-      display: flex;
-      justify-content: space-around;
-      padding: 10px;
-    }
     .groupWrap {
       display: flex;
       .groupContent {
         min-width: 700px;
       }
-      .groupSide {
-        min-width: 320px;
-        height: auto;
-        min-height: 100%;
-      }
     }
+  }
+  .side {
+    min-width: 320px;
+    height: auto;
+    min-height: 100%;
+  }
+  .menu {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
   }
 }
 
@@ -36,23 +36,23 @@
     width: 1200px;
     display: flex;
     justify-content: center;
-    .menu {
-      display: block;
-      min-width: 180px;
-      padding: 20px;
-      line-height: 40px;
-    }
     .groupWrap {
       display: flex;
       .groupContent {
         min-width: 700px;
       }  
-      .groupSide {
-        min-width: 320px;
-        height: auto;
-        min-height: 100%;
-      }
     }
+  }
+  .side {
+    min-width: 320px;
+    height: auto;
+    min-height: 100%;
+  }
+  .menu {
+    display: block;
+    min-width: 180px;
+    padding: 20px;
+    line-height: 40px;
   }
 }
 
@@ -71,7 +71,7 @@
       font-size: 18px;
     }
   }
-  .groupSide {
+  .side {
     padding: 20px;
     background-color: $sub_color;
   }

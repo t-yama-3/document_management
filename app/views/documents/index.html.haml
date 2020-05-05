@@ -9,10 +9,4 @@
               = group.group_name
             - (group.documents.limit(5)).each do |document|
               = render partial: 'shared/group_doc', locals: {document: document}
-    .mainSide
-      .mainSideGroup
-        .mainSideGroup__heading グループ一覧
-        - @groups.each do |group|
-          .mainSideGroup__title
-            = link_to group_path(group.id), class: :mainSideGroup__link do
-              = group.group_name
+    = render partial: 'shared/side'

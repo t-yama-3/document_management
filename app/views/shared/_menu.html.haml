@@ -4,10 +4,10 @@
     マイページ
   .menu__list
     = icon 'fas', 'users-cog'
-    グループ一覧
+    文書区分一覧
   .menu__list
     = icon 'fas', 'search'
     詳細検索
-  .menu__list
+  = link_to new_document_path ,class: :menu__list do
     = icon 'fas', 'file-alt'
-    新規文書登録
+    = '新規文書登録'

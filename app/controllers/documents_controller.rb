@@ -4,6 +4,7 @@ class DocumentsController < ApplicationController
   end
 
   def new
+    @groups = Group.all.includes(:documents)
     @document = Document.new
   end
 

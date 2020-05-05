@@ -1,2 +1,23 @@
-入力
-
+.register
+  = render partial: 'shared/menu'
+  .registerWrap
+    .register__content
+      .register__heading 新規文書登録
+      = form_with model: @document, local: true, class: :register__form do |form|
+        %table
+          %tr
+            %th URL
+            %td= form.text_field :src, class: :register__text
+          %tr
+            %th 文書名
+            %td= form.text_field :title, class: :register__text
+          %tr
+            %th 文書区分
+            %td= form.collection_select :group_id, Group.all, :id, :group_name, { prompt: '選択して下さい' }, { class: :register__text }
+          %tr
+            %th 文書区分
+            %td= form.text_field :title, class: :register__text
+          %tr
+            %th 説明
+            %td= form.text_area :note, class: :'register__text register__text--area'
+    = render partial: 'shared/side'
