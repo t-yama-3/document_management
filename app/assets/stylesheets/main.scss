@@ -38,6 +38,29 @@
   min-height: calc(100vh - 76px);
   padding: 20px;
   background-color: #dddddd;
+  &__top {
+    height: 150px;
+    background-color: $explain_color;
+    margin-bottom: 20px;
+    padding: 10px;
+    display: flex;
+    &--image {
+      height: 100%;
+    }
+  }
+  &__explain {
+    padding-left: 10px;
+    &--heading {
+      font-size: 20px;
+      font-weight: bold;
+      color: $main_color;
+      margin: 5px 0 10px;
+    }
+    &--text {
+      font-size: 14px;
+      margin: 5px;
+    }
+  }
 }
 
 .mainContentGroup {

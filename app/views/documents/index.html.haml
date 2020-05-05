@@ -2,6 +2,15 @@
   = render partial: 'shared/menu'
   .mainWrap
     .mainContent
+      .mainContent__top
+        = image_tag '1008234_s.jpg', alt: 'main_photo', class: :'mainContent__top--image'
+        .mainContent__explain
+          .mainContent__explain--heading
+            = icon 'fas', 'paperclip'
+            = 'PDF文書を手軽に管理できるツールです'
+          .mainContent__explain--text ・WEB上のPDF資料を項目ごとに分けて簡単に登録。
+          .mainContent__explain--text ・文書に説明やコメントを入れてグループ管理することも可能。
+          .mainContent__explain--text ・手元のPDFをサーバに保存して管理することも可能（有料）。
       - @groups.each do |group|
         .mainContentGroup
           .mainContentGroup__title

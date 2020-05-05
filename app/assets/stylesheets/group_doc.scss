@@ -8,14 +8,14 @@
     margin: 10px 0;
     font-size: 14px;
     line-height: 25px;
-    border-bottom: 1px solid #2e38d1;
+    border-bottom: 1px solid $doc_color;
     display: flex;
     &--title {
       display: inline-block;
       width: 160px;
       margin: 0 10px;
       font-weight: bold;
-      color: #2e38d1;
+      color: $doc_color;
       white-space: nowrap;
       overflow: scroll;
       -ms-overflow-style: none;
