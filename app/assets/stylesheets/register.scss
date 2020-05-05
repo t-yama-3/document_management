@@ -1,10 +1,37 @@
-.register {
-  display: flex;
-  width: 1200px;
-  margin: 0 auto;
-  .registerWrap {
-    display: flex;
+@media screen and (min-width: 380px) {
+  .register {
+    max-width: 700px;
   }
+}
+
+@media screen and (min-width: 1020px) and (max-width: 1200px) {
+  .register {
+    min-width: 1020px;
+    .registerWrap {
+      display: flex;
+      .register__content {
+        min-width: 700px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .register {
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    .registerWrap {
+      display: flex;
+      .register__content {
+        min-width: 700px;
+      }  
+    }
+  }
+}
+
+.register {
+  margin: 0 auto;
   &__content {
     min-width: 700px;
     min-height: calc(100vh - 76px);
@@ -36,6 +63,17 @@
     height: 40px;
     &--area {
       height: 200px;
+    }
+  }
+  &__submit {
+    padding: 20px;
+    margin: 0 auto;
+    width: 300px;
+    &--btn {
+      width: 100%;
+      line-height: 40px;
+      color: #ffffff;
+      background-color: $main_color;
     }
   }
 }

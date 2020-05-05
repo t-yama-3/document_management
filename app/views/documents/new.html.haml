@@ -15,9 +15,8 @@
             %th 文書区分
             %td= form.collection_select :group_id, Group.all, :id, :group_name, { prompt: '選択して下さい' }, { class: :register__text }
           %tr
-            %th 文書区分
-            %td= form.text_field :title, class: :register__text
-          %tr
             %th 説明
             %td= form.text_area :note, class: :'register__text register__text--area'
+        .register__submit
+          = form.submit '登録する', class: :'register__submit--btn'
     = render partial: 'shared/side'
