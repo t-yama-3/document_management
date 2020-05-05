@@ -12,8 +12,11 @@
             %th 文書名
             %td= form.text_field :title, class: :register__text
           %tr
-            %th 文書区分
-            %td= form.collection_select :group_id, Group.all, :id, :group_name, { prompt: '選択して下さい' }, { class: :register__text }
+            %th 区分選択
+            %td= form.collection_select :group_id, Group.all, :id, :group_name, { prompt: '選択または新規区分を作成' }, { class: :register__text }
+          %tr
+            %th 区分作成
+            %td= form.text_field :group_name, class: :register__text
           %tr
             %th 説明
             %td= form.text_area :note, class: :'register__text register__text--area'

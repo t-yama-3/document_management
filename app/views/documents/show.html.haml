@@ -7,7 +7,10 @@
       %table.detailsTable
         %tr
           %th.detailsTable__th 区分名
-          %td.detailsTable__td= @document.group.group_name
+          - if @document.group.present?
+            %td.detailsTable__td= @document.group.group_name
+          - else
+            %td.detailsTable__td= '（未登録）'
         %tr
           %th.detailsTable__th 文書名
           %td.detailsTable__td= @document.title
