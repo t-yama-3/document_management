@@ -21,7 +21,6 @@
               = f.submit "文書検索", class: :headingSearch__btn
         .headingUser
           - if user_signed_in?
-            -# %span.headingUser__label ユーザ名:
             = link_to '#', class: :headingUser__nickname do
               = icon 'fas', 'address-card'
               = current_user.nickname

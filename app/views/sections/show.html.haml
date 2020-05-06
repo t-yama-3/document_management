@@ -3,6 +3,7 @@
   .sectionWrap
     .sectionContent
       = link_to "区分編集", edit_section_path(@section.id), class: :sectionContent__link
+      = link_to "区分削除", section_path(@section.id), method: :delete, class: :sectionContent__link, data: {confirm: "削除しますか？"}
       .sectionContent__box
         .sectionContent__title= @section.section_name
         - @section.documents.each do |document|
