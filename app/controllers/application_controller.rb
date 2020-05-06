@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
   # response.headers['X-Frame-Options'] = 'ALLOWALL'
   # response.headers['X-Frame-Options'] = 'ALLOW-FROM http://example.com'
   before_action :basic_auth, if: :production?
+  before_action :configure_permited_parameters, if: :devise_controller?
+  
+  protected
+  def configure_permited_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+  end
 
   private
   def production?

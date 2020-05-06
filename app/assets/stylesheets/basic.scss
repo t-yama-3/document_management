@@ -135,6 +135,16 @@ h4 {
       color: #ffffff;
       border: solid 1px;
     }
+    // &__label {
+    //   font-size: 14px;
+    //   color: #ffffff;
+    // }
+    &__nickname {
+      margin: 0 10px;
+      font-size: 14px;
+      text-decoration: none;
+      color: #ffffff;
+    }
   }
 }
 

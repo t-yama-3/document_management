@@ -56,6 +56,24 @@
 .detailsSide {
   background-color: $sub_color;
   padding: 20px;
+  &__link {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 2px 5px;
+    text-align: right;
+    font-size: 14px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: $main_color;
+  }
+  &__url {
+    margin-bottom: 10px;
+    font-size: 14px;
+    &--link {
+      text-decoration: none;
+      color: blue;
+    }
+  }
   .detailsTable {
     margin: 0 0 20px;
     min-width: 100%;

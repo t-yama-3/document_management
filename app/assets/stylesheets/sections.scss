@@ -1,15 +1,15 @@
 @media screen and (min-width: 380px) {
-  .group {
+  .section {
     max-width: 700px;
   }
 }
 
 @media screen and (min-width: 1020px) and (max-width: 1200px) {
-  .group {
+  .section {
     min-width: 1020px;
-    .groupWrap {
+    .sectionWrap {
       display: flex;
-      .groupContent {
+      .sectionContent {
         min-width: 700px;
       }
     }
@@ -17,25 +17,35 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .group {
+  .section {
     width: 1200px;
     display: flex;
     justify-content: center;
-    .groupWrap {
+    .sectionWrap {
       display: flex;
-      .groupContent {
+      .sectionContent {
         min-width: 700px;
       }  
     }
   }
 }
 
-.group {
+.section {
   margin: 0 auto;
-  .groupContent {
+  .sectionContent {
     min-height: calc(100vh - 76px);
     padding: 20px;
     background-color: #dddddd;
+    &__link {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 2px 5px;
+      text-align: right;
+      font-size: 14px;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: $main_color;
+    }
     &__box {
       padding: 20px;
       margin-bottom: 20px;

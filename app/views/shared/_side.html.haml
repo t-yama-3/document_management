@@ -1,7 +1,7 @@
 .side
-  .sideGroup
-    .sideGroup__heading 文書区分一覧
-    - @groups.each do |group|
-      .sideGroup__title
-        = link_to group_path(group.id), class: :sideGroup__link do
-          = group.group_name
+  .sideSection
+    .sideSection__heading 文書区分一覧
+    - @sections.each do |section|
+      .sideSection__title
+        = link_to section_path(section.id), class: :sideSection__link do
+          = section.section_name

@@ -11,11 +11,11 @@
           .mainContent__explain--text ・WEB上のPDF資料を項目ごとに分けて簡単に登録。
           .mainContent__explain--text ・文書に説明やコメントを入れてグループ管理することも可能。
           .mainContent__explain--text ・手元のPDFをサーバに保存して管理することも可能（有料）。
-      - @groups.each do |group|
-        .mainContentGroup
-          .mainContentGroup__title
-            = link_to group_path(group.id), class: :mainContentGroup__link do
-              = group.group_name
-            - (group.documents.limit(5)).each do |document|
-              = render partial: 'shared/group_doc', locals: {document: document}
+      - @sections.each do |section|
+        .mainContentSection
+          .mainContentSection__title
+            = link_to section_path(section.id), class: :mainContentSection__link do
+              = section.section_name
+            - (section.documents.limit(5)).each do |document|
+              = render partial: 'shared/section_doc', locals: {document: document}
     = render partial: 'shared/side'

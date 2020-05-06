@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_133342) do
+ActiveRecord::Schema.define(version: 2020_05_06_041130) do
 
   create_table "documents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -18,14 +18,21 @@ ActiveRecord::Schema.define(version: 2020_04_27_133342) do
     t.string "src"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "group_id"
-    t.index ["group_id"], name: "index_documents_on_group_id"
+    t.bigint "section_id"
+    t.bigint "user_id"
+    t.index ["section_id"], name: "index_documents_on_section_id"
+    t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
-  create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "group_name"
+  create_table "sections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "section_name"
+    t.string "ancestry"
+    t.integer "disclosure"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_sections_on_ancestry"
+    t.index ["user_id"], name: "index_sections_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -36,9 +43,12 @@ ActiveRecord::Schema.define(version: 2020_04_27_133342) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nickname", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "documents", "groups"
+  add_foreign_key "documents", "sections"
+  add_foreign_key "documents", "users"
+  add_foreign_key "sections", "users"
 end
