@@ -4,6 +4,10 @@
       .detailsContent__area
         %iframe{src: @document.src, class: :detailsContent__view}
     .detailsSide
+      .detailsSide__url
+        = "元サイトリンク："
+        = link_to @document.title, @document.src, class: :'detailsSide__url--link'
+      = link_to "文書情報を編集する", edit_document_path(@document.id), class: :detailsSide__link
       %table.detailsTable
         %tr
           %th.detailsTable__th 区分名

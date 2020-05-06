@@ -1,0 +1,16 @@
+.register
+  = render partial: 'shared/menu'
+  .registerWrap
+    .register__content
+      .register__heading 新規区分作成
+      = form_with model: @section, local: true, class: :register__form do |form|
+        %table
+          %tr
+            %th 区分名
+            %td= form.text_field :section_name, class: :register__text
+          %tr
+            %th 公開設定
+            %td= form.select :disclosure, Section.disclosures.keys, {prompt: '選択してください'}, class: :register__text
+        .register__submit
+          = form.submit '登録する', class: :'register__submit--btn'
+    = render partial: 'shared/side'
