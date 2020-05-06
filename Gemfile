@@ -71,3 +71,7 @@ gem 'font-awesome-sass'
 gem 'devise'
 gem 'jquery-rails'
 gem 'pry-rails'
+gem 'ancestry'
+gem 'payjp'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"

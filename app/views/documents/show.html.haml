@@ -7,8 +7,8 @@
       %table.detailsTable
         %tr
           %th.detailsTable__th 区分名
-          - if @document.group.present?
-            %td.detailsTable__td= @document.group.group_name
+          - if @document.section.present?
+            %td.detailsTable__td= @document.section.section_name
           - else
             %td.detailsTable__td= '（未登録）'
         %tr

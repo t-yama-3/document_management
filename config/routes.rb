@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'documents#index'
   resources :documents, except: [:index]
   resources :groups, only: [:show]
+  resources :sections, only: [:show]
 end
