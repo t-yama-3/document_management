@@ -3,11 +3,9 @@ class DocumentsController < ApplicationController
   before_action :move_to_user_registration, except: [:index, :show]
   
   def index
-    # @sections = Section.all.includes(:documents)
   end
 
   def new
-    # @sections = Section.all.includes(:documents)
     @document = Document.new
   end
 
@@ -54,6 +52,16 @@ class DocumentsController < ApplicationController
   def show
     response.headers['X-Frame-Options'] = 'ALLOWALL'
     @document = Document.find(params[:id])
+  end
+
+  def destroy
+    @document = Document.find(params[:id])
+    if @document.destroy
+      redirect_to root_path
+    else
+      flash.now[:alert] = "文書情報を削除できませんでした。"
+      render :show
+    end
   end
 
   private

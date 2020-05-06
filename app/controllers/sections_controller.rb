@@ -34,6 +34,16 @@ class SectionsController < ApplicationController
     @documents = @section.documents
   end
 
+  def destroy
+    @section = Section.find(params[:id])
+    if @section.destroy
+      redirect_to root_path
+    else
+      flash.now[:alert] = "区分を削除できませんでした。"
+      render :show
+    end
+  end
+
   private
   def section_params
     params.require(:section).permit(:section_name, :disclosure).merge(user_id: current_user.id)
