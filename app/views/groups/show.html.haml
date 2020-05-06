@@ -1,9 +1,0 @@
-.group
-  = render partial: 'shared/menu'
-  .groupWrap
-    .groupContent
-      .groupContent__box
-        .groupContent__title= @group.group_name
-        - @group.documents.each do |document|
-          = render partial: 'shared/group_doc', locals: {document: document}
-    = render partial: 'shared/side'
