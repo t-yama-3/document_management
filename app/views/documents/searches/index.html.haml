@@ -1,4 +1,7 @@
-%div 検索結果
-
-- @documents.each do |document|
-  = render partial: 'shared/documents', locals: {document: document}
+.search
+  = render partial: 'shared/menu'
+  .searchWrap
+    .searchContent
+      .searchContent__title= "#{@keyword}の検索結果"
+      = render partial: 'shared/documents', locals: {documents: @documents}
+    = render partial: 'shared/side'

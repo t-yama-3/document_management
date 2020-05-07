@@ -35,7 +35,6 @@
 }
 
 .sectionTable {
-  // padding: 10px;
   & table {
     width: 100%;
     font-size: 14px;
@@ -98,5 +97,6 @@
   }
   &__title {
     font-size: 18px;
+    margin-bottom: 5px;
   }
 }

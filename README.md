@@ -38,7 +38,7 @@ Things you may want to cover:
 - has_many :comments, dependent: :destroy
 - has_many :sections
 - has_many :user_sections, dependent: :destroy
-- has_many :participate_sections, through: :user_sections, source: section
+- has_many :participate_sections, through: :user_sections, source: :section
 
 ## sectionsテーブル
 
@@ -53,7 +53,7 @@ Things you may want to cover:
 - belongs_to :user
 - has_many :documents
 - has_many :user_sections
-- has_many :participate_users, through: :user_sections, source: user
+- has_many :participate_users, through: :user_sections, source: :user
 
 ## documentsテーブル
 

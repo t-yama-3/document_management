@@ -78,13 +78,11 @@ h4 {
 .header {
   overflow: scroll;
   background-color: $main_color;
-  // min-width: calc(100vw);
   min-width: 100%;
   padding: 10px;
 }
 
 .heading {
-  // width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
@@ -176,16 +174,3 @@ h4 {
   position: fixed;
   bottom: 0;
 }
-
-// .footer {
-//   width: 100%;
-//   background-color: $main_color;
-//   padding: 20px;
-//   &__wrap {
-//   }
-//   &__list {
-//     color: #ffffff;
-//   }
-// }
-
-

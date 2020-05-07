@@ -7,7 +7,6 @@ class SectionsController < ApplicationController
   end
 
   def new
-    # @sections = Section.all.includes(:documents)
     @section = Section.new
   end
 

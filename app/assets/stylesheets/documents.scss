@@ -2,47 +2,9 @@
   &__link {
     text-decoration: none;
   }
-  // &__doc {
-  //   height: 25px;
-  //   width: 100%;
-  //   margin: 10px 0;
-  //   font-size: 14px;
-  //   line-height: 25px;
-  //   border-bottom: 1px solid $doc_color;
-  //   display: flex;
-  //   &:hover {
-  //     opacity: 0.8;
-  //   }
-  //   &--title {
-  //     display: inline-block;
-  //     width: 160px;
-  //     margin: 0 10px;
-  //     font-weight: bold;
-  //     color: $doc_color;
-  //     white-space: nowrap;
-  //     overflow: scroll;
-  //     -ms-overflow-style: none;
-  //     &::-webkit-scrollbar {
-  //       display: none;
-  //     }
-  //   }
-  //   &--note {
-  //     display: inline-block;
-  //     width: 430px;
-  //     font-weight: lighter;
-  //     color: #222222;
-  //     white-space: nowrap;
-  //     overflow: scroll;
-  //     -ms-overflow-style: none;
-  //     &::-webkit-scrollbar {
-  //       display: none;
-  //     }
-  //   }
-  // }
 }
 
 .documentTable {
-  // padding: 10px;
   & table {
     width: 100%;
     font-size: 14px;

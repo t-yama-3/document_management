@@ -1,0 +1,45 @@
+@media screen and (min-width: 380px) {
+  .search {
+    max-width: 700px;
+  }
+}
+
+@media screen and (min-width: 1020px) and (max-width: 1200px) {
+  .search {
+    min-width: 1020px;
+    .searchWrap {
+      display: flex;
+      .searchContent {
+        min-width: 700px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .search {
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    .searchWrap {
+      display: flex;
+      .searchContent {
+        min-width: 700px;
+      }  
+    }
+  }
+}
+
+.search {
+  margin: 0 auto;
+}
+
+.searchContent {
+  min-height: calc(100vh - 76px);
+  padding: 20px;
+  background-color: #dddddd;
+  &__title {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+}

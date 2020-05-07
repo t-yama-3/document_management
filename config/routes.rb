@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   namespace :documents do
     resources :searches, only: :index
   end
-  resources :documents, except: [:index]
+  resources :documents, except: [:index] do
+    resources :comments, only: [:create]
+  end
   resources :sections
   resources :users, only: [:index]
 end

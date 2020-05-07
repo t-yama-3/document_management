@@ -4,16 +4,14 @@
       .detailsContent__area
         %iframe{src: @document.src, class: :detailsContent__view}
     .detailsSide
-      -# .detailsSide__url
-      -#   = "元サイトリンク："
-      -#   = link_to @document.title, @document.src, class: :'detailsSide__url--link', target: :_blank
       = link_to "文書情報を編集する", edit_document_path(@document.id), class: :detailsSide__link
       = link_to "文書情報を削除する", document_path(@document.id), method: :delete, class: :detailsSide__link, data: {confirm: "削除しますか？"}
       %table.detailsTable
         %tr
           %th.detailsTable__th 区分名
           - if @document.section.present?
-            %td.detailsTable__td= @document.section.section_name
+            %td.detailsTable__td
+              = link_to @document.section.section_name, section_path(@document.section.id), class: :detailsTable__link
           - else
             %td.detailsTable__td= '（未登録）'
         %tr
@@ -25,6 +23,21 @@
         %tr
           %th.detailsTable__th 掲載元URL
           %td.detailsTable__td
-            = link_to @document.src, @document.src, class: :detailsTable__link, target: :_blank
-      .detailsComment
+            = link_to @document.src, @document.src, class: :'detailsTable__link detailsTable__link--url', target: :_blank
+      = form_with model: [@document, @comment], local: true, class: :"detail-comment" do |f|
+        - if @document.comments.length > 0
+          - @document.comments.each do |comment|
+            .detail-comment__wrap
+              .detail-comment__left
+                = image_tag 'member_photo_noimage_thumb.png', alt: 'document_photo', class: :'detail-comment__icon'
+              .detail-comment__right
+                .detail-comment__nickname= comment.user.nickname
+                .detail-comment__body
+                  = comment.body
+                  .detail-comment__body--time= elapsed_time(comment.created_at)
+        = f.text_area :body, class: :"detail-comment__textbox"
+        .detail-comment__button
+          = button_tag type: 'submit', class: 'detail-comment__submit' do
+            = icon 'fa', 'comment'
+            コメントする      
 

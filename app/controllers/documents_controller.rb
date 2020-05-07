@@ -52,6 +52,8 @@ class DocumentsController < ApplicationController
   def show
     response.headers['X-Frame-Options'] = 'ALLOWALL'
     @document = Document.find(params[:id])
+    @comments = @document.comments
+    @comment = Comment.new
   end
 
   def destroy
