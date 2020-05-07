@@ -16,15 +16,15 @@
               Document Manager
               %span.headingTitle__link--sub 文書管理ツール
           .headingSearch
-            = form_with url: "#", method: :get, local: true, class: :headingSearch__form do |f|
+            = form_with url: documents_searches_path, method: :get, local: true, class: :headingSearch__form do |f|
               .headingSearch__container
                 .headingSearch__text
-                  = f.text_field :search, class: :headingSearch__input
+                  = f.text_field :keyword, class: :headingSearch__input
                 .headingSearch__btn
                   = f.submit "文書検索", class: :headingSearch__submit
         .headingUser
           - if user_signed_in?
-            = link_to '#', class: :headingUser__nickname do
+            = link_to users_path, class: :headingUser__nickname do
               = icon 'fas', 'address-card'
               = current_user.nickname
             = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :headingUser__btn

@@ -17,5 +17,5 @@
             = link_to section_path(section.id), class: :mainContentSection__link do
               = section.section_name
             - (section.documents.limit(5)).each do |document|
-              = render partial: 'shared/section_doc', locals: {document: document}
+              = render partial: 'shared/documents', locals: {document: document}
     = render partial: 'shared/side'

@@ -7,5 +7,5 @@
       .sectionContent__box
         .sectionContent__title= @section.section_name
         - @section.documents.each do |document|
-          = render partial: 'shared/section_doc', locals: {document: document}
+          = render partial: 'shared/documents', locals: {document: document}
     = render partial: 'shared/side'
