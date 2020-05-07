@@ -1,15 +1,15 @@
 @media screen and (min-width: 380px) {
-  .main {
+  .user {
     max-width: 700px;
   }
 }
 
 @media screen and (min-width: 1020px) and (max-width: 1200px) {
-  .main {
+  .user {
     min-width: 1020px;
-    .mainWrap {
+    .userWrap {
       display: flex;
-      .mainContent {
+      .userInfo {
         min-width: 700px;
       }
     }
@@ -17,24 +17,24 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .main {
+  .user {
     width: 1200px;
     display: flex;
     justify-content: center;
-    .mainWrap {
+    .userWrap {
       display: flex;
-      .mainContent {
+      .userInfo {
         min-width: 700px;
       }  
     }
   }
 }
 
-.main {
+.user {
   margin: 0 auto;
 }
 
-.mainContent {
+.userInfo {
   min-height: calc(100vh - 76px);
   padding: 20px;
   background-color: #dddddd;
@@ -53,7 +53,7 @@
     overflow: scroll;
     &--heading {
       font-size: 20px;
-      font-weight: bold;
+      // font-weight: bold;
       color: $main_color;
       margin: 5px 0 10px;
     }
@@ -64,16 +64,14 @@
   }
 }
 
-.mainContentSection {
+.userInfoSection {
   padding: 20px;
   margin-bottom: 20px;
   background-color: #eeeeee;
-  &__wrap {
+  &__title {
     font-size: 18px;
   }
   &__link {
-    display: inline-block;
-    margin-bottom: 5px;
     text-decoration: none;
     color: #222222;
     &:hover {
