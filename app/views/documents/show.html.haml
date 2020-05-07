@@ -4,9 +4,9 @@
       .detailsContent__area
         %iframe{src: @document.src, class: :detailsContent__view}
     .detailsSide
-      .detailsSide__url
-        = "元サイトリンク："
-        = link_to @document.title, @document.src, class: :'detailsSide__url--link'
+      -# .detailsSide__url
+      -#   = "元サイトリンク："
+      -#   = link_to @document.title, @document.src, class: :'detailsSide__url--link', target: :_blank
       = link_to "文書情報を編集する", edit_document_path(@document.id), class: :detailsSide__link
       = link_to "文書情報を削除する", document_path(@document.id), method: :delete, class: :detailsSide__link, data: {confirm: "削除しますか？"}
       %table.detailsTable
@@ -22,5 +22,9 @@
         %tr
           %th.detailsTable__th 説明
           %td.detailsTable__td= @document.note
+        %tr
+          %th.detailsTable__th 掲載元URL
+          %td.detailsTable__td
+            = link_to @document.src, @document.src, class: :detailsTable__link, target: :_blank
       .detailsComment
 

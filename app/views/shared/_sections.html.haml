@@ -1,0 +1,8 @@
+.sectionTable
+  %table
+    - sections.each do |section|
+      %tr
+        %th
+          = link_to section_path(section.id), class: :'sectionTable__link' do
+            %span= section.section_name
+        %td= section.disclosure

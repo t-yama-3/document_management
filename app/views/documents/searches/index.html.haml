@@ -1,0 +1,4 @@
+%div 検索結果
+
+- @documents.each do |document|
+  = render partial: 'shared/documents', locals: {document: document}

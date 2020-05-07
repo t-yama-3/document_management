@@ -1,0 +1,8 @@
+.documentTable
+  %table
+    - documents.each do |document|
+      %tr
+        %th
+          = link_to document_path(document.id), class: :'documentTable__link' do
+            %span= document.title
+        %td= document.note

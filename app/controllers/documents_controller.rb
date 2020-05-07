@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
-  before_action :set_sections, only: [:index, :new, :edit]
   before_action :move_to_user_registration, except: [:index, :show]
+  before_action :set_sections, only: [:index, :new, :edit]
   
   def index
   end

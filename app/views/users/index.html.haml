@@ -1,0 +1,22 @@
+.user
+  = render partial: 'shared/menu'
+  .userWrap
+    .userInfo
+      .userInfo__content
+        ユーザー名
+        = current_user.nickname
+      .userInfo__content
+        email
+        = current_user.email
+      .userInfo__content
+        登録文書一覧
+        = render partial: 'shared/documents', locals: {documents: current_user.documents}
+        -# - current_user.documents.each do |document|
+        -#   = render partial: 'shared/documents', locals: {document: document}
+      .userInfo__content
+        作成区分一覧
+        = render partial: 'shared/sections', locals: {sections: current_user.sections}
+    = render partial: 'shared/side'
+
+
+

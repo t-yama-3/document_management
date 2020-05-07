@@ -2,13 +2,9 @@
   .menu__list
     = icon 'fas', 'search'
     詳細検索
-  .menu__list
+  = link_to sections_path ,class: :menu__list do
     = icon 'fas', 'folder-open'
-    文書区分一覧
-  -# new_section_path
-  -# .menu__list
-  -#   = icon 'fas', 'folder-plus'
-  -#   新規区分作成
+    = '文書区分一覧'
   = link_to new_section_path ,class: :menu__list do
     = icon 'fas', 'folder-plus'
     = '新規区分作成'

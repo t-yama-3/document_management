@@ -13,9 +13,10 @@
           .mainContent__explain--text ・手元のPDFをサーバに保存・管理する機能を実装予定（有料）。
       - @sections.each do |section|
         .mainContentSection
-          .mainContentSection__title
+          .mainContentSection__wrap
             = link_to section_path(section.id), class: :mainContentSection__link do
               = section.section_name
-            - (section.documents.limit(5)).each do |document|
-              = render partial: 'shared/section_doc', locals: {document: document}
+            = render partial: 'shared/documents', locals: {documents: section.documents.limit(5)}
+            -# - (section.documents.limit(5)).each do |document|
+            -#   = render partial: 'shared/documents', locals: {document: document}
     = render partial: 'shared/side'
