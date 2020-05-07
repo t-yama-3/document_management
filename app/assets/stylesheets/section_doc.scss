@@ -10,6 +10,9 @@
     line-height: 25px;
     border-bottom: 1px solid $doc_color;
     display: flex;
+    &:hover {
+      opacity: 0.8;
+    }
     &--title {
       display: inline-block;
       width: 160px;

@@ -1,6 +1,11 @@
 class SectionsController < ApplicationController
+  before_action :move_to_user_registration
   before_action :set_sections, only: [:new, :edit]
   
+  def index
+    @sections = Section.all.where(user_id: current_user.id)
+  end
+
   def new
     # @sections = Section.all.includes(:documents)
     @section = Section.new
@@ -47,6 +52,10 @@ class SectionsController < ApplicationController
   private
   def section_params
     params.require(:section).permit(:section_name, :disclosure).merge(user_id: current_user.id)
+  end
+  
+  def move_to_user_registration
+    redirect_to new_user_registration_path unless user_signed_in?
   end
 
   def set_sections

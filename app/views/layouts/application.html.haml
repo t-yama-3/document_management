@@ -17,8 +17,11 @@
               %span.headingTitle__link--sub 文書管理ツール
           .headingSearch
             = form_with url: "#", method: :get, local: true, class: :headingSearch__form do |f|
-              = f.text_field :search, class: :headingSearch__input
-              = f.submit "文書検索", class: :headingSearch__btn
+              .headingSearch__container
+                .headingSearch__text
+                  = f.text_field :search, class: :headingSearch__input
+                .headingSearch__btn
+                  = f.submit "文書検索", class: :headingSearch__submit
         .headingUser
           - if user_signed_in?
             = link_to '#', class: :headingUser__nickname do

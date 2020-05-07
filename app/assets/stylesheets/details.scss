@@ -65,6 +65,9 @@
     text-decoration: none;
     color: #ffffff;
     background-color: $main_color;
+    &:hover {
+      opacity: 0.7;
+    }
   }
   &__url {
     margin-bottom: 10px;
@@ -72,6 +75,10 @@
     &--link {
       text-decoration: none;
       color: blue;
+      text-decoration: underline;
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
   .detailsTable {

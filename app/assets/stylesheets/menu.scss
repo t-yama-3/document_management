@@ -42,6 +42,9 @@
   &__list {
     text-decoration: none;
     color: #ffffff;
+    &:hover {
+      opacity: 0.7;
+    }
     & i {
       font-size: 16px;
       width: 20px;
@@ -58,7 +61,11 @@
   &__heading {
     font-size: 18px;
     font-weight: bold;
-    color: $main_color;
+    text-decoration: none;
+    color: #222222;
+    &:hover {
+      opacity: 0.7;
+    }
   }
   &__title {
     padding: 10px 10px 0;
@@ -67,5 +74,8 @@
     font-size: 16px;
     text-decoration: none;
     color: $main_color;
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }

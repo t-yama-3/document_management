@@ -1,6 +1,7 @@
 .side
   .sideSection
-    .sideSection__heading 文書区分一覧
+    = link_to sections_path, class: :sideSection__heading do
+      文書区分一覧
     - @sections.each do |section|
       .sideSection__title
         = link_to section_path(section.id), class: :sideSection__link do
