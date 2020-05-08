@@ -53,8 +53,9 @@
 }
 
 .side {
-  padding: 20px;
-  background-color: $sub_color;
+  padding: 20px 20px 60px;
+  background-color: $side_color;
+  // margin-bottom: 20px;
 }
 
 .sideSection {
@@ -62,9 +63,12 @@
     font-size: 18px;
     font-weight: bold;
     text-decoration: none;
-    color: #222222;
+    color: #3838c5;
     &:hover {
       opacity: 0.7;
+    }
+    & i {
+      color: #3131b3;
     }
   }
   &__title {
@@ -73,9 +77,12 @@
   &__link {
     font-size: 16px;
     text-decoration: none;
-    color: $main_color;
+    color: #3838c5;
     &:hover {
       opacity: 0.7;
+    }
+    & i {
+      color: #3131b3;
     }
   }
 }

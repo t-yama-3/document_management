@@ -43,5 +43,8 @@
   &__link {
     text-decoration: none;
     color: $text_color;
+    & i {
+      width: 16px;
+    }
   }
 }
