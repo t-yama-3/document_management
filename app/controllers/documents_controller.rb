@@ -81,6 +81,7 @@ class DocumentsController < ApplicationController
   end
 
   def set_sections
-    @sections = Section.all.includes(:documents)
+    return @sections = [] unless user_signed_in?
+    @sections = current_user.participate_sections.order("created_at DESC")
   end
 end

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
   
   def set_sections
+    return @sections = [] unless user_signed_in?
     @sections = Section.all.includes(:documents)
   end
 end
