@@ -12,6 +12,6 @@ class UsersController < ApplicationController
   
   def set_sections
     return @sections = [] unless user_signed_in?
-    @sections = Section.all.includes(:documents)
+    @sections = current_user.participate_sections.order("created_at DESC")
   end
 end
