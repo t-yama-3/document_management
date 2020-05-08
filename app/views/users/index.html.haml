@@ -2,19 +2,25 @@
   = render partial: 'shared/menu'
   .userWrap
     .userInfo
-      .userInfo__content
-        ユーザー名
-        = current_user.nickname
-      .userInfo__content
-        email
-        = current_user.email
-      .userInfo__content
-        登録文書一覧
+      .userContent.userContent__user
+        .userContent__title ユーザー情報
+        %table.userContent__table
+          %tr
+            %th
+              = icon 'fas', 'file-signature'
+              = 'ユーザー名'
+            %td= current_user.nickname
+          %tr
+            %th
+              = icon 'fas', 'envelope'
+              = 'メールアドレス'
+            %td= current_user.email
+
+      .userContent
+        .userContent__title 登録文書一覧
         = render partial: 'shared/documents', locals: {documents: current_user.documents}
-        -# - current_user.documents.each do |document|
-        -#   = render partial: 'shared/documents', locals: {document: document}
-      .userInfo__content
-        作成区分一覧
+      .userContent
+        .userContent__title 作成区分一覧
         = render partial: 'shared/sections', locals: {sections: current_user.sections}
     = render partial: 'shared/side'
 

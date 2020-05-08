@@ -37,7 +37,7 @@
 .searchContent {
   min-height: calc(100vh - 76px);
   padding: 20px;
-  background-color: #dddddd;
+  background-color: $bg_color;
   &__title {
     font-size: 18px;
     margin-bottom: 5px;

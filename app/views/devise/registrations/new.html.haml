@@ -1,25 +1,35 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :nickname, "名前"
-    %br/
-    = f.text_field :nickname, autofocus: true
-  .field
-    = f.label :email, "メールアドレス"
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password, "パスワード"
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation, "パスワード（再入力）"
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.devise
+  .devise__wrap
+    .devise__title
+      = icon 'fas', 'user-plus'
+      新規ユーザー登録
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .devise__field
+        = f.label :nickname, class: :devise__label do
+          = icon "fas", "file-signature"
+          = "名前"
+        = f.text_field :nickname, autofocus: true, class: :'devise__input devise__input--jp'
+      .devise__field
+        = f.label :email, class: :devise__label do
+          = icon "fas", "envelope"
+          = "メールアドレス"
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: :'devise__input devise__input--alpha'
+      .devise__field
+        = f.label :password, class: :devise__label do
+          = icon "fas", "key"
+          = "パスワード"
+        - if @minimum_password_length
+          %span.devise__label--notice
+            = "（半角英数字#{@minimum_password_length}文字以上）"
+        = f.password_field :password, autocomplete: "new-password", class: :'devise__input devise__input--alpha'
+      .devise__field
+        = f.label :password_confirmation, class: :devise__label do
+          = icon "fas", "key"
+          = "パスワード"
+        %span.devise__label--notice
+          = "（再入力してください）"
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: :'devise__input devise__input--alpha'
+      .devise__actions
+        = f.submit "登録する", class: :devise__submit
+    = render "devise/shared/links"

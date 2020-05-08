@@ -7,14 +7,15 @@
         .mainContent__explain
           .mainContent__explain--heading
             = icon 'fas', 'paperclip'
-            = 'PDF文書を手軽に管理できるツールです'
-          .mainContent__explain--text ・WEB上のPDF資料を項目ごとに分けて簡単に登録。
-          .mainContent__explain--text ・文書に説明やコメントを入れて他のユーザーと共有できる。
-          .mainContent__explain--text ・手元のPDFをサーバに保存・管理する機能を実装予定（有料）。
+            = 'WEBサイトのお気に入り登録ツールです'
+          .mainContent__explain--text ・ブラウザのブックマーク機能では物足りない方のためのツール。
+          .mainContent__explain--text ・ブックマークに説明を入れて分類ごとに分けて簡単に登録。
+          .mainContent__explain--text ・コメントを入れて他のユーザーとも情報を共有できる。
       - @sections.each do |section|
         .mainContentSection
           .mainContentSection__wrap
             = link_to section_path(section.id), class: :mainContentSection__link do
+              = icon 'fas', 'folder'
               = section.section_name
             = render partial: 'shared/documents', locals: {documents: section.documents.limit(5)}
     = render partial: 'shared/side'

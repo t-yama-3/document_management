@@ -50,7 +50,8 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    response.headers['X-Frame-Options'] = 'ALLOWALL'
+    # response.headers['X-Frame-Options'] = 'ALLOWALL'
+    # binding.pry
     @document = Document.find(params[:id])
     @comments = @document.comments
     @comment = Comment.new

@@ -2,7 +2,7 @@
 %html
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
-    %title Document Manager
+    %title Bookmark Repository
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -13,8 +13,8 @@
         .headingWrap
           .headingTitle
             = link_to root_path, class: :headingTitle__link do
-              Document Manager
-              %span.headingTitle__link--sub 文書管理ツール
+              Bookmark Repository
+              %span.headingTitle__link--sub WEB管理アプリ
           .headingSearch
             = form_with url: documents_searches_path, method: :get, local: true, class: :headingSearch__form do |f|
               .headingSearch__container

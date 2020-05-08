@@ -32,50 +32,37 @@
 
 .user {
   margin: 0 auto;
-}
-
-.userInfo {
-  min-height: calc(100vh - 76px);
-  padding: 20px;
-  background-color: #dddddd;
-  &__top {
-    height: 150px;
-    background-color: $explain_color;
-    margin-bottom: 20px;
-    padding: 10px;
-    display: flex;
-    &--image {
-      height: 100%;
-    }
-  }
-  &__explain {
-    padding-left: 10px;
-    overflow: scroll;
-    &--heading {
-      font-size: 20px;
-      // font-weight: bold;
-      color: $main_color;
-      margin: 5px 0 10px;
-    }
-    &--text {
-      font-size: 14px;
-      margin: 5px;
-    }
+  .userInfo {
+    min-height: calc(100vh - 76px);
+    padding: 20px;
+    background-color: $bg_color;
   }
 }
 
-.userInfoSection {
+.userContent {
   padding: 20px;
   margin-bottom: 20px;
-  background-color: #eeeeee;
-  &__title {
-    font-size: 18px;
+  background-color: #ffffff;
+  &__user {
+    background-color: $user_color;
   }
-  &__link {
-    text-decoration: none;
-    color: #222222;
-    &:hover {
-      opacity: 0.7;
+  &__title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  &__table {
+    width: 100%;
+    & tr {
+      font-size: 14px;
+      border-bottom: 1px solid #999999;
+      & th {
+        width: 24%;
+        padding: 10px;
+      }
+      & td {
+        width: 76%;
+        padding: 10px;
+      }
     }
   }
 }

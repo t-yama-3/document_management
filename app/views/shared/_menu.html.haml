@@ -1,7 +1,7 @@
 .menu
-  .menu__list
-    = icon 'fas', 'search'
-    詳細検索
+  -# .menu__list
+  -#   = icon 'fas', 'search'
+  -#   詳細検索
   = link_to sections_path ,class: :menu__list do
     = icon 'fas', 'folder-open'
     = '文書区分一覧'
@@ -9,6 +9,6 @@
     = icon 'fas', 'folder-plus'
     = '新規区分作成'
   = link_to new_document_path ,class: :menu__list do
-    = icon 'fas', 'file-alt'
+    = icon 'fas', 'file-import'
     = '新規文書登録'
 

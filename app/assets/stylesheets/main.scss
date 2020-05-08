@@ -37,7 +37,7 @@
 .mainContent {
   min-height: calc(100vh - 76px);
   padding: 20px;
-  background-color: #dddddd;
+  background-color: $bg_color;
   &__top {
     height: 150px;
     background-color: $explain_color;
@@ -50,10 +50,11 @@
   }
   &__explain {
     padding-left: 10px;
+    font-family: 'Hiragino Maru Gothic Pro';
     overflow: scroll;
     &--heading {
       font-size: 20px;
-      font-weight: bold;
+      // font-weight: bold;
       color: $main_color;
       margin: 5px 0 10px;
     }
@@ -67,7 +68,7 @@
 .mainContentSection {
   padding: 20px;
   margin-bottom: 20px;
-  background-color: #eeeeee;
+  background-color: $text_bg_color;
   &__wrap {
     font-size: 18px;
   }
@@ -78,6 +79,9 @@
     color: #222222;
     &:hover {
       opacity: 0.7;
+    }
+    & i {
+      color: $main_color;
     }
   }
 }

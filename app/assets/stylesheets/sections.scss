@@ -79,7 +79,7 @@
 .sectionContent {
   min-height: calc(100vh - 76px);
   padding: 20px;
-  background-color: #dddddd;
+  background-color: $bg_color;
   &__link {
     display: inline-block;
     margin-bottom: 10px;
@@ -93,7 +93,7 @@
   &__box {
     padding: 20px;
     margin-bottom: 20px;
-    background-color: #eeeeee;
+    background-color: $text_bg_color;
   }
   &__title {
     font-size: 18px;

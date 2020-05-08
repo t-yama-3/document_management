@@ -4,5 +4,6 @@
       %tr
         %th
           = link_to document_path(document.id), class: :'documentTable__link' do
-            %span= document.title
+            = icon 'fas', 'file-alt'
+            = document.title
         %td= document.note

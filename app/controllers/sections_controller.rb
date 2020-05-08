@@ -11,6 +11,13 @@ class SectionsController < ApplicationController
   end
 
   def create
+    # parent_section = Section.find(params[:section][:parent_id])
+    # @section = parent_section.children.new(section_name: params[:section][:section_name], user_id: current_user.id)
+    # if @section.save
+    #   redirect_to section_path(@section.id)
+    # else
+    #   render :new
+    # end
     @section = Section.new(section_params)
     if @section.save
       redirect_to section_path(@section.id)
