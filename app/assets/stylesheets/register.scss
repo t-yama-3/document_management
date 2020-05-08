@@ -77,6 +77,14 @@
       padding: 10px;
     }
   }
+  &__members {
+    padding: 10px 15px;
+    background-color: #ffffff;
+    // border: 1px solid #999999;
+  }
+  &__checkbox {
+    line-height: 30px;
+  }
   &__submit {
     padding: 20px;
     margin: 0 auto;

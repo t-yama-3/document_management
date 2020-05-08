@@ -39,35 +39,43 @@
     width: 100%;
     font-size: 14px;
     table-layout: fixed;
-    & tr {
-      & th {
-        width: 30%;
-        padding: 6px 10px;
-        font-weight: bold;
-        border-bottom: solid 1px $text_color;
-        overflow: scroll;
-        // text-overflow: ellipsis;
-        white-space: nowrap;
-        -ms-overflow-style: none;
-        &::-webkit-scrollbar {
-          display: none;
-        }
-        &:hover {
-          opacity: 0.7;
-        }
-      }
-      & td {
-        width: 70%;
-        padding: 6px 10px;
-        border-bottom: solid 1px $text_color;
-        overflow: scroll;
-        // text-overflow: ellipsis;
-        white-space: nowrap;
-        -ms-overflow-style: none;
-        &::-webkit-scrollbar {
-          display: none;
-        }
-      }
+  }
+  &--heading {
+    font-weight: bold;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &__th {
+    width: 30%;
+    padding: 6px 10px;
+    font-weight: bold;
+    border-bottom: solid 1px $text_color;
+    overflow: scroll;
+    // text-overflow: ellipsis;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  &__td {
+    padding: 6px 10px;
+    border-bottom: solid 1px $text_color;
+    overflow: scroll;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    &--disclosure {
+      width: 20%;
+    }
+    &--users {
+      width: 50%;
+    }
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
   &__link {

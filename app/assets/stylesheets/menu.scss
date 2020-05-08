@@ -7,6 +7,15 @@
   }
 }
 
+@media screen and (min-width: 700px) and (max-width: 1020px) {
+  .menu {
+    // display: flex;
+    // justify-content: space-around;
+    // padding: 10px;
+    font-size: 16px;
+  }
+}
+
 @media screen and (min-width: 1020px) and (max-width: 1200px) {
   .side {
     min-width: 320px;
@@ -14,9 +23,9 @@
     min-height: 100%;
   }
   .menu {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
+    // display: flex;
+    // justify-content: space-around;
+    // padding: 10px;
     font-size: 16px;
   }
 }

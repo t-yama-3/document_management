@@ -13,5 +13,13 @@
     %tr
       %th 公開設定
       %td= form.select :disclosure, Section.disclosures.keys, {prompt: '選択してください'}, class: :register__text
+    %tr
+      %th メンバー
+      %td
+        .register__members
+          = form.collection_check_boxes :participate_user_ids, User.all, :id, :nickname do |b|
+            .register__checkbox
+              = b.check_box
+              = b.label { b.text } 
   .register__submit
     = form.submit '登録する', class: :'register__submit--btn'

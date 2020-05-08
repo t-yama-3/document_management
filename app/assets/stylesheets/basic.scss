@@ -1,6 +1,33 @@
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 700px) {
   .heading {
     width: 700px;
+    &Title {
+      &__link {
+        font-size: 18px;
+        &--sub {
+          display: none;
+        }
+      }
+    }
+    &Search {
+      padding: 5px 10px 0;
+      background-color: $main_color;
+      &__form {
+        max-width: 360px;
+      }
+      &__input {
+        height: 24px;
+        max-width: 280px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1020px) {
+  .heading {
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
     &Title {
       &__link {
         font-size: 18px;

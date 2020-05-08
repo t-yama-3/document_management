@@ -1,8 +1,25 @@
 .sectionTable
   %table
+    %tr
+      %th.sectionTable__th.sectionTable--heading
+        = icon 'fas', 'folder-open'
+        区分名
+      %td.sectionTable__td.sectionTable__td--disclosure.sectionTable--heading
+        = icon "fas", "user-lock"
+        公開設定
+      %td.sectionTable__td.sectionTable__td--users.sectionTable--heading
+        = icon "fas", "users"
+        参加ユーザー
     - sections.each do |section|
       %tr
-        %th
+        %th.sectionTable__th
           = link_to section_path(section.id), class: :'sectionTable__link' do
             %span= section.section_name
-        %td= section.disclosure
+        %td.sectionTable__td.sectionTable__td--disclosure
+          = section.disclosure
+        %td.sectionTable__td.sectionTable__td--users
+          - section.participate_users.each_with_index do |user, i|
+            - if i == section.participate_users.length - 1
+              = user.nickname
+            - else
+              = "#{user.nickname},"
