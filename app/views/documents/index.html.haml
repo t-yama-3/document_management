@@ -11,7 +11,7 @@
           .mainContent__explain--text ・ブラウザのブックマーク機能では物足りない方のためのツール。
           .mainContent__explain--text ・ブックマークに説明を入れて分類ごとに分けて簡単に登録。
           .mainContent__explain--text ・コメントを入れて他のユーザーとも情報を共有できる。
-      - @sections.each do |section|
+      - @user_sections.each do |section|
         .mainContentSection
           .mainContentSection__wrap
             = link_to section_path(section.id), class: :mainContentSection__link do

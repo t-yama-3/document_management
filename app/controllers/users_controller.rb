@@ -11,6 +11,6 @@ class UsersController < ApplicationController
   end
   
   def set_sections
-    @sections = Section.all.includes(:documents)
+    @sections = current_user.participate_sections.order("created_at DESC")
   end
 end

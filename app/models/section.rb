@@ -5,5 +5,7 @@ class Section < ApplicationRecord
   has_many :participate_users, through: :user_sections, source: :user
   has_ancestry
 
+  validates :section_name, presence: true
+
   enum disclosure: [:'参加者のみ公開', :'全体に公開']
 end
