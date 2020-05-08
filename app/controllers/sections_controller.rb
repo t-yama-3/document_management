@@ -1,16 +1,17 @@
 class SectionsController < ApplicationController
   before_action :move_to_user_registration
-  before_action :set_sections, only: [:new, :edit]
+  before_action :set_sections, only: [:index, :new, :edit, :show]
   
   def index
-    @sections = Section.all.where(user_id: current_user.id)
   end
 
   def new
     @section = Section.new
+    @section.participate_users << current_user
   end
 
   def create
+    # binding.pry
     # parent_section = Section.find(params[:section][:parent_id])
     # @section = parent_section.children.new(section_name: params[:section][:section_name], user_id: current_user.id)
     # if @section.save
@@ -18,9 +19,10 @@ class SectionsController < ApplicationController
     # else
     #   render :new
     # end
+
     @section = Section.new(section_params)
     if @section.save
-      redirect_to section_path(@section.id)
+      redirect_to section_path(@section.id), notice: '分類を作成しました'
     else
       render :new
     end
@@ -33,14 +35,13 @@ class SectionsController < ApplicationController
   def update
     @section = Section.find(params[:id])
     if @section.update(section_params)
-      redirect_to section_path(@section.id)
+      redirect_to section_path(@section.id), notice: '分類を更新しました'
     else
       render :edit
     end
   end
 
   def show
-    @sections = Section.all.includes(:documents)
     @section = Section.find(params[:id])
     @documents = @section.documents
   end
@@ -57,7 +58,7 @@ class SectionsController < ApplicationController
 
   private
   def section_params
-    params.require(:section).permit(:section_name, :disclosure).merge(user_id: current_user.id)
+    params.require(:section).permit(:section_name, :disclosure, participate_user_ids: []).merge(user_id: current_user.id)
   end
   
   def move_to_user_registration

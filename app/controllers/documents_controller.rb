@@ -3,6 +3,11 @@ class DocumentsController < ApplicationController
   before_action :set_sections, only: [:index, :new, :edit]
   
   def index
+    # なんか迂遠なことやってる（後日シンプルにする：自分が作成したものはマイページのみ表示でいい！）
+    return @user_sections = [] unless user_signed_in?
+    sections = current_user.participate_sections.where.not(user_id: current_user.id)
+    sections += Section.where(user_id: current_user.id)
+    @user_sections = sections.sort_by!{|ms|ms.created_at}.reverse!
   end
 
   def new
@@ -13,6 +18,7 @@ class DocumentsController < ApplicationController
     new_document_params = document_params
     if section_params[:section_name] != ""
       section = Section.new(section_params)
+      section.participate_users << current_user
       if section.save
         new_document_params[:section_id] = section.id
       else
@@ -35,6 +41,7 @@ class DocumentsController < ApplicationController
     edit_document_params = document_params
     if section_params[:section_name] != ""
       section = Section.new(section_params)
+      # section.participate_users << current_user
       if section.save
         edit_document_params[:section_id] = section.id
       else
@@ -51,7 +58,6 @@ class DocumentsController < ApplicationController
 
   def show
     # response.headers['X-Frame-Options'] = 'ALLOWALL'
-    # binding.pry
     @document = Document.find(params[:id])
     @comments = @document.comments
     @comment = Comment.new

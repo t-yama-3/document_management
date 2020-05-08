@@ -1,6 +1,11 @@
 @media screen and (min-width: 380px) {
   .register {
     max-width: 700px;
+    .registerWrap {
+      .register__content {
+        max-width: 100%;
+      }
+    }
   }
 }
 
@@ -10,7 +15,7 @@
     .registerWrap {
       display: flex;
       .register__content {
-        min-width: 700px;
+        width: 700px;
       }
     }
   }
@@ -24,7 +29,7 @@
     .registerWrap {
       display: flex;
       .register__content {
-        min-width: 700px;
+        width: 700px;
       }  
     }
   }
@@ -33,7 +38,7 @@
 .register {
   margin: 0 auto;
   &__content {
-    min-width: 700px;
+    // min-width: 700px;
     min-height: calc(100vh - 76px);
     margin: 0 auto;
     background-color: $bg_color;
@@ -71,6 +76,14 @@
       height: 160px;
       padding: 10px;
     }
+  }
+  &__members {
+    padding: 10px 15px;
+    background-color: #ffffff;
+    // border: 1px solid #999999;
+  }
+  &__checkbox {
+    line-height: 30px;
   }
   &__submit {
     padding: 20px;
