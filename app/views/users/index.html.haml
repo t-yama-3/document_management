@@ -15,7 +15,6 @@
               = icon 'fas', 'envelope'
               = 'メールアドレス'
             %td= current_user.email
-
       .userContent
         .userContent__title 登録文書一覧
         = render partial: 'shared/documents', locals: {documents: current_user.documents}

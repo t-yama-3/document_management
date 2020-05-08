@@ -75,3 +75,4 @@ gem 'ancestry'
 gem 'payjp'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
+gem 'bootstrap', '~> 4.4.1'
