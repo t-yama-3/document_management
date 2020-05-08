@@ -26,6 +26,9 @@
 @media screen and (min-width: 1020px) and (max-width: 1200px) {
   .heading {
     max-width: 1020px;
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
     &Search {
       padding: 5px 10px 0;
       background-color: $main_color;
@@ -43,6 +46,8 @@
 @media screen and (min-width: 1200px) {
   .heading {
     width: 1200px;
+    display: flex;
+    justify-content: space-between;
     &Search {
       padding: 5px 10px 0;
       background-color: $main_color;
@@ -85,8 +90,8 @@ h4 {
 .heading {
   margin: 0 auto;
   padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
   &Wrap {
     display: flex;
   }
@@ -94,16 +99,21 @@ h4 {
     font-size: 24px;
     font-family: 'GlimChe';
     color: #ffffff;
+    &:hover {
+      // opacity: 0.7;
+      color: #dddddd;
+    }
     &__link {
       text-decoration: none;
       color: #ffffff;
-      &:hover {
-        opacity: 0.7;
-      }
       &--sub {
         color: $bg_color;
         font-size: 14px;
         margin-left: 5px;
+      }
+      &:hover {
+        // opacity: 0.7;
+        color: #dddddd;
       }
     }
   }
@@ -140,7 +150,7 @@ h4 {
     }
   }
   &User {
-    padding: 5px 10px 0;
+    padding: 5px 10px 0 0;
     // font-size: 18px;
     color: #ffffff;
     &__btn {
@@ -156,12 +166,13 @@ h4 {
       }
     }
     &__nickname {
-      margin: 0 10px;
+      margin-right: 10px;
       font-size: 14px;
       text-decoration: none;
       color: #ffffff;
       &:hover {
-        opacity: 0.7;
+        // opacity: 0.7;
+        color: #dddddd;
       }
     }
   }
