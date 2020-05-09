@@ -1,28 +1,46 @@
 class Documents::SearchesController < ApplicationController
-  before_action :move_to_user_registration
   before_action :set_owner_sections, only: [:index]
+  
   # def index
   #   @keyword = params[:keyword]
   #   @user_documents = Document.search(@keyword)
   # end
 
+  # def index
+  #   # 検索は効いていないが、必要情報の抽出はできた状態（）
+  #   @keyword = params[:keyword]
+  #   public_documents = Document.joins(:section).where('sections.disclosure = ?', 1)
+  #   participate_documents = Document.joins(:section).where('sections.id': current_user.participate_sections.ids)
+  #   users_section_documents = Document.joins(:section).where('sections.user_id = ?', current_user.id)
+  #   users_documents = Document.where('user_id = ?', current_user.id)
+  #   @user_documents = (public_documents + participate_documents + users_section_documents + users_documents).uniq
+  # end
+
+  # 検索対象は[公開区分 + 参加区分 + 作成区分 + 作成文書]となる
   def index
-    # 検索は効いていないが、必要情報の抽出はできた状態（）
     @keyword = params[:keyword]
-    public_documents = Document.joins(:section).where('sections.disclosure = ?', 1)
-    participate_documents = Document.joins(:section).where('sections.id': current_user.participate_sections.ids)
-    users_section_documents = Document.joins(:section).where('sections.user_id = ?', current_user.id)
-    users_documents = Document.where('user_id = ?', current_user.id)
-    @user_documents = (public_documents + participate_documents + users_section_documents + users_documents).uniq
+    search = "%#{@keyword}%"
+    if user_signed_in?
+      sql = "select distinct documents.* from documents
+        inner join sections on documents.section_id = sections.id
+        inner join user_sections on sections.id = user_sections.section_id
+        inner join users on user_sections.user_id = users.id
+        where (sections.disclosure = 1
+        or sections.id in(select user_sections.section_id from user_sections where user_sections.user_id = #{current_user.id})
+        or sections.user_id = #{current_user.id}
+        or documents.user_id = #{current_user.id})
+        and (documents.title like '#{search}' or documents.note like '#{search}')
+        order by documents.created_at desc"
+      @user_documents = Document.find_by_sql(sql)
+    else
+      @user_documents = Document
+        .find_by_sql(["select * from documents inner join sections on documents.section_id = sections.id where sections.disclosure = 1 and (title like ? or note like ?) order by documents.created_at desc", search, search])
+    end
   end
 
   private
   def set_owner_sections
     return @owner_sections = [] unless user_signed_in?
     @owner_sections = current_user.sections
-  end
-
-  def move_to_user_registration
-    redirect_to new_user_registration_path unless user_signed_in?
   end
 end
