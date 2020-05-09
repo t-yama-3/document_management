@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :documents, except: [:index] do
     resources :comments, only: [:create]
   end
-  resources :sections
+  resources :sections do
+    collection do
+      get 'owner'
+    end
+  end
   resources :users, only: [:index]
 end

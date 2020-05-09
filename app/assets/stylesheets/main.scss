@@ -84,4 +84,11 @@
       color: $main_color;
     }
   }
+  &__owner {
+    margin-left: 10px;
+    font-size: 13px;
+    color: #ffffff;
+    padding: 2px;
+    background-color: $menu_color;
+  }
 }

@@ -14,10 +14,10 @@
           = icon "fas", "key"
           = "パスワード"
         = f.password_field :password, autocomplete: "current-password", class: :'devise__input devise__input--alpha'
-      - if devise_mapping.rememberable?
-        .devise__field
-          = f.check_box :remember_me
-          = f.label :remember_me, class: :devise__label
+      -# - if devise_mapping.rememberable?
+      -#   .devise__field
+      -#     = f.check_box :remember_me
+      -#     = f.label :remember_me, class: :devise__label
       .devise__actions
         = f.submit "ログインする", class: :devise__submit
     = render "devise/shared/links"

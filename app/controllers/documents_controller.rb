@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
-  before_action :move_to_user_registration, except: [:index, :show]
-  before_action :set_sections, only: [:index, :new, :edit]
+  before_action :move_to_user_registration, except: [:index]
+  before_action :set_owner_sections, only: [:index, :new, :edit]
   
   def index
     # なんか迂遠なことやってる（後日シンプルにする：自分が作成したものはマイページのみ表示でいい！）
@@ -35,6 +35,7 @@ class DocumentsController < ApplicationController
 
   def edit
     @document = Document.find(params[:id])
+    redirect_to document_path unless @document.user_id == current_user.id
   end
 
   def update
@@ -57,14 +58,15 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    # response.headers['X-Frame-Options'] = 'ALLOWALL'
     @document = Document.find(params[:id])
+    redirect_to root_path if @document.section.participate_users.where(id: current_user.id).blank?
     @comments = @document.comments
     @comment = Comment.new
   end
 
   def destroy
     @document = Document.find(params[:id])
+    redirect_to document_path unless @document.user_id == current_user.id
     if @document.destroy
       redirect_to root_path
     else
@@ -86,8 +88,8 @@ class DocumentsController < ApplicationController
     redirect_to new_user_registration_path unless user_signed_in?
   end
 
-  def set_sections
-    return @sections = [] unless user_signed_in?
-    @sections = current_user.participate_sections.order("created_at DESC")
+  def set_owner_sections
+    return @owner_sections = [] unless user_signed_in?
+    @owner_sections = current_user.sections
   end
 end

@@ -4,24 +4,6 @@
     .register__content
       .register__heading
         = icon 'fas', 'file-import'
-        = '新規文書登録'
-      = form_with model: @document, local: true, class: :register__form, id: :register_new do |form|
-        %table
-          %tr
-            %th URL
-            %td= form.text_field :src, class: :register__text, id: :register_url
-          %tr
-            %th 文書名
-            %td= form.text_field :title, class: :register__text, id: :register_title
-          %tr
-            %th 区分選択
-            %td= form.collection_select :section_id, Section.all, :id, :section_name, { prompt: '選択または新規区分を作成' }, { class: :register__text }
-          %tr
-            %th 区分作成
-            %td= form.text_field :section_name, class: :register__text
-          %tr
-            %th 説明
-            %td= form.text_area :note, class: :'register__text register__text--area'
-        .register__submit
-          = form.submit '登録する', class: :'register__submit--btn'
+        = '新規サイト登録'
+      = render partial: 'form'
     = render partial: 'shared/side'

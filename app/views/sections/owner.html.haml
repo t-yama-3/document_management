@@ -1,0 +1,13 @@
+.main
+  = render partial: 'shared/menu'
+  .mainWrap
+    .mainContent
+      = render partial: 'section_box', locals: {sections: @owner_sections}
+      -# - @participation_sections.each do |section|
+      -#   .mainContentSection
+      -#     .mainContentSection__title
+      -#       = link_to section_path(section.id), class: :mainContentSection__link do
+      -#         = icon 'fas', 'folder'
+      -#         = section.section_name
+      -#       = render partial: 'shared/documents', locals: {documents: section.documents.limit(5)}
+    = render partial: 'shared/side'
