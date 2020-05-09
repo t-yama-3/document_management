@@ -8,7 +8,7 @@
       %td= form.text_field :title, class: :register__text, id: :document_title
     %tr#document_section_id_tr
       %th 区分選択
-      %td= form.collection_select :section_id, Section.all, :id, :section_name, { prompt: '選択（または新規区分を入力）してください' }, { class: :register__text }
+      %td= form.collection_select :section_id, current_user.participate_sections, :id, :section_name, { prompt: '選択（または新規区分を入力）してください' }, { class: :register__text }
     %tr#document_section_name_tr
       %th 新規区分
       %td= form.text_field :section_name, class: :register__text, id: :document_section_name

@@ -35,7 +35,7 @@ class DocumentsController < ApplicationController
 
   def edit
     @document = Document.find(params[:id])
-    redirect_to document_path unless @document.user_id == current_user.id
+    return redirect_to document_path unless @document.user_id == current_user.id
   end
 
   def update
@@ -59,14 +59,14 @@ class DocumentsController < ApplicationController
 
   def show
     @document = Document.find(params[:id])
-    redirect_to root_path if @document.section.participate_users.where(id: current_user.id).blank?
+    return redirect_to root_path if @document.section.participate_users.where(id: current_user.id).blank?
     @comments = @document.comments
     @comment = Comment.new
   end
 
   def destroy
     @document = Document.find(params[:id])
-    redirect_to document_path unless @document.user_id == current_user.id
+    return redirect_to document_path unless @document.user_id == current_user.id
     if @document.destroy
       redirect_to root_path
     else

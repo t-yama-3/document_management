@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_133512) do
+ActiveRecord::Schema.define(version: 2020_05_09_053312) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "body"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_133512) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "gist"
     t.index ["ancestry"], name: "index_sections_on_ancestry"
     t.index ["user_id"], name: "index_sections_on_user_id"
   end

@@ -110,4 +110,36 @@
     font-size: 18px;
     margin-bottom: 5px;
   }
+  &__table {
+    padding: 10px;
+    // background-color: $bg_color;
+    font-size: 14px;
+    & table {
+      width: 100%;
+      table-layout: fixed;
+    }
+    & th {
+      width: 20%;
+      padding: 8px;
+      text-align: center;
+      border: solid 1px #999999;
+      background-color: #eeeeee;
+    }
+    & td {
+      width: 80%;
+      padding: 15px;
+      border:solid 1px #999999;
+      background-color: #fefefe;
+      & span {
+        margin-right: 8px;
+      }
+    }
+  }
+  &__list {
+    padding: 10px;
+    &--title {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+  }
 }

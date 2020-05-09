@@ -19,7 +19,9 @@
           %td.detailsTable__td= @document.title
         %tr
           %th.detailsTable__th 説明
-          %td.detailsTable__td= @document.note
+          %td.detailsTable__td
+            - if @document.note.present?
+              = safe_join(@document.note.split("\n"),tag(:br))
         %tr
           %th.detailsTable__th 登録者
           %td.detailsTable__td= @document.user.nickname
