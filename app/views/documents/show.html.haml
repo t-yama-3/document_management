@@ -21,6 +21,9 @@
           %th.detailsTable__th 説明
           %td.detailsTable__td= @document.note
         %tr
+          %th.detailsTable__th 登録者
+          %td.detailsTable__td= @document.user.nickname
+        %tr
           %th.detailsTable__th 掲載元URL
           %td.detailsTable__td
             = link_to @document.src, @document.src, class: :'detailsTable__link detailsTable__link--url', target: :_blank

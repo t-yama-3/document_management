@@ -1,8 +1,12 @@
 class SectionsController < ApplicationController
   before_action :move_to_user_registration
-  before_action :set_sections, only: [:index, :new, :edit, :show]
+  before_action :set_owner_sections, only: [:index, :owner, :new, :edit, :show]
   
   def index
+    @participation_sections = current_user.participate_sections
+  end
+
+  def owner
   end
 
   def new
@@ -43,7 +47,7 @@ class SectionsController < ApplicationController
 
   def show
     @section = Section.find(params[:id])
-    @documents = @section.documents
+    # @documents = @section.documents
   end
 
   def destroy
@@ -65,8 +69,8 @@ class SectionsController < ApplicationController
     redirect_to new_user_registration_path unless user_signed_in?
   end
 
-  def set_sections
-    return @sections = [] unless user_signed_in?
-    @sections = current_user.participate_sections.order("created_at DESC")
+  def set_owner_sections
+    return @owner_sections = [] unless user_signed_in?
+    @owner_sections = current_user.sections
   end
 end

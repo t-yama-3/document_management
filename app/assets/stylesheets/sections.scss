@@ -97,6 +97,9 @@
     text-decoration: none;
     color: #ffffff;
     background-color: $main_color;
+    &:hover {
+      color: #dddddd;
+    }
   }
   &__box {
     padding: 20px;

@@ -1,0 +1,10 @@
+- sections.each do |section|
+  .mainContentSection
+    .mainContentSection__title
+      = link_to section_path(section.id), class: :mainContentSection__link do
+        = icon 'fas', 'folder'
+        = section.section_name
+      %span.mainContentSection__owner
+        = "管理者: #{section.user.nickname}"
+        = icon 'fas', 'user-cog'
+      = render partial: 'shared/documents', locals: {documents: section.documents.limit(5)}

@@ -1,0 +1,19 @@
+= form_with model: @document, local: true, class: :register__form, id: :document_form do |form|
+  %table
+    %tr
+      %th URL
+      %td= form.text_field :src, class: :register__text, id: :document_url
+    %tr
+      %th 文書名
+      %td= form.text_field :title, class: :register__text, id: :document_title
+    %tr#document_section_id_tr
+      %th 区分選択
+      %td= form.collection_select :section_id, Section.all, :id, :section_name, { prompt: '選択（または新規区分を入力）してください' }, { class: :register__text }
+    %tr#document_section_name_tr
+      %th 新規区分
+      %td= form.text_field :section_name, class: :register__text, id: :document_section_name
+    %tr
+      %th 説明
+      %td= form.text_area :note, class: :'register__text register__text--area'
+  .register__submit
+    = form.submit '登録する', class: :'register__submit--btn'

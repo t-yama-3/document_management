@@ -5,7 +5,7 @@
   padding: 25px;
   background-color: $bg_color;
   &__wrap {
-    width: 360px;
+    max-width: 360px;
     margin: 0 auto;
   }
   &__title {
