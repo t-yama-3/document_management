@@ -1,6 +1,6 @@
 class SectionsController < ApplicationController
   before_action :move_to_user_registration
-  before_action :set_owner_sections, only: [:index, :owner, :new, :edit, :show]
+  before_action :set_owner_sections, only: [:index, :owner, :new, :edit, :show, :new_document]
   
   def index
     @participation_sections = current_user.participate_sections
@@ -47,7 +47,6 @@ class SectionsController < ApplicationController
 
   def show
     @section = Section.find(params[:id])
-    # @documents = @section.documents
   end
 
   def destroy
@@ -60,13 +59,18 @@ class SectionsController < ApplicationController
     end
   end
 
+  def new_document
+    @document = Document.new(section_id: params[:id])
+    render "documents/new"
+  end
+
   private
   def section_params
-    params.require(:section).permit(:section_name, :disclosure, participate_user_ids: []).merge(user_id: current_user.id)
+    params.require(:section).permit(:section_name, :disclosure, :gist, participate_user_ids: []).merge(user_id: current_user.id)
   end
   
   def move_to_user_registration
-    redirect_to new_user_registration_path unless user_signed_in?
+    return redirect_to new_user_registration_path unless user_signed_in?
   end
 
   def set_owner_sections
