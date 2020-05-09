@@ -1,6 +1,6 @@
 class SectionsController < ApplicationController
   before_action :move_to_user_registration
-  before_action :set_owner_sections, only: [:index, :owner, :new, :edit, :show, :new_document]
+  before_action :set_owner_sections, except: [:destroy]
   
   def index
     @participation_sections = current_user.participate_sections

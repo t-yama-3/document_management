@@ -1,18 +1,15 @@
 = form_with model: section, local: true, class: :register__form do |form|
   %table
-    -# = form.number_field :id
-    -# #select_parent
-    -# #select_children
-    -# #select_grandchildren
-    -# %tr
-    -#   %th 区分選択
-    -#   %td= form.collection_select :parent_id, Section.all, :id, :section_name, { prompt: '選択または新規区分を作成' }, { class: :register__text }
     %tr
       %th 区分名
       %td= form.text_field :section_name, class: :register__text
     %tr
       %th 主旨
-      %td= form.text_area :gist, class: :'register__text register__text--area'
+      %td= form.text_area :gist, class: :'register__text register__text--area', id: :section_gist
+    %tr
+      %th.register__count
+      %td.register__count#gist-count
+        = @section.persisted? ? "#{@section.gist.length}/1000" : "0/1000"
     %tr
       %th 公開設定
       %td= form.select :disclosure, Section.disclosures.keys, {prompt: '選択してください'}, class: :register__text

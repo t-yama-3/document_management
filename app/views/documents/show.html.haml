@@ -4,6 +4,7 @@
       .detailsContent__area
         %iframe{src: @document.src, class: :detailsContent__view, id: :iframe_main}
     .detailsSide
+      = render partial: 'shared/error_messages', locals: {model: @comment}
       = link_to "文書情報を編集する", edit_document_path(@document.id), class: :detailsSide__link
       = link_to "文書情報を削除する", document_path(@document.id), method: :delete, class: :detailsSide__link, data: {confirm: "削除しますか？"}
       %table.detailsTable

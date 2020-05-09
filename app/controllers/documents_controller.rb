@@ -1,13 +1,14 @@
 class DocumentsController < ApplicationController
   before_action :move_to_user_registration, except: [:index]
-  before_action :set_owner_sections, only: [:index, :new, :edit]
+  before_action :set_owner_sections, except: [:destroy]
   
   def index
     # なんか迂遠なことやってる（後日シンプルにする：自分が作成したものはマイページのみ表示でいい！）
     return @user_sections = [] unless user_signed_in?
-    sections = current_user.participate_sections.where.not(user_id: current_user.id)
-    sections += Section.where(user_id: current_user.id)
-    @user_sections = sections.sort_by!{|ms|ms.created_at}.reverse!
+    sections = current_user.participate_sections + Section.where(user_id: current_user.id)
+    @user_sections = (sections.uniq).sort_by!{|ms|ms.created_at}.reverse!
+    # sections = current_user.participate_sections.where.not(user_id: current_user.id) + Section.where(user_id: current_user.id)
+    # @user_sections = sections.sort_by!{|ms|ms.created_at}.reverse!
   end
 
   def new
