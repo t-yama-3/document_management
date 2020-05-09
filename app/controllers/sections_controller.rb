@@ -25,6 +25,7 @@ class SectionsController < ApplicationController
     # end
 
     @section = Section.new(section_params)
+    @section.user_id = current_user.id
     if @section.save
       redirect_to section_path(@section.id), notice: '分類を作成しました'
     else
@@ -66,12 +67,16 @@ class SectionsController < ApplicationController
 
   private
   def section_params
-    params.require(:section).permit(:section_name, :disclosure, :gist, participate_user_ids: []).merge(user_id: current_user.id)
+    params.require(:section).permit(:section_name, :disclosure, :gist, participate_user_ids: [])
   end
   
   def move_to_user_registration
     return redirect_to new_user_registration_path unless user_signed_in?
   end
+
+  # def move_to_root_path(section)
+  #   if section.where(section.id: current_user.participate_sections.ids)
+  # end
 
   def set_owner_sections
     return @owner_sections = [] unless user_signed_in?

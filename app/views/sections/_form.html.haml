@@ -9,7 +9,7 @@
     %tr
       %th.register__count
       %td.register__count#gist-count
-        = @section.persisted? ? "#{@section.gist.length}/1000" : "0/1000"
+        = @section.persisted? && @section.gist.present? ? "#{@section.gist.length}/1000" : "0/1000"
     %tr
       %th 公開設定
       %td= form.select :disclosure, Section.disclosures.keys, {prompt: '選択してください'}, class: :register__text

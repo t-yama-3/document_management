@@ -1,20 +1,28 @@
 class Documents::SearchesController < ApplicationController
+  before_action :move_to_user_registration
   before_action :set_owner_sections, only: [:index]
+  # def index
+  #   @keyword = params[:keyword]
+  #   @user_documents = Document.search(@keyword)
+  # end
+
   def index
-
-    # return @user_sections = [] unless user_signed_in?
-    # sections = current_user.participate_sections.where.not(user_id: current_user.id) + Section.where(user_id: current_user.id)
-    # @user_sections = sections.sort_by!{|ms|ms.created_at}.reverse!
-
-    # @sections = Section.all.includes(:documents)
-
+    # 検索は効いていないが、必要情報の抽出はできた状態（）
     @keyword = params[:keyword]
-    @user_documents = Document.search(@keyword)
+    public_documents = Document.joins(:section).where('sections.disclosure = ?', 1)
+    participate_documents = Document.joins(:section).where('sections.id': current_user.participate_sections.ids)
+    users_section_documents = Document.joins(:section).where('sections.user_id = ?', current_user.id)
+    users_documents = Document.where('user_id = ?', current_user.id)
+    @user_documents = (public_documents + participate_documents + users_section_documents + users_documents).uniq
   end
 
   private
   def set_owner_sections
     return @owner_sections = [] unless user_signed_in?
     @owner_sections = current_user.sections
-  end  
+  end
+
+  def move_to_user_registration
+    redirect_to new_user_registration_path unless user_signed_in?
+  end
 end
