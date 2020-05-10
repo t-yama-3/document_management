@@ -16,10 +16,16 @@
           = link_to section_path(section.id), class: :'sectionTable__link' do
             %span= section.section_name
         %td.sectionTable__td.sectionTable__td--disclosure
-          = section.disclosure
+          - if section.disclosure_before_type_cast ==  1
+            %span.sectionContent__disclosure
+              = icon 'fas', 'lock-open'
+              = '公開'
+          - else
+            %span.sectionContent__disclosure.sectionContent__disclosure--lock
+              = icon 'fas', 'lock'
+              = '非公開'
         %td.sectionTable__td.sectionTable__td--users
-          - section.participate_users.each_with_index do |user, i|
-            - if i == section.participate_users.length - 1
+          - section.participate_users.each do |user|
+            %span
+              = icon 'fas', 'user'
               = user.nickname
-            - else
-              = "#{user.nickname},"

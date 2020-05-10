@@ -2,6 +2,8 @@
   = render partial: 'shared/menu'
   .registerWrap
     .register__content
+      .register__error
+        = render partial: 'shared/error_messages', locals: {model: @section}
       .register__heading
         = icon 'fas', 'folder'
         = '区分編集'

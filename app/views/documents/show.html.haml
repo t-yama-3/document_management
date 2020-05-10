@@ -1,22 +1,50 @@
 .details
   .detailsWrap
     .detailsContent
+      = link_to '#', id: :details_scroll do
+        %span
+      .detailsContent__header
+        .detailsContent__header--title
+          = icon 'fas', 'file-alt'
+          = @document.title
+        .detailsContent__header--btn
+          - if user_signed_in? && @document.user_id == current_user.id
+            - if @document.alt.blank?
+              = link_to "代替文書登録", alt_edit_document_path(@document.id), class: :'detailsContent__header--alter'
+            - else
+              = link_to "文書編集", alt_edit_document_path(@document.id), class: :'detailsContent__header--alter'
+              = link_to "文書削除", alt_delete_document_path(@document.id), class: :'detailsContent__header--alter', data: {confirm: "代替文書を削除しますか？"}
       .detailsContent__area
-        %iframe{src: @document.src, class: :detailsContent__view, id: :iframe_main}
+        - if @document.alt.blank?
+          %iframe{src: @document.src, class: :detailsContent__view, id: :iframe_main}
+        - else
+          .detailsContent__alter
+            .detailsContent__frame
+              = safe_join(@document.alt.split("\n"),tag(:br))
     .detailsSide
-      = link_to "文書情報を編集する", edit_document_path(@document.id), class: :detailsSide__link
-      = link_to "文書情報を削除する", document_path(@document.id), method: :delete, class: :detailsSide__link, data: {confirm: "削除しますか？"}
+      = render partial: 'shared/error_messages', locals: {model: @comment}
+      - if user_signed_in? && @document.user_id == current_user.id
+        = link_to "文書情報を編集する", edit_document_path(@document.id), class: :detailsSide__link
+        = link_to "文書情報を削除する", document_path(@document.id), method: :delete, class: :detailsSide__link, data: {confirm: "削除しますか？"}
       %table.detailsTable
+        %tr
+          %th.detailsTable__th サイト名
+          %td.detailsTable__td.detailsTable__td--title= @document.title
         %tr
           %th.detailsTable__th 区分名
           - if @document.section.present?
             %td.detailsTable__td
               = link_to @document.section.section_name, section_path(@document.section.id), class: :detailsTable__link
+              - if @document.section.disclosure_before_type_cast ==  1
+                %span.detailsTable__disclosure
+                  = icon 'fas', 'lock-open'
+                  = '公開'
+              - else
+                %span.detailsTable__disclosure.detailsTable__disclosure--lock
+                  = icon 'fas', 'lock'
+                  = '非公開（メンバーのみ）'
           - else
             %td.detailsTable__td= '（未登録）'
-        %tr
-          %th.detailsTable__th 文書名
-          %td.detailsTable__td= @document.title
         %tr
           %th.detailsTable__th 説明
           %td.detailsTable__td
@@ -25,6 +53,16 @@
         %tr
           %th.detailsTable__th 登録者
           %td.detailsTable__td= @document.user.nickname
+        %tr
+          %th.detailsTable__th 作成日時
+          %td.detailsTable__td
+            = icon 'far', 'clock'
+            = l @document.created_at, format: :long
+        %tr
+          %th.detailsTable__th 更新日時
+          %td.detailsTable__td
+            = icon 'fas', 'history'
+            = l @document.updated_at, format: :long
         %tr
           %th.detailsTable__th 掲載元URL
           %td.detailsTable__td
@@ -40,9 +78,10 @@
                 .detail-comment__body
                   = comment.body
                   .detail-comment__body--time= elapsed_time(comment.created_at)
-        = f.text_area :body, class: :"detail-comment__textbox"
-        .detail-comment__button
-          = button_tag type: 'submit', class: 'detail-comment__submit' do
-            = icon 'fa', 'comment'
-            コメントする
+        - if user_signed_in? && @document.section.participate_user_ids.include?(current_user.id)
+          = f.text_area :body, class: :"detail-comment__textbox"
+          .detail-comment__button
+            = button_tag type: 'submit', class: 'detail-comment__submit' do
+              = icon 'fa', 'comment'
+              コメントする
 

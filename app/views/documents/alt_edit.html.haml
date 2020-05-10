@@ -5,7 +5,7 @@
       .register__error
         = render partial: 'shared/error_messages', locals: {model: @document}
       .register__heading
-        = icon 'fas', 'file'
-        = 'サイト情報編集'
-      = render partial: 'documents/form'
+        = icon 'fas', 'file-import'
+        = '代替文書登録'
+      = render partial: 'documents/alt_form'
     = render partial: 'shared/side'

@@ -1,0 +1,5 @@
+- if model.errors.any?
+  .errorMessage
+    .errorMessage__title= "#{model.errors.full_messages.count}件のエラーが発生しました。"
+    - model.errors.full_messages.each do |message|
+      .errorMessage__text= message

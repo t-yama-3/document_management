@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   end
   
   resources :documents, except: [:index] do
-    # collection do
-    #   get 'new_with_section'
-    # end
+    member do
+      get 'alt_edit'
+      post 'alt_update'
+      get 'alt_delete'
+    end
     resources :comments, only: [:create]
   end
 

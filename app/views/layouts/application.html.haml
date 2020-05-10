@@ -22,7 +22,7 @@
                 .headingSearch__text
                   = f.text_field :keyword, class: :headingSearch__input
                 .headingSearch__btn
-                  = f.submit "文書検索", class: :headingSearch__submit
+                  = f.submit "サイト検索", class: :headingSearch__submit
         .headingUser
           - if user_signed_in?
             = link_to users_path, class: :headingUser__nickname do

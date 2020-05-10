@@ -73,6 +73,9 @@
     }
     &--users {
       width: 50%;
+      & span {
+        padding-right: 8px;
+      }
     }
     &::-webkit-scrollbar {
       display: none;
@@ -108,12 +111,19 @@
   }
   &__title {
     font-size: 18px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+  }
+  &__heading {
+    font-size: 16px;
+    margin-left: 10px;
   }
   &__table {
     padding: 10px;
-    // background-color: $bg_color;
-    font-size: 14px;
+    font-size: 12px;
+    &--name {
+      font-size: 14px;
+      font-weight: bold;
+    }
     & table {
       width: 100%;
       table-layout: fixed;
@@ -127,13 +137,23 @@
     }
     & td {
       width: 80%;
-      padding: 15px;
+      padding: 8px;
       border:solid 1px #999999;
       background-color: #fefefe;
-      & span {
-        margin-right: 8px;
-      }
     }
+  }
+  &__disclosure {
+    margin-left: 8px;
+    padding: 3px;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #dc143c;
+    &--lock {
+      background-color: $main_color;
+    }
+  }
+  &__members {
+    margin-right: 8px;
   }
   &__list {
     padding: 10px;

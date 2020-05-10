@@ -1,13 +1,12 @@
 class DocumentsController < ApplicationController
-  before_action :move_to_user_registration, except: [:index]
-  before_action :set_owner_sections, only: [:index, :new, :edit]
+  before_action :move_to_user_registration, except: [:index, :show]
+  before_action :set_owner_sections, except: [:destroy]
   
   def index
     # なんか迂遠なことやってる（後日シンプルにする：自分が作成したものはマイページのみ表示でいい！）
     return @user_sections = [] unless user_signed_in?
-    sections = current_user.participate_sections.where.not(user_id: current_user.id)
-    sections += Section.where(user_id: current_user.id)
-    @user_sections = sections.sort_by!{|ms|ms.created_at}.reverse!
+    sections = current_user.participate_sections + Section.where(user_id: current_user.id)
+    @user_sections = (sections.uniq).sort_by!{|ms|ms.created_at}.reverse!
   end
 
   def new
@@ -33,6 +32,7 @@ class DocumentsController < ApplicationController
     end
   end
 
+  # 編集権（作成者のみ）
   def edit
     @document = Document.find(params[:id])
     return redirect_to document_path unless @document.user_id == current_user.id
@@ -42,28 +42,32 @@ class DocumentsController < ApplicationController
     edit_document_params = document_params
     if section_params[:section_name] != ""
       section = Section.new(section_params)
-      # section.participate_users << current_user
+      section.participate_users << current_user
       if section.save
         edit_document_params[:section_id] = section.id
       else
-        redirect_to root_path
+        return redirect_to root_path
       end
     end
     @document = Document.find(params[:id])
     if @document.update(edit_document_params)
-      redirect_to document_path(@document.id)
+      return redirect_to document_path(@document.id)
     else
       render :edit
     end
   end
 
+  # 閲覧権（グループ参加者、文書作成者、公開設定の場合は全員可）
   def show
     @document = Document.find(params[:id])
-    return redirect_to root_path if @document.section.participate_users.where(id: current_user.id).blank?
+    unless  @document.section.disclosure_before_type_cast == 1 || @document.section.participate_users.where(id: current_user.id).present? || @document.user_id == current_user.id
+      return redirect_to root_path
+    end
     @comments = @document.comments
     @comment = Comment.new
   end
 
+  # 削除権（作成者のみ）
   def destroy
     @document = Document.find(params[:id])
     return redirect_to document_path unless @document.user_id == current_user.id
@@ -72,6 +76,32 @@ class DocumentsController < ApplicationController
     else
       flash.now[:alert] = "文書情報を削除できませんでした。"
       render :show
+    end
+  end
+
+  # 代替文書の編集権（作成者のみ）
+  def alt_edit
+    @document = Document.find(params[:id])
+    return redirect_to document_path unless @document.user_id == current_user.id
+  end
+
+  def alt_update
+    @document = Document.find(params[:id])
+    if @document.update(alt: params[:alt])
+      redirect_to document_path(@document.id)
+    else
+      render :alt_edit
+    end
+  end
+
+  # 代替文書の削除権（作成者のみ）
+  def alt_delete
+    @document = Document.find(params[:id])
+    return redirect_to document_path unless @document.user_id == current_user.id
+    if @document.update(alt: nil)
+      redirect_to document_path(@document.id)
+    else
+      render :edit
     end
   end
 

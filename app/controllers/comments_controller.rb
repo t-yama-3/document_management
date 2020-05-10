@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
   before_action :move_to_user_registration
+
   def create
     @comment = Comment.new(comment_params)
+    return redirect_to document_path(@comment.document.id) unless @comment.document.section.participate_user_ids.include?(current_user.id)
     if @comment.save
       redirect_to document_path(@comment.document.id)
     else

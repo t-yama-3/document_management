@@ -2,7 +2,7 @@
   .sideSection
     = link_to owner_sections_path, class: :sideSection__heading do
       = icon 'fas', 'folder-open'
-      作成区分一覧
+      管理区分一覧
     - @owner_sections.each do |section|
       .sideSection__title
         = link_to section_path(section.id), class: :sideSection__link do

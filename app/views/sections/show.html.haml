@@ -2,18 +2,32 @@
   = render partial: 'shared/menu'
   .sectionWrap
     .sectionContent
-      = link_to "区分編集", edit_section_path(@section.id), class: :sectionContent__link
-      = link_to "区分削除", section_path(@section.id), method: :delete, class: :sectionContent__link, data: {confirm: "削除しますか？"}
-      = link_to "新規サイト登録", new_document_section_path(@section.id), class: :sectionContent__link
+      - if user_signed_in? && @section.user_id == current_user.id
+        = link_to "区分編集", edit_section_path(@section.id), class: :sectionContent__link
+        = link_to "区分削除", section_path(@section.id), method: :delete, class: :sectionContent__link, data: {confirm: "削除しますか？"}
+      - if user_signed_in? && @section.participate_user_ids.include?(current_user.id)
+        = link_to "新規サイト登録", new_document_section_path(@section.id), class: :sectionContent__link
       .sectionContent__box
         .sectionContent__title
           = icon 'fas', 'folder-open'
           = @section.section_name
+        .sectionContent__heading
+          = icon 'fas', 'folder'
+          = '区分設定詳細'
         .sectionContent__table
           %table
             %tr
               %th 区分名
-              %td= @section.section_name
+              %td
+                %span.sectionContent__table--name= @section.section_name
+                - if @section.disclosure_before_type_cast ==  1
+                  %span.sectionContent__disclosure
+                    = icon 'fas', 'lock-open'
+                    = '公開'
+                - else
+                  %span.sectionContent__disclosure.sectionContent__disclosure--lock
+                    = icon 'fas', 'lock'
+                    = '非公開（メンバーのみ）'
             %tr
               %th 管理者
               %td
@@ -28,9 +42,19 @@
               %th メンバー
               %td
                 - @section.participate_users.each_with_index do |user, i|
-                  %span
+                  %span.sectionContent__members
                     = icon 'fas', 'user'
                     = user.nickname
+            %tr
+              %th 作成日時
+              %td
+                = icon 'far', 'clock'
+                = l @section.created_at, format: :long
+            %tr
+              %th 更新日時
+              %td
+                = icon 'fas', 'history'
+                = l @section.updated_at, format: :long
         .sectionContent__list
           .sectionContent__list--title
             = icon 'fas', 'folder'
