@@ -12,8 +12,8 @@
             - if @document.alt.blank?
               = link_to "代替文書登録", alt_edit_document_path(@document.id), class: :'detailsContent__header--alter'
             - else
-              = link_to "文書編集", alt_edit_document_path(@document.id), class: :'detailsContent__header--alter'
-              = link_to "文書削除", alt_delete_document_path(@document.id), class: :'detailsContent__header--alter', data: {confirm: "代替文書を削除しますか？"}
+              = link_to "代替文書編集", alt_edit_document_path(@document.id), class: :'detailsContent__header--alter'
+              = link_to "代替文書削除", alt_delete_document_path(@document.id), class: :'detailsContent__header--alter', data: {confirm: "代替文書を削除しますか？"}
       .detailsContent__area
         - if @document.alt.blank?
           %iframe{src: @document.src, class: :detailsContent__view, id: :iframe_main}
