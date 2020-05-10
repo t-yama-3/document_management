@@ -3,6 +3,7 @@
   height: calc(100vh - 76px);
   margin: 0 auto;
   padding: 25px;
+  overflow: scroll;
   background-color: $bg_color;
   &__wrap {
     max-width: 360px;

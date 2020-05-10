@@ -105,6 +105,7 @@
     &--title {
       font-size: 16px;
       display: inline-block;
+      white-space: nowrap;
       overflow: scroll;
     }
     &--btn {
@@ -136,10 +137,12 @@
     padding: 0px 20px 20px;
   }
   &__origin {
-    height: 35px;
+    line-height: 35px;
     margin: 0 10px;
     font-size: 14px;
     font-weight: bold;
+    white-space: nowrap;
+    overflow: scroll;
   }
   &__link {
     line-height: 35px;
