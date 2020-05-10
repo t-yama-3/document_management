@@ -1,0 +1,11 @@
+.register
+  = render partial: 'shared/menu'
+  .registerWrap
+    .register__content
+      .register__error
+        = render partial: 'shared/error_messages', locals: {model: @document}
+      .register__heading
+        = icon 'fas', 'file-import'
+        = '代替文書登録'
+      = render partial: 'documents/alt_form'
+    = render partial: 'shared/side'

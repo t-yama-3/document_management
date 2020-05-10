@@ -91,4 +91,14 @@
     padding: 2px;
     background-color: $menu_color;
   }
+  &__disclosure {
+    margin-left: 8px;
+    padding: 3px 5px;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #dc143c;
+    &--lock {
+      background-color: $main_color;
+    }
+  }
 }

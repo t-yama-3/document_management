@@ -8,15 +8,19 @@
           = icon 'fas', 'file-alt'
           = @document.title
         .detailsContent__header--btn
-          = link_to "代替文書登録", '', class: :'detailsContent__header--alter'
+          - if user_signed_in? && @document.user_id == current_user.id
+            - if @document.alt.blank?
+              = link_to "代替文書登録", alt_edit_document_path(@document.id), class: :'detailsContent__header--alter'
+            - else
+              = link_to "文書編集", alt_edit_document_path(@document.id), class: :'detailsContent__header--alter'
+              = link_to "文書削除", alt_delete_document_path(@document.id), class: :'detailsContent__header--alter', data: {confirm: "代替文書を削除しますか？"}
       .detailsContent__area
-        %iframe{src: @document.src, class: :detailsContent__view, id: :iframe_main}
-        -# - if @document.note == ""
-        -#   %iframe{src: @document.src, class: :detailsContent__view, id: :iframe_main}
-        -# - else
-        -#   .detailsContent__alter
-        -#     .detailsContent__frame
-        -#       = safe_join(@document.note.split("\n"),tag(:br))
+        - if @document.alt.blank?
+          %iframe{src: @document.src, class: :detailsContent__view, id: :iframe_main}
+        - else
+          .detailsContent__alter
+            .detailsContent__frame
+              = safe_join(@document.alt.split("\n"),tag(:br))
     .detailsSide
       = render partial: 'shared/error_messages', locals: {model: @comment}
       - if user_signed_in? && @document.user_id == current_user.id
@@ -74,9 +78,10 @@
                 .detail-comment__body
                   = comment.body
                   .detail-comment__body--time= elapsed_time(comment.created_at)
-        = f.text_area :body, class: :"detail-comment__textbox"
-        .detail-comment__button
-          = button_tag type: 'submit', class: 'detail-comment__submit' do
-            = icon 'fa', 'comment'
-            コメントする
+        - if user_signed_in? && @document.section.participate_user_ids.include?(current_user.id)
+          = f.text_area :body, class: :"detail-comment__textbox"
+          .detail-comment__button
+            = button_tag type: 'submit', class: 'detail-comment__submit' do
+              = icon 'fa', 'comment'
+              コメントする
 

@@ -18,7 +18,13 @@
               = icon 'fas', 'folder'
               = section.section_name
             %span.mainContentSection__owner
-              = "管理者: #{section.user.nickname}"
               = icon 'fas', 'user-cog'
+              = section.user.nickname
+            - if section.disclosure_before_type_cast ==  1
+              %span.mainContentSection__disclosure
+                = icon 'fas', 'lock-open'
+            - else
+              %span.mainContentSection__disclosure.mainContentSection__disclosure--lock
+                = icon 'fas', 'lock'
             = render partial: 'shared/documents', locals: {documents: section.documents.limit(3)}
     = render partial: 'shared/side'

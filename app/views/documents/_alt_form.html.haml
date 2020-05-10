@@ -1,0 +1,7 @@
+= form_with url: alt_update_document_path(@document.id), local: true, class: :register__form, id: :document_form do |form|
+  %table
+    %tr
+      %th 代替文書
+      %td= form.text_area :alt, value: @document.alt,class: :'register__text register__text--area'
+  .register__submit
+    = form.submit '登録する', class: :'register__submit--btn'

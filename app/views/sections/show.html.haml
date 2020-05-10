@@ -5,17 +5,21 @@
       - if user_signed_in? && @section.user_id == current_user.id
         = link_to "区分編集", edit_section_path(@section.id), class: :sectionContent__link
         = link_to "区分削除", section_path(@section.id), method: :delete, class: :sectionContent__link, data: {confirm: "削除しますか？"}
-      = link_to "新規サイト登録", new_document_section_path(@section.id), class: :sectionContent__link
+      - if user_signed_in? && @section.participate_user_ids.include?(current_user.id)
+        = link_to "新規サイト登録", new_document_section_path(@section.id), class: :sectionContent__link
       .sectionContent__box
         .sectionContent__title
           = icon 'fas', 'folder-open'
+          = @section.section_name
+        .sectionContent__heading
+          = icon 'fas', 'folder'
           = '区分設定詳細'
         .sectionContent__table
           %table
             %tr
               %th 区分名
               %td
-                = @section.section_name
+                %span.sectionContent__table--name= @section.section_name
                 - if @section.disclosure_before_type_cast ==  1
                   %span.sectionContent__disclosure
                     = icon 'fas', 'lock-open'

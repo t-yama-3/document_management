@@ -111,11 +111,19 @@
   }
   &__title {
     font-size: 18px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+  }
+  &__heading {
+    font-size: 16px;
+    margin-left: 10px;
   }
   &__table {
     padding: 10px;
     font-size: 12px;
+    &--name {
+      font-size: 14px;
+      font-weight: bold;
+    }
     & table {
       width: 100%;
       table-layout: fixed;

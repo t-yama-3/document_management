@@ -7,5 +7,5 @@ class Section < ApplicationRecord
 
   validates :section_name, :disclosure, presence: true
 
-  enum disclosure: [:'参加者のみ公開', :'全体に公開']
+  enum disclosure: [:'非公開', :'公開']
 end

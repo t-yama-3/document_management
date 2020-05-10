@@ -46,12 +46,12 @@ class DocumentsController < ApplicationController
       if section.save
         edit_document_params[:section_id] = section.id
       else
-        redirect_to root_path
+        return redirect_to root_path
       end
     end
     @document = Document.find(params[:id])
     if @document.update(edit_document_params)
-      redirect_to document_path(@document.id)
+      return redirect_to document_path(@document.id)
     else
       render :edit
     end
@@ -76,6 +76,32 @@ class DocumentsController < ApplicationController
     else
       flash.now[:alert] = "文書情報を削除できませんでした。"
       render :show
+    end
+  end
+
+  # 代替文書の編集権（作成者のみ）
+  def alt_edit
+    @document = Document.find(params[:id])
+    return redirect_to document_path unless @document.user_id == current_user.id
+  end
+
+  def alt_update
+    @document = Document.find(params[:id])
+    if @document.update(alt: params[:alt])
+      redirect_to document_path(@document.id)
+    else
+      render :alt_edit
+    end
+  end
+
+  # 代替文書の削除権（作成者のみ）
+  def alt_delete
+    @document = Document.find(params[:id])
+    return redirect_to document_path unless @document.user_id == current_user.id
+    if @document.update(alt: nil)
+      redirect_to document_path(@document.id)
+    else
+      render :edit
     end
   end
 

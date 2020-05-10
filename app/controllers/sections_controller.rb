@@ -4,7 +4,7 @@ class SectionsController < ApplicationController
   
   # 参加サイト一覧の表示
   def index
-    @participation_sections = current_user.participate_sections
+    @participation_sections = current_user.participate_sections.order("created_at DESC")
   end
 
   # 管理サイト一覧の表示

@@ -77,13 +77,13 @@
     font-size: 18px;
     font-weight: bold;
     text-decoration: none;
-    color: #3838c5;
+    color: $main_color;
     &:hover {
       opacity: 0.7;
       // color: #4b4bc9;
     }
     & i {
-      color: #5151c4;
+      color: $main_color;
     }
   }
   &__title {
@@ -92,13 +92,13 @@
   &__link {
     font-size: 16px;
     text-decoration: none;
-    color: #3838c5;
+    color: $main_color;
     &:hover {
       opacity: 0.7;
       // color: #5151c4;
     }
     & i {
-      color: #3131b3;
+      color: $main_color;
     }
   }
 }

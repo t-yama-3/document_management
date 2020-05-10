@@ -16,11 +16,11 @@
               = 'メールアドレス'
             %td= current_user.email
       .userContent
+        .userContent__title 管理区分一覧
+        = render partial: 'shared/sections', locals: {sections: current_user.sections}
+      .userContent
         .userContent__title 登録文書一覧
         = render partial: 'shared/documents', locals: {documents: current_user.documents}
-      .userContent
-        .userContent__title 作成区分一覧
-        = render partial: 'shared/sections', locals: {sections: current_user.sections}
     = render partial: 'shared/side'
 
 
