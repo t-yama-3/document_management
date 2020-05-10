@@ -1,11 +1,13 @@
 class SectionsController < ApplicationController
-  before_action :move_to_user_registration
+  before_action :move_to_user_registration, except: [:show]
   before_action :set_owner_sections, except: [:destroy]
   
+  # 参加サイト一覧の表示
   def index
     @participation_sections = current_user.participate_sections
   end
 
+  # 管理サイト一覧の表示
   def owner
   end
 
@@ -15,15 +17,6 @@ class SectionsController < ApplicationController
   end
 
   def create
-    # binding.pry
-    # parent_section = Section.find(params[:section][:parent_id])
-    # @section = parent_section.children.new(section_name: params[:section][:section_name], user_id: current_user.id)
-    # if @section.save
-    #   redirect_to section_path(@section.id)
-    # else
-    #   render :new
-    # end
-
     @section = Section.new(section_params)
     @section.user_id = current_user.id
     if @section.save
@@ -33,8 +26,10 @@ class SectionsController < ApplicationController
     end
   end
 
+  # 編集権は作成者（管理者）のみ
   def edit
     @section = Section.find(params[:id])
+    redirect_to section_path(params[:id]) unless @section.user_id == current_user.id
   end
 
   def update
@@ -46,12 +41,18 @@ class SectionsController < ApplicationController
     end
   end
 
+  # 閲覧権（グループ参加者、グループ作成者、公開設定の場合は全員可）
   def show
     @section = Section.find(params[:id])
+    unless @section.disclosure_before_type_cast == 1 || @section.participate_users.where(id: current_user.id).present? || @section.user_id == current_user.id
+      return redirect_to root_path
+    end
   end
 
+  # 削除権は作成者（管理者）のみ
   def destroy
     @section = Section.find(params[:id])
+    return redirect_to section_path(params[:id]) unless @section.user_id == current_user.id
     if @section.destroy
       redirect_to root_path
     else
@@ -60,6 +61,7 @@ class SectionsController < ApplicationController
     end
   end
 
+  # 区分一覧画面から新規document作成
   def new_document
     @document = Document.new(section_id: params[:id])
     render "documents/new"

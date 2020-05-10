@@ -20,5 +20,5 @@
             %span.mainContentSection__owner
               = "管理者: #{section.user.nickname}"
               = icon 'fas', 'user-cog'
-            = render partial: 'shared/documents', locals: {documents: section.documents.limit(5)}
+            = render partial: 'shared/documents', locals: {documents: section.documents.limit(3)}
     = render partial: 'shared/side'

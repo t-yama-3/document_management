@@ -18,8 +18,7 @@
         %td.sectionTable__td.sectionTable__td--disclosure
           = section.disclosure
         %td.sectionTable__td.sectionTable__td--users
-          - section.participate_users.each_with_index do |user, i|
-            - if i == section.participate_users.length - 1
+          - section.participate_users.each do |user|
+            %span
+              = icon 'fas', 'user'
               = user.nickname
-            - else
-              = "#{user.nickname},"
