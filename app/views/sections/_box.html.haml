@@ -13,4 +13,4 @@
       - else
         %span.mainContentSection__disclosure.mainContentSection__disclosure--lock
           = icon 'fas', 'lock'
-      = render partial: 'shared/documents', locals: {documents: section.documents.limit(5)}
+      = render partial: 'shared/documents', locals: {documents: section.documents.limit(3)}

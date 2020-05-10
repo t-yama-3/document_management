@@ -19,6 +19,10 @@
           %iframe{src: @document.src, class: :detailsContent__view, id: :iframe_main}
         - else
           .detailsContent__alter
+            .detailsContent__origin
+              = "以下は代替テキストです。元サイトは"
+              = link_to "こちらのリンク", @document.src, class: :detailsContent__link, target: :_blank
+              = "から"
             .detailsContent__frame
               = safe_join(@document.alt.split("\n"),tag(:br))
     .detailsSide
