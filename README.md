@@ -46,6 +46,7 @@ Things you may want to cover:
 |------|----|-------|
 |section_name|string|null: false|
 |ancestry|string||
+|gist|text||
 |disclosure|integer|null: false|
 |user|references|null: false, foreign_key: true|
 
@@ -61,6 +62,7 @@ Things you may want to cover:
 |------|----|-------|
 |title|string||
 |note|text||
+|alt|text||
 |src|string||
 |section|references|null: false, foreign_key: true|
 |user|references|null: false, foreign_key: true|
@@ -92,3 +94,36 @@ Things you may want to cover:
 ### Association
 - belongs_to :document
 - belongs_to :user
+
+
+# 追加予定機能（実装優先順）
+
+## お気に入り機能
+- markings table
+|document|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+
+## 友人登録機能（メッセージ機能）
+- friends table
+|user|references|null: false, foreign_key: true|
+|friend_user_id|references|null: false, foreign_key: true|
+|request|integer||
+request = 0:申請状態、1:承諾状態、2:拒否状態、3:絶縁状態
+（解消はレコードを削除するのみ）
+
+- conversations table
+|friend|references|null: false, foreign_key: true|
+|message|text|null: false|
+|user|references|null: false, foreign_key: true|
+
+## 自己紹介ページ
+- users table に追加するカラム
+|introduction|text|null: true|
+|prefecture|integer|null: true|
+|customer_token|string|null: true|
+|private|integer|null: true|
+(要検討)private = 0(null): ニックネーム・自己紹介・所在地, 1: 0+所属区分・管理区分・登録サイト, 2: 1+友人一覧
+
+## 詳細な検索機能
+## 未読・既読の判定
+## 新着お知らせ機能
