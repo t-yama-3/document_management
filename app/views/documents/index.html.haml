@@ -19,7 +19,7 @@
               = section.section_name
             %span.mainContentSection__owner
               = icon 'fas', 'user-cog'
-              = section.user.nickname
+              = link_to section.user.nickname, profile_path(section.user_id), class: :'mainContentSection__owner--link'
             - if section.disclosure_before_type_cast ==  1
               %span.mainContentSection__disclosure
                 = icon 'fas', 'lock-open'

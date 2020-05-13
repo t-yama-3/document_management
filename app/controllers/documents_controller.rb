@@ -120,6 +120,6 @@ class DocumentsController < ApplicationController
 
   def set_owner_sections
     return @owner_sections = [] unless user_signed_in?
-    @owner_sections = current_user.sections
+    @owner_sections = current_user.sections.order("created_at DESC").limit(0)
   end
 end

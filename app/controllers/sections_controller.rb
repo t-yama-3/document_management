@@ -1,6 +1,6 @@
 class SectionsController < ApplicationController
   before_action :move_to_user_registration, except: [:show]
-  before_action :set_owner_sections, except: [:destroy]
+  before_action :set_owner_sections, except: [:owner, :destroy]
   
   # 参加サイト一覧の表示
   def index
@@ -9,6 +9,7 @@ class SectionsController < ApplicationController
 
   # 管理サイト一覧の表示
   def owner
+    @owner_sections = current_user.sections.order("created_at DESC")
   end
 
   def new
@@ -82,6 +83,6 @@ class SectionsController < ApplicationController
 
   def set_owner_sections
     return @owner_sections = [] unless user_signed_in?
-    @owner_sections = current_user.sections
+    @owner_sections = current_user.sections.order("created_at DESC")
   end
 end

@@ -13,7 +13,7 @@
     - sections.each do |section|
       %tr
         %th.sectionTable__th
-          = link_to section_path(section.id), class: :'sectionTable__link' do
+          = link_to section_path(section.id), class: :sectionTable__link do
             %span= section.section_name
         %td.sectionTable__td.sectionTable__td--disclosure
           - if section.disclosure_before_type_cast ==  1
@@ -26,6 +26,6 @@
               = '非公開'
         %td.sectionTable__td.sectionTable__td--users
           - section.participate_users.each do |user|
-            %span
+            = link_to profile_path(user.id), class: :sectionTable__link do
               = icon 'fas', 'user'
               = user.nickname

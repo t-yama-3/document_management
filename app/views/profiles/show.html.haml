@@ -1,0 +1,38 @@
+.user
+  = render partial: 'shared/menu'
+  .userWrap
+    .userInfo
+      .userContent.userContent__user
+        .userContent__title
+          = icon 'far', 'id-card'
+          = "#{@user.nickname}さんのプロフィール"
+        - if @user.profile.present?
+          .userContent__profile
+            = @user.profile.introduction
+          .userContent__profile
+            = icon 'fas', 'map-marker-alt'
+            = @user.profile.prefecture
+          - if user_signed_in? && @user.id == current_user.id
+            .userContent__profile
+              = link_to edit_profile_path(@user.profile.id), class: :'userContent__profile--link' do
+                = 'プロフィールを編集する'
+        - elsif user_signed_in? && @user.id == current_user.id
+          .userContent__profile
+            = link_to new_profile_path, class: :'userContent__profile--link' do
+              = 'プロフィールを作成する'
+        - if user_signed_in?
+          - if friend_status(current_user, @user) < 0
+            = button_to "#{@user.nickname}さんにフレンド申請をする", {controller: :friends, action: :create}, {params: {id: @user.id}, class: :'userContent__profile--link userContent__profile--friend', id: :user_confirm}
+          - elsif friend_status(current_user, @user) == 0
+            %span.userContent__profile--link.userContent__profile--friend フレンド申請中
+          - elsif friend_status(current_user, @user) == 1
+            %span.userContent__profile--link.userContent__profile--friend フレンド
+        .userContent__edit
+      .userContent
+        .userContent__title= "#{@user.nickname}さんの管理区分一覧"
+        = render partial: 'shared/sections', locals: {sections: @user.sections.where(disclosure: 1)}
+      .userContent
+        .userContent__title= "#{@user.nickname}さんの登録文書一覧"
+        - @user.participate_sections.where(disclosure: 1).each do |section|
+          = render partial: 'shared/documents', locals: {documents: section.documents}
+    = render partial: 'shared/side'

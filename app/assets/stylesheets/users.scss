@@ -47,7 +47,7 @@
     background-color: $user_color;
   }
   &__title {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 10px;
   }
   &__table {
@@ -63,6 +63,22 @@
         width: 70%;
         padding: 10px;
       }
+    }
+  }
+  &__profile {
+    font-size: 14px;
+    padding: 5px;
+    &--link {
+      padding: 5px;
+      text-decoration: none;
+      background-color: $main_color;
+      color: #ffffff;
+      &:hover {
+        color: #dddddd;
+      }
+    }
+    &--friend {
+      background-color: $open_color;
     }
   }
 }
