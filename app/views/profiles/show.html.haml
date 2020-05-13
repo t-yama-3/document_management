@@ -38,9 +38,16 @@
                   = "ダイレクトメッセージを送る"
             - elsif (status = friend_status(@user, current_user)) >= 0
               - if status == 0
-                = button_to friend_path(get_friend_id(@user, current_user)), method: :put, class: :'userContent__friend userContent__friend--consent', id: :user_confirm do
-                  = icon "fas", "paper-plane"
-                  = "フレンド申請を受諾する"
+                .userContent__friend-notice
+                  = icon "fas", "exclamation"
+                  = "#{@user.nickname}さんからフレンド申請があります。"
+                .userContent__friend-wrap
+                  = button_to friend_path(get_friend_id(@user, current_user)), method: :put, class: :'userContent__friend userContent__friend--consent', id: :user_confirm do
+                    = icon "fas", "paper-plane"
+                    = "フレンド申請を受諾する"
+                  = button_to refusal_update_friend_path(get_friend_id(@user, current_user)), method: :put, class: :'userContent__friend userContent__friend--refusal', id: :user_confirm_refusal do
+                    = icon "fas", "times-circle"
+                    = "フレンド申請を拒否する"
               - elsif status == 1
                 .userContent__friend.userContent__friend--message
                   = icon "fas", "envelope"

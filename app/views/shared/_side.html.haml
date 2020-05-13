@@ -18,4 +18,12 @@
         = link_to section_path(section.id), class: :sideSection__link do
           = icon 'fas', 'folder'
           = section.section_name
-          
+  .sideSection
+    = link_to sections_path, class: :sideSection__heading do
+      = icon 'fas', 'folder-open'
+      参加区分一覧
+    - @participation_sections.each do |section|
+      .sideSection__title
+        = link_to section_path(section.id), class: :sideSection__link do
+          = icon 'fas', 'folder'
+          = section.section_name

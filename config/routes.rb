@@ -25,5 +25,9 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index]
   resources :profiles, only: [:new, :create, :edit, :update, :show]
-  resources :friends
+  resources :friends, only: [:create, :update] do
+    member do
+      put 'refusal_update'
+    end
+  end
 end

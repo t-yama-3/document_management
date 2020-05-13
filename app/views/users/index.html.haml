@@ -2,6 +2,13 @@
   = render partial: 'shared/menu'
   .userWrap
     .userInfo
+      .userContent.userContent__info
+        .userContent__title お知らせ
+        - Friend.where(friend_user_id: current_user.id, status: 0).each do |friend|
+          .userContent__lists
+            = link_to profile_path(friend.user_id), class: :'userContent__lists--link userContent__lists--request' do
+              = icon 'fas', 'exclamation', {class: :'userContent__lists--mark'}
+              = "#{friend.user.nickname}さんからフレンド申請があります"
       .userContent.userContent__user
         .userContent__wrap
           .userContent__title ユーザー情報
@@ -20,18 +27,6 @@
               = icon 'fas', 'envelope'
               = 'メールアドレス'
             %td= current_user.email
-          %tr
-            %th
-              = icon 'far', 'hand-point-right'
-              = '紹介文'
-            %td= safe_join(current_user.profile.introduction.split("\n"),tag(:br))
-      .userContent
-        .userContent__title お知らせ
-        - Friend.where(friend_user_id: current_user.id, status: 0).each do |friend|
-          .userContent__lists
-            = link_to profile_path(friend.user_id), class: :'userContent__lists--link userContent__lists--request' do
-              = icon 'fas', 'smile', {class: :'userContent__lists--mark'}
-              = "#{friend.user.nickname}さんからフレンド申請があります"
       .userContent
         .userContent__title フレンド一覧
         - Friend.list(current_user.id, 1).each do |list|

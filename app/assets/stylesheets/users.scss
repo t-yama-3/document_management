@@ -43,7 +43,7 @@
   padding: 20px;
   margin-bottom: 20px;
   background-color: #ffffff;
-  &__user {
+  &__info {
     background-color: $user_color;
   }
   &__wrap {
@@ -97,6 +97,15 @@
       }
     }
   }
+  &__friend-notice {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e8383d;
+    margin-bottom: 10px;
+  }
+  &__friend-wrap {
+    display: flex;
+  }
   &__friend {
     display: inline-block;
     padding: 2px 5px;
@@ -106,7 +115,11 @@
       background-color: #008080;
     }
     &--consent {
+      background-color: #3300ff;
+    }
+    &--refusal {
       background-color: #e8383d;
+      margin-left: 10px;
     }
     &--message {
       background-color: #434da2;
@@ -124,6 +137,7 @@
     }
     &--request {
       font-weight: bold;
+      font-size: 16px;
     }
     &--mark {
       color: #ff3300;
