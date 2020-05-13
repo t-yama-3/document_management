@@ -3,7 +3,12 @@
   .userWrap
     .userInfo
       .userContent.userContent__user
-        .userContent__title ユーザー情報
+        .userContent__wrap
+          .userContent__title ユーザー情報
+          = link_to profile_path(current_user.id), class: :userContent__link do
+            %span.userContent__link--btn.userContent__link--main
+              = icon 'far', 'id-card'
+              = '公開用プロフィール画面確認・編集'
         %table.userContent__table
           %tr
             %th
@@ -15,6 +20,25 @@
               = icon 'fas', 'envelope'
               = 'メールアドレス'
             %td= current_user.email
+          %tr
+            %th
+              = icon 'far', 'hand-point-right'
+              = '紹介文'
+            %td= safe_join(current_user.profile.introduction.split("\n"),tag(:br))
+      .userContent
+        .userContent__title お知らせ
+        - Friend.where(friend_user_id: current_user.id, status: 0).each do |friend|
+          .userContent__lists
+            = link_to profile_path(friend.user_id), class: :'userContent__lists--link userContent__lists--request' do
+              = icon 'fas', 'smile', {class: :'userContent__lists--mark'}
+              = "#{friend.user.nickname}さんからフレンド申請があります"
+      .userContent
+        .userContent__title フレンド一覧
+        - Friend.list(current_user.id, 1).each do |list|
+          .userContent__lists
+            = link_to profile_path(list.friend_id), class: :'userContent__lists--link' do
+              = icon 'fas', 'user'
+              = User.find(list.friend_id).nickname
       .userContent
         .userContent__title 管理区分一覧
         = render partial: 'shared/sections', locals: {sections: current_user.sections}

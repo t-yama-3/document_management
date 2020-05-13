@@ -23,6 +23,15 @@ module ApplicationHelper
     end
   end
 
+  def get_friend_id(user1, user2)
+    return -2 unless user1.friends.present?
+    if (friend = user1.friends.find_by(friend_user_id: user2.id)).present?
+      return friend.id
+    else
+      return -1
+    end
+  end
+
   # # friend.statusを返す（該当なしは-1を返す）
   # def friend_status_sub(user1, user2)
   #   return -1 unless user1.friends.present?

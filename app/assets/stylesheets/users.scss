@@ -46,9 +46,28 @@
   &__user {
     background-color: $user_color;
   }
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__link {
+    &--btn {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 14px;
+      color: #ffffff;
+      background-color: #008080;
+      &:hover {
+        color: #dddddd;
+      }
+    }
+    &--main {
+      background-color: $main_color;
+    }
+  }
   &__title {
     font-size: 18px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
   &__table {
     width: 100%;
@@ -77,8 +96,37 @@
         color: #dddddd;
       }
     }
-    &--friend {
-      background-color: $open_color;
+  }
+  &__friend {
+    display: inline-block;
+    padding: 2px 5px;
+    font-size: 14px;
+    color: #ffffff;
+    &--request {
+      background-color: #008080;
+    }
+    &--consent {
+      background-color: #e8383d;
+    }
+    &--message {
+      background-color: #434da2;
+    }
+    &--pending {
+      background-color: #3300ff;
+    }
+  }
+  &__lists {
+    font-size: 14px;
+    padding: 5px;
+    &--link {
+      text-decoration: none;
+      color: #3300ff;
+    }
+    &--request {
+      font-weight: bold;
+    }
+    &--mark {
+      color: #ff3300;
     }
   }
 }

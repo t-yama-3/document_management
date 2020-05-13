@@ -4,11 +4,11 @@
       = link_to users_path(current_user.id), class: :sideSection__heading do
         = icon 'fas', 'address-card'
         = 'マイページ'
-  .sideSection
-    - if user_signed_in?
-      = link_to profile_path(current_user.id), class: :sideSection__heading do
-        = icon 'far', 'id-card'
-        = 'マイプロフィール'
+  -# .sideSection
+  -#   - if user_signed_in?
+  -#     = link_to profile_path(current_user.id), class: :sideSection__heading do
+  -#       = icon 'far', 'id-card'
+  -#       = 'マイプロフィール'
   .sideSection
     = link_to owner_sections_path, class: :sideSection__heading do
       = icon 'fas', 'folder-open'
