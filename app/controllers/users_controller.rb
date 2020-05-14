@@ -1,9 +1,21 @@
 class UsersController < ApplicationController
   before_action :move_to_user_registration
-  before_action :set_owner_sections, :set_participation_sections, only: [:index]
+  before_action :set_owner_sections, :set_participation_sections
 
   def index
     @messages = Message.where(user_id: current_user.id).or(Message.where(receiver_id: current_user.id)).order("created_at DESC").limit(10)
+  end
+
+  def received_mail
+    @add_mail1 = " mailBtn__link--select"
+    @messages = Message.where(receiver_id: current_user.id).order('created_at DESC')
+    render :mail_index
+  end
+
+  def send_mail
+    @add_mail2 = " mailBtn__link--select"
+    @messages = Message.where(user_id: current_user.id).order('created_at DESC')
+    render :mail_index
   end
 
   private

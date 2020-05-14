@@ -1,19 +1,22 @@
--# .userContent.userContent__mail
-  -# .userContent__title 新着メール
 %table.userMail
   - messages.each do |message|
-    %tr
+    - add_read_class = 'userMail__bold' if message.read == 0
+    %tr{class: add_read_class}
       %th.userMail__user
         - if message.read == 0
-          = icon "fas", "envelope"
+          = icon "fas", "envelope", {class: :'userMail__unread'}
         - else
           = icon "far", "envelope-open"
         - if message.user_id == current_user.id
           %span.userMail__send= '送信'
-          = message.receiver.nickname
+          = link_to profile_path(message.receiver.id) do
+            = icon 'fas', 'user'
+            = message.receiver.nickname
         - else
           %span.userMail__receive= '受信'
-          = message.user.nickname
+          = link_to profile_path(message.user.id) do
+            = icon 'fas', 'user'
+            = message.user.nickname
       %td.userMail__title
         = link_to friend_message_path(message.friend_id, message.id), class: :'userMail__link' do
           = message.title

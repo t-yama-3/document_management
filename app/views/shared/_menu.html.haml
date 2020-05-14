@@ -1,18 +1,22 @@
 .menu
-  - if user_signed_in?
-    = link_to users_path(current_user.id), class: :menu__list do
-      = icon 'fas', 'address-card'
-      = 'マイページ'
-  -# .menu__list
-  -#   = icon 'fas', 'search'
-  -#   詳細検索
-  -# = link_to sections_path ,class: :menu__list do
-  -#   = icon 'fas', 'folder-open'
-  -#   = '参加区分一覧'
+  = link_to owner_documents_path, class: :menu__list do
+    = icon 'fas', 'network-wired'
+    = 'WEBサイト一覧'
+  - if user_signed_in? && @menu == 1
+    .menu__contents
+      = link_to owner_documents_path, class: :menu__content do
+        = icon 'fas', 'map-marked-alt'
+        = '登録コンテンツ'
+      = link_to participation_documents_path, class: :menu__content do
+        = icon 'fas', 'map-marked'
+        = '参加コンテンツ'
+      = link_to public_documents_path, class: :menu__content do
+        = icon 'fas', 'share-alt'
+        = '公開コンテンツ'
   = link_to new_section_path ,class: :menu__list do
     = icon 'fas', 'folder-plus'
     = '新規区分作成'
   = link_to new_document_path ,class: :menu__list do
-    = icon 'fas', 'file-import'
+    = icon 'fas', 'file-upload'
     = '新規サイト登録'
 

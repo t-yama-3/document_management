@@ -1,0 +1,28 @@
+.mailBtn {
+  font-size: 15px;
+  display: flex;
+  justify-content: space-around;
+  &__link {
+    display: inline-block;
+    padding: 4px 15px;
+    margin: 10px 0 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: $menu_color;
+    background-color: #6953a7;
+    box-shadow: 1px 1px 2px #222222;
+    &:hover {
+      color: #dddddd;
+      opacity: 0.9;
+    }
+    &--select {
+      background-color: $main_color;
+      box-shadow: 1px 1px 2px #222222 inset;
+      &:hover {
+        color: #ffffff;
+        opacity: 1.0;
+      }
+    }
+  }
+}

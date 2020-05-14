@@ -4,6 +4,9 @@
     justify-content: space-around;
     padding: 10px;
     font-size: 13px;
+    &__contents {
+      display: none;
+    }
   }
 }
 
@@ -12,7 +15,10 @@
     // display: flex;
     // justify-content: space-around;
     // padding: 10px;
-    font-size: 16px;
+    font-size: 15px;
+    &__contents {
+      display: none;
+    }
   }
 }
 
@@ -26,7 +32,10 @@
     // display: flex;
     // justify-content: space-around;
     // padding: 10px;
-    font-size: 16px;
+    font-size: 15px;
+    &__contents {
+      display: none;
+    }
   }
 }
 
@@ -40,15 +49,17 @@
     display: block;
     min-width: 180px;
     padding: 20px;
-    line-height: 40px;
-    font-size: 16px;
+    line-height: 32px;
+    font-size: 15px;
+    &__contents {
+      display: inline-block;
+    }
   }
 }
 
 .menu {
   width: 100%;
   color: #ffffff;
-  // font-size: 16px;
   background-color: $menu_color;
   overflow: scroll;
   &__list {
@@ -57,10 +68,22 @@
     color: #ffffff;
     &:hover {
       color: #dddddd;
-      // opacity: 0.7;
     }
     & i {
-      font-size: 16px;
+      font-size: 15px;
+      width: 20px;
+    }
+  }
+  &__content {
+    display: block;
+    font-size: 14px;
+    padding-left: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    &:hover {
+      color: #dddddd;
+    }
+    & i {
       width: 20px;
     }
   }
@@ -76,7 +99,7 @@
   &__heading {
     padding: 5px 0;
     display: inline-block;
-    font-size: 16px;
+    font-size: 15px;
     text-decoration: none;
     color: $side_text;
     &:hover {

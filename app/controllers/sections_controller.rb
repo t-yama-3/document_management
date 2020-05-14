@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  before_action :move_to_user_registration, except: [:show]
+  before_action :move_to_user_registration
   before_action :set_owner_sections, except: [:owner, :destroy]
   before_action :set_participation_sections, except: [:index, :destroy]
   

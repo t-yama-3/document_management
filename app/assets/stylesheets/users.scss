@@ -56,6 +56,7 @@
     justify-content: space-between;
   }
   &__link {
+    text-decoration: none;
     &--btn {
       display: inline-block;
       padding: 2px 8px;
@@ -123,7 +124,7 @@
       background-color: #008080;
     }
     &--consent {
-      background-color: #3300ff;
+      background-color: $text_blue;
     }
     &--refusal {
       background-color: #e8383d;
@@ -136,7 +137,7 @@
       }
     }
     &--pending {
-      background-color: #3300ff;
+      background-color: $text_blue;
     }
   }
   &__lists {
@@ -144,7 +145,7 @@
     padding: 5px;
     &--link {
       text-decoration: none;
-      color: #3300ff;
+      color: $text_blue;
     }
     &--request {
       font-weight: bold;
@@ -160,6 +161,7 @@
   font-size: 14px;
   width: 100%;
   table-layout: fixed;
+  font-family: 'Hiragino Kaku Gothic Pro';
   & th, td {
     display: inline-block;
     padding: 4px 6px;
@@ -171,16 +173,29 @@
       display: none;
     }
   }
+  &__unread {
+    color: #e8383d;
+  }
+  &__bold {
+    font-family: 'HiraKakuPro-W6';
+  }
   &__send {
+    font-size: 12px;
+    padding: 2px;
     color: #ffffff;
-    background-color: #3300ff;
+    background-color: #4b3c81;
   }
   &__receive {
+    font-size: 12px;
+    padding: 2px;
     color: #ffffff;
-    background-color: #ff3300;
+    background-color: #e8383d;
   }
   &__user {
     width: 30%;
+    & a {
+      color: $text_blue;
+    }
   }
   &__title {
     width: 40%;
@@ -188,9 +203,10 @@
   &__time {
     width: 30%;
     text-align: right;
+    color: #666666;
   }
   &__link {
-    color: #3300ff;
+    color: $text_blue;
     text-decoration: none;
     &:hover {
       opacity: 0.7;
