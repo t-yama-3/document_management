@@ -1,13 +1,27 @@
 .documentTable
   %table
+    %tr
+      %th.documentTable__header
+        = icon 'fas', 'file-alt'
+        = "WEBサイト名"
+      %td.documentTable__header
+        = icon 'fas', 'folder-open'
+        = "区分名"
+      %td.documentTable__header
+        = icon 'fas', 'user'
+        = "登録者"
     - documents.each do |document|
       %tr
         %th
           = link_to document_path(document.id), class: :'documentTable__link' do
-            = icon 'fas', 'file-alt'
             - if document.section.disclosure_before_type_cast == 1
               = icon 'fas', 'lock-open', {class: :documentTable__open}
             - else
               = icon 'fas', 'lock'
             = document.title
-        %td= document.note
+        %td
+          = link_to section_path(document.section.id), class: :documentTable__link do
+            = document.section.section_name
+        %td
+          = link_to profile_path(document.user.id), class: :documentTable__link do
+            = document.user.nickname

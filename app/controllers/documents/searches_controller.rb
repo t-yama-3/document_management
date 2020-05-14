@@ -17,25 +17,51 @@ class Documents::SearchesController < ApplicationController
   # end
 
   # 検索対象は[公開区分 + 参加区分 + 作成区分 + 作成文書]となる(left joinで結合すればdistinctは不要かもしれない)
+  # def index
+  #   @keyword = params[:keyword]
+  #   search = "%#{@keyword}%"
+  #   if user_signed_in?
+  #     sql = "select distinct documents.* from documents
+  #       inner join sections on documents.section_id = sections.id
+  #       inner join user_sections on sections.id = user_sections.section_id
+  #       inner join users on user_sections.user_id = users.id
+  #       where (sections.disclosure = 1
+  #         or sections.id in(select user_sections.section_id from user_sections where user_sections.user_id = #{current_user.id})
+  #         or sections.user_id = #{current_user.id}
+  #         or documents.user_id = #{current_user.id})
+  #       and (documents.title like '#{search}' or documents.note like '#{search}')
+  #       order by documents.created_at desc"
+  #     @user_documents = Document.find_by_sql(sql)
+  #   else
+  #     @user_documents = Document
+  #       .find_by_sql(["select documents.* from documents inner join sections on documents.section_id = sections.id where sections.disclosure = 1 and (title like ? or note like ?) order by documents.created_at desc", search, search])
+  #   end
+  # end
+
   def index
     @keyword = params[:keyword]
-    search = "%#{@keyword}%"
     if user_signed_in?
-      sql = "select distinct documents.* from documents
-        inner join sections on documents.section_id = sections.id
-        inner join user_sections on sections.id = user_sections.section_id
-        inner join users on user_sections.user_id = users.id
-        where (sections.disclosure = 1
-          or sections.id in(select user_sections.section_id from user_sections where user_sections.user_id = #{current_user.id})
-          or sections.user_id = #{current_user.id}
-          or documents.user_id = #{current_user.id})
-        and (documents.title like '#{search}' or documents.note like '#{search}')
-        order by documents.created_at desc"
-      @user_documents = Document.find_by_sql(sql)
+      user_id = current_user.id
     else
-      @user_documents = Document
-        .find_by_sql(["select documents.* from documents inner join sections on documents.section_id = sections.id where sections.disclosure = 1 and (title like ? or note like ?) order by documents.created_at desc", search, search])
+      user_id = 0
     end
+    @user_documents = Document.search(@keyword, user_id)
+    # if user_signed_in?
+    #   sql = "select distinct documents.* from documents
+    #     inner join sections on documents.section_id = sections.id
+    #     inner join user_sections on sections.id = user_sections.section_id
+    #     inner join users on user_sections.user_id = users.id
+    #     where (sections.disclosure = 1
+    #       or sections.id in(select user_sections.section_id from user_sections where user_sections.user_id = #{current_user.id})
+    #       or sections.user_id = #{current_user.id}
+    #       or documents.user_id = #{current_user.id})
+    #     and (documents.title like '#{search}' or documents.note like '#{search}')
+    #     order by documents.created_at desc"
+    #   @user_documents = Document.find_by_sql(sql)
+    # else
+    #   @user_documents = Document
+    #     .find_by_sql(["select documents.* from documents inner join sections on documents.section_id = sections.id where sections.disclosure = 1 and (title like ? or note like ?) order by documents.created_at desc", search, search])
+    # end
   end
 
   private

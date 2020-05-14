@@ -40,7 +40,7 @@
             - elsif (status = friend_status(@user, current_user)) >= 0
               - if status == 0
                 .userContent__friend-notice
-                  = icon 'fas', 'exclamation'
+                  = icon 'fas', 'exclamation-circle'
                   = "#{@user.nickname}さんからフレンド申請があります。"
                 .userContent__friend-wrap
                   = button_to friend_path(get_friend_id(@user, current_user)), method: :put, class: :'userContent__friend userContent__friend--consent', id: :user_confirm do
@@ -55,7 +55,7 @@
                     = icon "fas", "envelope"
                     = "ダイレクトメッセージを送る"
             - else
-              = button_to friends_path, params: {id: @user.id}, class: :'userContent__friend userContent__friend--request', id: :user_confirm do
+              = button_to friends_path, params: {id: @user.id}, class: :'userContent__friend userContent__friend--request', id: :user_confirm_send do
                 = "#{@user.nickname}さんにフレンド申請を送る"
         .userContent__edit
       .userContent

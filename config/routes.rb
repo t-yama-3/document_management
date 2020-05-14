@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   end
   
   resources :documents, except: [:index] do
+    collection do
+      get 'owner'
+      get 'participation'
+      get 'public'
+    end
     member do
       get 'alt_edit'
       post 'alt_update'
@@ -29,6 +34,6 @@ Rails.application.routes.draw do
     member do
       put 'refusal_update'
     end
-    resources :messages, only: [:new, :create, :edit, :update, :show]
+    resources :messages, only: [:index, :new, :create, :edit, :update, :show]
   end
 end

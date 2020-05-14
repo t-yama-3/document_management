@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
-  before_action :move_to_user_registration, except: [:index, :show]
+  before_action :move_to_public_documents, only: [:owner, :participation]
+  before_action :move_to_user_registration, except: [:index, :show, :public, :owner, :participation]
   before_action :set_owner_sections, :set_participation_sections, except: [:destroy]
   
   def index
@@ -80,6 +81,30 @@ class DocumentsController < ApplicationController
     end
   end
 
+  # def owner
+  #   @documents = Document.where(user_id: current_user.id).order('created_at DESC')
+  # end
+
+  def owner
+    @add_class1 = " mainBtn__link--select"
+    @documents = Document.where(user_id: current_user.id).order('created_at DESC')
+    render :select_index
+  end
+
+  def participation
+    @add_class2 = " mainBtn__link--select"
+    @documents = Document.participate(current_user.id)
+    render :select_index
+  end
+  
+  def public
+    @add_class3 = " mainBtn__link--select"
+    @documents = Document.public
+    render :select_index
+  end
+
+
+
   # 代替文書の編集権（作成者のみ）
   def alt_edit
     @document = Document.find(params[:id])
@@ -117,6 +142,10 @@ class DocumentsController < ApplicationController
 
   def move_to_user_registration
     redirect_to new_user_registration_path unless user_signed_in?
+  end
+
+  def move_to_public_documents
+    redirect_to public_documents_path unless user_signed_in?
   end
 
   def set_owner_sections

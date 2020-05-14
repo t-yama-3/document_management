@@ -17,6 +17,8 @@ $(document).on('turbolinks:load', ()=> {
       if (data.id == $("#message_id").val()) {
         $('#message_unread').removeClass();
         $('#message_unread').addClass('far fa-envelope-open');
+        $('#message_unread').css('color', '#212529')
+        $('#message_unread_text').text('既読');
       }
     })
     .fail(function() {
