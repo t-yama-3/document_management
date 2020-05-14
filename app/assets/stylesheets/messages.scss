@@ -1,0 +1,85 @@
+@media screen and (min-width: 380px) {
+  .message {
+    max-width: 700px;
+  }
+}
+
+@media screen and (min-width: 1020px) and (max-width: 1200px) {
+  .message {
+    min-width: 1020px;
+    .messageWrap {
+      display: flex;
+      .messageContent {
+        min-width: 700px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .message {
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    .messageWrap {
+      display: flex;
+      .messageContent {
+        min-width: 700px;
+      }  
+    }
+  }
+}
+
+.message {
+  margin: 0 auto;
+}
+
+.messageContent {
+  min-height: calc(100vh - 76px);
+  padding: 20px;
+  font-size: 14px;
+  background-color: $bg_color;
+  &__box {
+    background-color: #c1e4e9;
+    padding: 20px;
+  }
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__user {
+    padding: 0 0 10px;
+  }
+  &__send {
+  }
+  &__receive {
+  }
+  &__icon {
+    padding-left: 10px;
+  }
+  &__time {
+
+  }
+  &__title-header {
+    font-size: 14px;
+    padding: 2px 6px;
+    background-color: $menu_color;
+    color: #ffffff;
+  }
+  &__title {
+    padding: 10px;
+    background-color: #ffffff;
+  }
+  &__text-header {
+    // margin-top: 10px;
+    font-size: 14px;
+    padding: 2px 6px;
+    background-color: $menu_color;
+    color: #ffffff;
+  }
+  &__text {
+    padding: 10px;
+    background-color: #ffffff;
+  }
+}
+

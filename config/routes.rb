@@ -29,5 +29,6 @@ Rails.application.routes.draw do
     member do
       put 'refusal_update'
     end
+    resources :messages, only: [:new, :create, :edit, :update, :show]
   end
 end

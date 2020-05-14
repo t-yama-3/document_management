@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :participate_sections, through: :user_sections, source: :section
   has_one :profile, dependent: :destroy
   has_many :friends
+  has_many :messages
 end

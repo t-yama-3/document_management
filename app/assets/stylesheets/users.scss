@@ -46,6 +46,11 @@
   &__info {
     background-color: $user_color;
   }
+  &__no-info {
+    padding: 0 10px;
+    font-size: 15px;
+    color: #434da2;
+  }
   &__wrap {
     display: flex;
     justify-content: space-between;
@@ -66,8 +71,11 @@
     }
   }
   &__title {
-    font-size: 18px;
+    font-size: 17px;
     margin-bottom: 5px;
+    &--next {
+      margin-top: 15px;
+    }
   }
   &__table {
     width: 100%;
@@ -123,6 +131,9 @@
     }
     &--message {
       background-color: #434da2;
+      &:hover {
+        color: #dddddd;
+      }
     }
     &--pending {
       background-color: #3300ff;
@@ -141,6 +152,48 @@
     }
     &--mark {
       color: #ff3300;
+    }
+  }
+}
+
+.userMail {
+  font-size: 14px;
+  width: 100%;
+  table-layout: fixed;
+  & th, td {
+    display: inline-block;
+    padding: 4px 6px;
+    border-bottom: 1px solid #999999;
+    overflow: scroll;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &__send {
+    color: #ffffff;
+    background-color: #3300ff;
+  }
+  &__receive {
+    color: #ffffff;
+    background-color: #ff3300;
+  }
+  &__user {
+    width: 30%;
+  }
+  &__title {
+    width: 40%;
+  }
+  &__time {
+    width: 30%;
+    text-align: right;
+  }
+  &__link {
+    color: #3300ff;
+    text-decoration: none;
+    &:hover {
+      opacity: 0.7;
     }
   }
 }

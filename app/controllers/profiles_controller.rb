@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  # before_action :move_to_user_registration
+  before_action :move_to_user_registration, except: [:show]
   before_action :set_owner_sections, :set_participation_sections, only: [:new, :edit, :show]
 
   def new

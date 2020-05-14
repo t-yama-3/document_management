@@ -33,13 +33,14 @@
                   = icon "fas", "paperclip"
                   = "フレンド承認待ち"
               - elsif status == 1
-                .userContent__friend.userContent__friend--message
-                  = icon "fas", "envelope"
-                  = "ダイレクトメッセージを送る"
+                - if (friend_id = get_friend_id(@user, current_user)) > 0
+                  = link_to new_friend_message_path(friend_id), class: :'userContent__friend userContent__friend--message', id: :send_message do
+                    = icon "fas", "envelope"
+                    = "ダイレクトメッセージを送る"
             - elsif (status = friend_status(@user, current_user)) >= 0
               - if status == 0
                 .userContent__friend-notice
-                  = icon "fas", "exclamation"
+                  = icon 'fas', 'exclamation'
                   = "#{@user.nickname}さんからフレンド申請があります。"
                 .userContent__friend-wrap
                   = button_to friend_path(get_friend_id(@user, current_user)), method: :put, class: :'userContent__friend userContent__friend--consent', id: :user_confirm do
@@ -49,9 +50,10 @@
                     = icon "fas", "times-circle"
                     = "フレンド申請を拒否する"
               - elsif status == 1
-                .userContent__friend.userContent__friend--message
-                  = icon "fas", "envelope"
-                  = "ダイレクトメッセージを送る"
+                - if (friend_id = get_friend_id(@user, current_user)) > 0
+                  = link_to new_friend_message_path(friend_id), class: :'userContent__friend userContent__friend--message', id: :send_message do
+                    = icon "fas", "envelope"
+                    = "ダイレクトメッセージを送る"
             - else
               = button_to friends_path, params: {id: @user.id}, class: :'userContent__friend userContent__friend--request', id: :user_confirm do
                 = "#{@user.nickname}さんにフレンド申請を送る"

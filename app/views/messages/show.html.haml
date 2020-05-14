@@ -1,0 +1,30 @@
+.message
+  = render partial: 'shared/menu'
+  .messageWrap
+    .messageContent#message_view
+      .messageContent__box
+        .messageContent__heading
+          .messageContent__user
+            - if @message.read == 0
+              = icon "fas", "envelope", {id: :message_unread}
+            - else
+              = icon "far", "envelope-open"
+            - if @message.user_id == current_user.id
+              %span.messageContent__send= '送信'
+              = icon 'fas', 'user', {class: :messageContent__icon}
+              = @message.receiver.nickname
+            - else
+              %span.messageContent__receive= '受信'
+              = icon 'fas', 'user', {class: :messageContent__icon}
+              = @message.user.nickname
+          .messageContent__time= l @message.created_at, format: :short
+        .messageContent__title-header= 'タイトル'
+        .messageContent__title= @message.title
+        .messageContent__text-header= '本文'
+        .messageContent__text
+          = safe_join(@message.text.split("\n"),tag(:br))
+        = hidden_field_tag :message_id, @message.id
+    = render partial: 'shared/side'
+
+
+

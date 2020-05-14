@@ -11,13 +11,12 @@
           .mainContent__explain--text ・ブラウザのブックマーク機能では物足りない方のためのツール。
           .mainContent__explain--text ・ブックマークに説明を入れて分類ごとに分けて簡単に登録。
           .mainContent__explain--text ・コメントを入れて他のユーザーとも情報を共有できる。
-      .userContent
-        .userContent__title お知らせ
-        - Friend.where(friend_user_id: current_user.id, status: 0).each do |friend|
-          .userContent__lists
-            = link_to profile_path(friend.user_id), class: :'userContent__lists--link userContent__lists--request' do
-              = icon 'fas', 'smile', {class: :'userContent__lists--mark'}
-              = "#{friend.user.nickname}さんからフレンド申請があります"
+      - if user_signed_in?
+        .userContent
+          .userContent__title お知らせ
+          = render partial: 'shared/information'
+          .userContent__title.userContent__title--next 新着メール
+          = render partial: 'shared/messages_list', locals: {messages: @messages}
       - @user_sections.each do |section|
         .mainContentSection
           .mainContentSection__wrap

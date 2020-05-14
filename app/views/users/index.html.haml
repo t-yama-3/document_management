@@ -4,18 +4,17 @@
     .userInfo
       .userContent.userContent__info
         .userContent__title お知らせ
-        - Friend.where(friend_user_id: current_user.id, status: 0).each do |friend|
-          .userContent__lists
-            = link_to profile_path(friend.user_id), class: :'userContent__lists--link userContent__lists--request' do
-              = icon 'fas', 'exclamation', {class: :'userContent__lists--mark'}
-              = "#{friend.user.nickname}さんからフレンド申請があります"
+        = render partial: 'shared/information'
+      .userContent.userContent__mail
+        .userContent__title 新着メール
+        = render partial: 'shared/messages_list', locals: {messages: @messages}
       .userContent.userContent__user
         .userContent__wrap
           .userContent__title ユーザー情報
           = link_to profile_path(current_user.id), class: :userContent__link do
             %span.userContent__link--btn.userContent__link--main
               = icon 'far', 'id-card'
-              = '公開用プロフィール画面確認・編集'
+              = 'プロフィール画面確認・編集'
         %table.userContent__table
           %tr
             %th

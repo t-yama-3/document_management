@@ -55,12 +55,16 @@ ActiveRecord::Schema.define(version: 2020_05_11_140901) do
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
     t.text "text", null: false
     t.bigint "friend_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "receiver_id", null: false
+    t.integer "read", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["friend_id"], name: "index_messages_on_friend_id"
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -118,6 +122,7 @@ ActiveRecord::Schema.define(version: 2020_05_11_140901) do
   add_foreign_key "markings", "users"
   add_foreign_key "messages", "friends"
   add_foreign_key "messages", "users"
+  add_foreign_key "messages", "users", column: "receiver_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "sections", "users"
   add_foreign_key "user_sections", "sections"

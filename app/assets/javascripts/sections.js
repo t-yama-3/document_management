@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', ()=> {
-  if ($('#document_form') == null) { return; }
+  if ($('#document_form').length == 0) { return; }
   // 区分の選択を行った場合の処理
   $('#document_section_id').on('change', function(e) {
     let selectNum = $(this).val();
