@@ -28,7 +28,12 @@ Rails.application.routes.draw do
       get 'new_document'
     end
   end
-  resources :users, only: [:index]
+  resources :users, only: [:index] do
+    collection do
+      get 'send_mail'
+      get 'received_mail'
+    end
+  end
   resources :profiles, only: [:new, :create, :edit, :update, :show]
   resources :friends, only: [:create, :update] do
     member do

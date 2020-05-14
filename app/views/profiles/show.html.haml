@@ -63,6 +63,5 @@
         = render partial: 'shared/sections', locals: {sections: @user.sections.where(disclosure: 1)}
       .userContent
         .userContent__title= "#{@user.nickname}さんの登録サイト一覧（公開区分のみ）"
-        - @user.participate_sections.where(disclosure: 1).each do |section|
-          = render partial: 'shared/documents', locals: {documents: section.documents}
+        = render partial: 'shared/documents', locals: {documents: Document.user_public(@user.id)}
     = render partial: 'shared/side'

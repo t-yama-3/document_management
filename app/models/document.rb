@@ -43,6 +43,16 @@ class Document < ApplicationRecord
     return Document.find_by_sql(sql)
   end
 
+  def self.user_public(user_id)
+    sql = "select distinct documents.* from documents
+      inner join sections on documents.section_id = sections.id
+      inner join user_sections on sections.id = user_sections.section_id
+      inner join users on user_sections.user_id = users.id
+      where (sections.disclosure = 1 and documents.user_id = #{user_id})
+      order by documents.created_at desc"
+    return Document.find_by_sql(sql)
+  end
+
   def self.public
     sql = "select documents.* from documents
       inner join sections on documents.section_id = sections.id

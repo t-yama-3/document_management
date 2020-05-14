@@ -4,11 +4,14 @@
       = link_to users_path(current_user.id), class: :sideSection__heading do
         = icon 'fas', 'address-card'
         = 'マイページ'
-  -# .sideSection
-  -#   - if user_signed_in?
-  -#     = link_to profile_path(current_user.id), class: :sideSection__heading do
-  -#       = icon 'far', 'id-card'
-  -#       = 'マイプロフィール'
+      .sideSection__title
+        = link_to received_mail_users_path, class: :sideSection__link do
+          = icon 'fas', 'inbox'
+          = '受信メール'
+      .sideSection__title
+        = link_to send_mail_users_path, class: :sideSection__link do
+          = icon 'far', 'paper-plane'
+          = '送信メール'
   .sideSection
     = link_to owner_sections_path, class: :sideSection__heading do
       = icon 'fas', 'folder-open'
