@@ -1,6 +1,7 @@
 class SectionsController < ApplicationController
   before_action :move_to_user_registration, except: [:show]
-  before_action :set_owner_sections, except: [:destroy]
+  before_action :set_owner_sections, except: [:owner, :destroy]
+  before_action :set_participation_sections, except: [:index, :destroy]
   
   # 参加サイト一覧の表示
   def index
@@ -9,6 +10,7 @@ class SectionsController < ApplicationController
 
   # 管理サイト一覧の表示
   def owner
+    @owner_sections = current_user.sections.order("created_at DESC")
   end
 
   def new
@@ -43,6 +45,8 @@ class SectionsController < ApplicationController
 
   # 閲覧権（グループ参加者、グループ作成者、公開設定の場合は全員可）
   def show
+    @participation_sections = current_user.participate_sections.order("created_at DESC")
+    @owner_sections = current_user.sections.order("created_at DESC")
     @section = Section.find(params[:id])
     unless @section.disclosure_before_type_cast == 1 || @section.participate_users.where(id: current_user.id).present? || @section.user_id == current_user.id
       return redirect_to root_path
@@ -82,6 +86,12 @@ class SectionsController < ApplicationController
 
   def set_owner_sections
     return @owner_sections = [] unless user_signed_in?
-    @owner_sections = current_user.sections
+    @owner_sections = current_user.sections.order("created_at DESC").limit(0)
   end
+  
+  def set_participation_sections
+    return @participation_sections = [] unless user_signed_in?
+    @participation_sections = current_user.participate_sections.order("created_at DESC").limit(0)
+  end
+
 end

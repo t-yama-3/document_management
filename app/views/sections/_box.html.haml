@@ -5,8 +5,9 @@
         = icon 'fas', 'folder'
         = section.section_name
       %span.mainContentSection__owner
-        = "管理者: #{section.user.nickname}"
-        = icon 'fas', 'user-cog'
+        = link_to profile_path(section.user_id), class: :'mainContentSection__owner--link' do
+          = icon 'fas', 'user-cog'
+          = "管理者: #{section.user.nickname}"
       - if section.disclosure_before_type_cast ==  1
         %span.mainContentSection__disclosure
           = icon 'fas', 'lock-open'

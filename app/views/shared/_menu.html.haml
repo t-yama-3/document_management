@@ -1,10 +1,14 @@
 .menu
+  - if user_signed_in?
+    = link_to users_path(current_user.id), class: :menu__list do
+      = icon 'fas', 'address-card'
+      = 'マイページ'
   -# .menu__list
   -#   = icon 'fas', 'search'
   -#   詳細検索
-  = link_to sections_path ,class: :menu__list do
-    = icon 'fas', 'folder-open'
-    = '参加区分一覧'
+  -# = link_to sections_path ,class: :menu__list do
+  -#   = icon 'fas', 'folder-open'
+  -#   = '参加区分一覧'
   = link_to new_section_path ,class: :menu__list do
     = icon 'fas', 'folder-plus'
     = '新規区分作成'

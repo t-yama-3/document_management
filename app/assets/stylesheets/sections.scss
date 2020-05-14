@@ -73,7 +73,7 @@
     }
     &--users {
       width: 50%;
-      & span {
+      & a {
         padding-right: 8px;
       }
     }
@@ -124,6 +124,10 @@
       font-size: 14px;
       font-weight: bold;
     }
+    &--link {
+      text-decoration: none;
+      color: #222222;
+    }
     & table {
       width: 100%;
       table-layout: fixed;
@@ -147,7 +151,7 @@
     padding: 3px;
     font-size: 12px;
     color: #ffffff;
-    background-color: #dc143c;
+    background-color: $open_color;
     &--lock {
       background-color: $main_color;
     }

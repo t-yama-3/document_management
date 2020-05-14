@@ -56,7 +56,10 @@
               = safe_join(@document.note.split("\n"),tag(:br))
         %tr
           %th.detailsTable__th 登録者
-          %td.detailsTable__td= @document.user.nickname
+          %td.detailsTable__td
+            = link_to profile_path(@document.user_id), class: :detailsTable__link do
+              = icon 'fas', 'user'
+              = @document.user.nickname
         %tr
           %th.detailsTable__th 作成日時
           %td.detailsTable__td
@@ -78,7 +81,8 @@
               .detail-comment__left
                 = image_tag 'member_photo_noimage_thumb.png', alt: 'document_photo', class: :'detail-comment__icon'
               .detail-comment__right
-                .detail-comment__nickname= comment.user.nickname
+                .detail-comment__nickname
+                  = link_to comment.user.nickname, profile_path(comment.user.id), class: :'detail-comment__link'
                 .detail-comment__body
                   = comment.body
                   .detail-comment__body--time= elapsed_time(comment.created_at)

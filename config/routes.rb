@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'documents#index'
+
   namespace :documents do
     resources :searches, only: :index
   end
@@ -23,4 +24,11 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:index]
+  resources :profiles, only: [:new, :create, :edit, :update, :show]
+  resources :friends, only: [:create, :update] do
+    member do
+      put 'refusal_update'
+    end
+    resources :messages, only: [:new, :create, :edit, :update, :show]
+  end
 end

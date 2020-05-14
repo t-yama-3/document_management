@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_10_085627) do
+ActiveRecord::Schema.define(version: 2020_05_11_140901) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "body"
@@ -33,6 +33,49 @@ ActiveRecord::Schema.define(version: 2020_05_10_085627) do
     t.text "alt"
     t.index ["section_id"], name: "index_documents_on_section_id"
     t.index ["user_id"], name: "index_documents_on_user_id"
+  end
+
+  create_table "friends", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "friend_user_id", null: false
+    t.integer "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_user_id"], name: "index_friends_on_friend_user_id"
+    t.index ["user_id"], name: "index_friends_on_user_id"
+  end
+
+  create_table "markings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "document_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["document_id"], name: "index_markings_on_document_id"
+    t.index ["user_id"], name: "index_markings_on_user_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.text "text", null: false
+    t.bigint "friend_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "receiver_id", null: false
+    t.integer "read", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_messages_on_friend_id"
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "introduction"
+    t.integer "prefecture"
+    t.integer "private"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "sections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -73,6 +116,14 @@ ActiveRecord::Schema.define(version: 2020_05_10_085627) do
   add_foreign_key "comments", "users"
   add_foreign_key "documents", "sections"
   add_foreign_key "documents", "users"
+  add_foreign_key "friends", "users"
+  add_foreign_key "friends", "users", column: "friend_user_id"
+  add_foreign_key "markings", "documents"
+  add_foreign_key "markings", "users"
+  add_foreign_key "messages", "friends"
+  add_foreign_key "messages", "users"
+  add_foreign_key "messages", "users", column: "receiver_id"
+  add_foreign_key "profiles", "users"
   add_foreign_key "sections", "users"
   add_foreign_key "user_sections", "sections"
   add_foreign_key "user_sections", "users"

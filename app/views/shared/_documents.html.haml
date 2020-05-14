@@ -5,5 +5,9 @@
         %th
           = link_to document_path(document.id), class: :'documentTable__link' do
             = icon 'fas', 'file-alt'
+            - if document.section.disclosure_before_type_cast == 1
+              = icon 'fas', 'lock-open', {class: :documentTable__open}
+            - else
+              = icon 'fas', 'lock'
             = document.title
         %td= document.note

@@ -90,13 +90,20 @@
     color: #ffffff;
     padding: 2px;
     background-color: $menu_color;
+    &--link {
+      text-decoration: none;
+      color: #ffffff;
+      &:hover {
+        color: #dddddd;
+      }
+    }
   }
   &__disclosure {
     margin-left: 8px;
     padding: 3px 5px;
     font-size: 12px;
     color: #ffffff;
-    background-color: #dc143c;
+    background-color: $open_color;
     &--lock {
       background-color: $main_color;
     }

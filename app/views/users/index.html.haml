@@ -2,8 +2,19 @@
   = render partial: 'shared/menu'
   .userWrap
     .userInfo
+      .userContent.userContent__info
+        .userContent__title お知らせ
+        = render partial: 'shared/information'
+      .userContent.userContent__mail
+        .userContent__title 新着メール
+        = render partial: 'shared/messages_list', locals: {messages: @messages}
       .userContent.userContent__user
-        .userContent__title ユーザー情報
+        .userContent__wrap
+          .userContent__title ユーザー情報
+          = link_to profile_path(current_user.id), class: :userContent__link do
+            %span.userContent__link--btn.userContent__link--main
+              = icon 'far', 'id-card'
+              = 'プロフィール画面確認・編集'
         %table.userContent__table
           %tr
             %th
@@ -16,12 +27,16 @@
               = 'メールアドレス'
             %td= current_user.email
       .userContent
+        .userContent__title フレンド一覧
+        - Friend.list(current_user.id, 1).each do |list|
+          .userContent__lists
+            = link_to profile_path(list.friend_id), class: :'userContent__lists--link' do
+              = icon 'fas', 'user'
+              = User.find(list.friend_id).nickname
+      .userContent
         .userContent__title 管理区分一覧
         = render partial: 'shared/sections', locals: {sections: current_user.sections}
       .userContent
         .userContent__title 登録文書一覧
         = render partial: 'shared/documents', locals: {documents: current_user.documents}
     = render partial: 'shared/side'
-
-
-

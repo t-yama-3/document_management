@@ -43,12 +43,39 @@
   padding: 20px;
   margin-bottom: 20px;
   background-color: #ffffff;
-  &__user {
+  &__info {
     background-color: $user_color;
   }
+  &__no-info {
+    padding: 0 10px;
+    font-size: 15px;
+    color: #434da2;
+  }
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__link {
+    &--btn {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 14px;
+      color: #ffffff;
+      background-color: #008080;
+      &:hover {
+        color: #dddddd;
+      }
+    }
+    &--main {
+      background-color: $main_color;
+    }
+  }
   &__title {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 17px;
+    margin-bottom: 5px;
+    &--next {
+      margin-top: 15px;
+    }
   }
   &__table {
     width: 100%;
@@ -63,6 +90,110 @@
         width: 70%;
         padding: 10px;
       }
+    }
+  }
+  &__profile {
+    font-size: 14px;
+    padding: 5px;
+    &--link {
+      padding: 5px;
+      text-decoration: none;
+      background-color: $main_color;
+      color: #ffffff;
+      &:hover {
+        color: #dddddd;
+      }
+    }
+  }
+  &__friend-notice {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e8383d;
+    margin-bottom: 10px;
+  }
+  &__friend-wrap {
+    display: flex;
+  }
+  &__friend {
+    display: inline-block;
+    padding: 2px 5px;
+    font-size: 14px;
+    color: #ffffff;
+    &--request {
+      background-color: #008080;
+    }
+    &--consent {
+      background-color: #3300ff;
+    }
+    &--refusal {
+      background-color: #e8383d;
+      margin-left: 10px;
+    }
+    &--message {
+      background-color: #434da2;
+      &:hover {
+        color: #dddddd;
+      }
+    }
+    &--pending {
+      background-color: #3300ff;
+    }
+  }
+  &__lists {
+    font-size: 14px;
+    padding: 5px;
+    &--link {
+      text-decoration: none;
+      color: #3300ff;
+    }
+    &--request {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    &--mark {
+      color: #ff3300;
+    }
+  }
+}
+
+.userMail {
+  font-size: 14px;
+  width: 100%;
+  table-layout: fixed;
+  & th, td {
+    display: inline-block;
+    padding: 4px 6px;
+    border-bottom: 1px solid #999999;
+    overflow: scroll;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &__send {
+    color: #ffffff;
+    background-color: #3300ff;
+  }
+  &__receive {
+    color: #ffffff;
+    background-color: #ff3300;
+  }
+  &__user {
+    width: 30%;
+  }
+  &__title {
+    width: 40%;
+  }
+  &__time {
+    width: 30%;
+    text-align: right;
+  }
+  &__link {
+    color: #3300ff;
+    text-decoration: none;
+    &:hover {
+      opacity: 0.7;
     }
   }
 }

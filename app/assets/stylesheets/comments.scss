@@ -64,4 +64,8 @@
     border-radius: 8px;
     background-color: $main_color;
   }
+  &__link {
+    text-decoration: none;
+    color: #333333;
+  }
 }

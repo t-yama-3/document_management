@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_action :move_to_user_registration
-  before_action :set_owner_sections, only: [:index, :new, :edit]
+  before_action :set_owner_sections, :set_participation_sections, only: [:index]
 
   def index
+    @messages = Message.where(user_id: current_user.id).or(Message.where(receiver_id: current_user.id)).order("created_at DESC").limit(10)
   end
 
   private
@@ -12,6 +13,11 @@ class UsersController < ApplicationController
   
   def set_owner_sections
     return @owner_sections = [] unless user_signed_in?
-    @owner_sections = current_user.sections
+    @owner_sections = current_user.sections.order("created_at DESC").limit(0)
+  end
+
+  def set_participation_sections
+    return @participation_sections = [] unless user_signed_in?
+    @participation_sections = current_user.participate_sections.order("created_at DESC").limit(0)
   end
 end

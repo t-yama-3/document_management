@@ -1,12 +1,13 @@
 class DocumentsController < ApplicationController
   before_action :move_to_user_registration, except: [:index, :show]
-  before_action :set_owner_sections, except: [:destroy]
+  before_action :set_owner_sections, :set_participation_sections, except: [:destroy]
   
   def index
     # なんか迂遠なことやってる（後日シンプルにする：自分が作成したものはマイページのみ表示でいい！）
     return @user_sections = [] unless user_signed_in?
     sections = current_user.participate_sections + Section.where(user_id: current_user.id)
     @user_sections = (sections.uniq).sort_by!{|ms|ms.created_at}.reverse!
+    @messages = Message.where(user_id: current_user.id).or(Message.where(receiver_id: current_user.id)).order("created_at DESC").limit(10)
   end
 
   def new
@@ -120,6 +121,11 @@ class DocumentsController < ApplicationController
 
   def set_owner_sections
     return @owner_sections = [] unless user_signed_in?
-    @owner_sections = current_user.sections
+    @owner_sections = current_user.sections.order("created_at DESC").limit(0)
+  end
+
+  def set_participation_sections
+    return @participation_sections = [] unless user_signed_in?
+    @participation_sections = current_user.participate_sections.order("created_at DESC").limit(0)
   end
 end

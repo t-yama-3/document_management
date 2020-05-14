@@ -11,7 +11,7 @@
     table-layout: fixed;
     & tr {
       & th {
-        width: 30%;
+        width: 40%;
         padding: 6px 10px;
         font-weight: bold;
         border-bottom: solid 1px $text_color;
@@ -27,7 +27,7 @@
         }
        }
       & td {
-        width: 70%;
+        width: 60%;
         padding: 6px 10px;
         border-bottom: solid 1px $text_color;
         overflow: scroll;
@@ -46,5 +46,8 @@
     & i {
       width: 16px;
     }
+  }
+  &__open {
+    color: $open_color;
   }
 }

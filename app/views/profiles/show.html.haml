@@ -1,0 +1,68 @@
+.user
+  = render partial: 'shared/menu'
+  .userWrap
+    .userInfo
+      .userContent.userContent__user
+        .userContent__wrap
+          .userContent__title
+            = icon 'far', 'id-card'
+            = "#{@user.nickname}さんのプロフィール"
+          = link_to users_path, class: :userContent__link do
+            %span.userContent__link--btn
+              = icon 'fas', 'address-card'
+              = 'マイページへ戻る'
+        - if @user.profile.present?
+          .userContent__profile
+            = safe_join(@user.profile.introduction.split("\n"),tag(:br))
+          .userContent__profile
+            = icon 'fas', 'map-marker-alt'
+            = @user.profile.prefecture
+          - if user_signed_in? && @user.id == current_user.id
+            .userContent__profile
+              = link_to edit_profile_path(@user.profile.id), class: :'userContent__profile--link' do
+                = 'プロフィールを編集する'
+        - elsif user_signed_in? && @user.id == current_user.id
+          .userContent__profile
+            = link_to new_profile_path, class: :'userContent__profile--link' do
+              = 'プロフィールを作成する'
+        - if user_signed_in? && current_user.id != @user.id
+          .userContent__profile
+            - if (status = friend_status(current_user, @user)) >= 0
+              - if status == 0
+                .userContent__friend.userContent__friend--pending
+                  = icon "fas", "paperclip"
+                  = "フレンド承認待ち"
+              - elsif status == 1
+                - if (friend_id = get_friend_id(@user, current_user)) > 0
+                  = link_to new_friend_message_path(friend_id), class: :'userContent__friend userContent__friend--message', id: :send_message do
+                    = icon "fas", "envelope"
+                    = "ダイレクトメッセージを送る"
+            - elsif (status = friend_status(@user, current_user)) >= 0
+              - if status == 0
+                .userContent__friend-notice
+                  = icon 'fas', 'exclamation'
+                  = "#{@user.nickname}さんからフレンド申請があります。"
+                .userContent__friend-wrap
+                  = button_to friend_path(get_friend_id(@user, current_user)), method: :put, class: :'userContent__friend userContent__friend--consent', id: :user_confirm do
+                    = icon "fas", "paper-plane"
+                    = "フレンド申請を受諾する"
+                  = button_to refusal_update_friend_path(get_friend_id(@user, current_user)), method: :put, class: :'userContent__friend userContent__friend--refusal', id: :user_confirm_refusal do
+                    = icon "fas", "times-circle"
+                    = "フレンド申請を拒否する"
+              - elsif status == 1
+                - if (friend_id = get_friend_id(@user, current_user)) > 0
+                  = link_to new_friend_message_path(friend_id), class: :'userContent__friend userContent__friend--message', id: :send_message do
+                    = icon "fas", "envelope"
+                    = "ダイレクトメッセージを送る"
+            - else
+              = button_to friends_path, params: {id: @user.id}, class: :'userContent__friend userContent__friend--request', id: :user_confirm do
+                = "#{@user.nickname}さんにフレンド申請を送る"
+        .userContent__edit
+      .userContent
+        .userContent__title= "#{@user.nickname}さんの管理区分一覧（公開区分のみ）"
+        = render partial: 'shared/sections', locals: {sections: @user.sections.where(disclosure: 1)}
+      .userContent
+        .userContent__title= "#{@user.nickname}さんの登録サイト一覧（公開区分のみ）"
+        - @user.participate_sections.where(disclosure: 1).each do |section|
+          = render partial: 'shared/documents', locals: {documents: section.documents}
+    = render partial: 'shared/side'

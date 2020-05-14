@@ -31,8 +31,9 @@
             %tr
               %th 管理者
               %td
-                = icon 'fas', 'user-cog'
-                = @section.user.nickname
+                = link_to profile_path(@section.user_id), class: :'sectionContent__table--link' do
+                  = icon 'fas', 'user-cog'
+                  = @section.user.nickname
             %tr
               %th 主旨
               %td
@@ -41,8 +42,8 @@
             %tr
               %th メンバー
               %td
-                - @section.participate_users.each_with_index do |user, i|
-                  %span.sectionContent__members
+                - @section.participate_users.each do |user|
+                  = link_to profile_path(user.id), class: :'sectionContent__members sectionContent__table--link' do
                     = icon 'fas', 'user'
                     = user.nickname
             %tr
