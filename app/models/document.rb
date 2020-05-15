@@ -1,5 +1,6 @@
 class Document < ApplicationRecord
   has_many :comments, dependent: :destroy
+  has_many :markings, dependent: :destroy
   belongs_to :section, optional: true
   belongs_to :user
 

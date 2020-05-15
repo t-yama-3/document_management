@@ -131,6 +131,10 @@ class DocumentsController < ApplicationController
     end
   end
 
+  def user_id
+    render json: {user_id: current_user.id}
+  end
+  
   private
   def document_params
     params.require(:document).permit(:title, :src, :note, :section_id).merge(user_id: current_user.id)

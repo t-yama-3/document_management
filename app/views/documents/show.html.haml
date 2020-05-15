@@ -74,6 +74,15 @@
           %th.detailsTable__th 掲載元URL
           %td.detailsTable__td
             = link_to @document.src, @document.src, class: :'detailsTable__link detailsTable__link--url', target: :_blank
+      .detailsMarking
+        - if Marking.exists?(user_id: current_user.id, document_id: @document.id)
+          = link_to document_marking_path(@document), method: :delete, id: "marking_id", class: "detailsMarking__bookmark" do
+            = icon 'fas', 'thumbs-up', {id: 'detail__marking'}
+            %span#detail__marking-text= "good! #{@document.markings.length}"
+        - else
+          = link_to document_markings_path(@document), method: :post, id: "marking_id", class: "detailsMarking__bookmark" do
+            = icon 'far', 'thumbs-up', {id: 'detail__marking'}
+            %span#detail__marking-text= "good! #{@document.markings.length}"       
       = form_with model: [@document, @comment], local: true, class: :"detail-comment" do |f|
         - if @document.comments.length > 0
           - @document.comments.each do |comment|

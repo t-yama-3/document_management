@@ -177,7 +177,7 @@
     }
   }
   .detailsTable {
-    margin: 0 0 20px;
+    margin: 0 0 10px;
     min-width: 100%;
     font-size: 12px;
     &__th {
@@ -218,6 +218,26 @@
       background-color: $open_color;
       &--lock {
         background-color: $main_color;
+      }
+    }
+  }
+  .detailsMarking {
+    width: 100%;
+    text-align: right;
+    &__bookmark {
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      color: #ffffff;
+      background-color: $main_color;
+      border-radius: 20px;
+      font-family: 'arial';
+      & .fas {
+        color: #ffd700;
+      }
+      & .far {
+        color: #ffffff;
       }
     }
   }
