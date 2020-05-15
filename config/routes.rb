@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get 'owner'
       get 'participation'
       get 'public'
+      get 'user_id'
     end
     member do
       get 'alt_edit'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
       get 'alt_delete'
     end
     resources :comments, only: [:create]
+    resources :markings, only: [:create, :destroy]
   end
 
   resources :sections do
