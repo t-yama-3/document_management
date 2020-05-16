@@ -7,8 +7,8 @@
         .detailsContent__header--title
           = icon 'fas', 'file-alt'
           = @document.title
-        .detailsContent__header--btn
-          - if user_signed_in? && @document.user_id == current_user.id
+        - if user_signed_in? && @document.user_id == current_user.id
+          .detailsContent__header--btn
             - if @document.alt.blank?
               = link_to "代替文書登録", alt_edit_document_path(@document.id), class: :'detailsContent__header--alter'
             - else
