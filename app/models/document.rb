@@ -6,7 +6,7 @@ class Document < ApplicationRecord
 
   validates :title, :src, presence: true, length: { maximum: 255 }
   validates :note, length: { maximum: 1000 }
-  validates :section_id, presence: true
+  validates :section_id, :user_id, presence: true
   
   def self.search_origin(search)
     return Document.all unless search
