@@ -1,9 +1,9 @@
 - friends = Friend.where(friend_user_id: current_user.id, status: 0)
 - if friends.length > 0  
   - friends.each do |friend|
-    .userContent__lists
-      = link_to profile_path(friend.user_id), class: :'userContent__lists--link userContent__lists--request' do
-        = icon 'fas', 'exclamation-circle', {class: :'userContent__lists--mark'}
+    .userContent__info
+      = link_to profile_path(friend.user_id), class: :'userContent__info--link' do
+        = icon 'fas', 'exclamation-circle', {class: :'userContent__info--mark'}
         = "#{friend.user.nickname}さんからフレンド申請があります"
 - else
-  .userContent__no-info= '新しいお知らせはありません'
+  .userContent__info--no-list= '新しいお知らせはありません'

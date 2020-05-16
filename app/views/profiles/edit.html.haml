@@ -1,7 +1,7 @@
-.register
+.main
   = render partial: 'shared/menu'
-  .registerWrap
-    .register__content
+  .mainWrap
+    .mainContent
       .register__error
         = render partial: 'shared/error_messages', locals: {model: @profile}
       .register__heading

@@ -1,89 +1,116 @@
-@media screen and (max-width: 700px) {
-  .heading {
-    width: 700px;
-    &Title {
-      &__link {
-        font-size: 18px;
-        &--sub {
-          display: none;
+@media screen and (max-width: 500px) {
+  .header {
+    .heading {
+      &Title {
+        &__link {
+          font-family: 'arial narrow';
         }
       }
     }
-    &Search {
-      padding: 5px 10px 0;
-      background-color: $main_color;
-      &__form {
-        max-width: 360px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .header {
+    padding: 10px 5px;
+    .heading {
+      width: 700px;
+      &Title {
+        &__link {
+          font-size: 16px;
+          &--sub {
+            display: none;
+          }
+        }
       }
-      &__input {
-        height: 24px;
-        max-width: 280px;
+      &Search {
+        padding: 5px 10px 0;
+        background-color: $main_color;
+        &__form {
+          max-width: 360px;
+        }
+        &__input {
+          height: 24px;
+          max-width: 280px;
+        }
       }
     }
   }
 }
 
 @media screen and (min-width: 700px) and (max-width: 1020px) {
-  .heading {
-    width: 700px;
-    display: flex;
-    justify-content: space-between;
-    &Title {
-      &__link {
-        font-size: 18px;
-        &--sub {
-          display: none;
+  .header {
+    padding: 10px;
+    .heading {
+      width: 700px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      &Title {
+        &__link {
+          font-size: 18px;
+          &--sub {
+            display: none;
+          }
         }
       }
-    }
-    &Search {
-      padding: 5px 10px 0;
-      background-color: $main_color;
-      &__form {
-        max-width: 360px;
-      }
-      &__input {
-        height: 24px;
-        max-width: 280px;
+      &Search {
+        padding: 5px 10px 0;
+        background-color: $main_color;
+        &__form {
+          max-width: 360px;
+        }
+        &__input {
+          height: 24px;
+          max-width: 280px;
+        }
       }
     }
   }
 }
 
 @media screen and (min-width: 1020px) and (max-width: 1200px) {
-  .heading {
-    max-width: 1020px;
-    width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    &Search {
-      padding: 5px 10px 0;
-      background-color: $main_color;
-      &__form {
-        width: 360px;
-      }
-      &__input {
-        height: 24px;
-        width: 280px;
+  .header {
+    padding: 10px;
+    .heading {
+      max-width: 1020px;
+      width: 1200px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      &Search {
+        padding: 5px 10px 0;
+        background-color: $main_color;
+        &__form {
+          width: 360px;
+        }
+        &__input {
+          height: 24px;
+          width: 280px;
+        }
       }
     }
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .heading {
-    width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    &Search {
-      padding: 5px 10px 0;
-      background-color: $main_color;
-      &__form {
-        width: 360px;
-      }
-      &__input {
-        height: 24px;
-        width: 280px;
+  .header {
+    padding: 10px;
+    .heading {
+      width: 1200px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      &Search {
+        padding: 5px 10px 0;
+        background-color: $main_color;
+        &__form {
+          width: 360px;
+        }
+        &__input {
+          height: 24px;
+          width: 280px;
+        }
       }
     }
   }
@@ -108,17 +135,15 @@ h4 {
 }
 
 .header {
-  overflow: scroll;
+  overflow: hidden;
   background-color: $main_color;
   min-width: 100%;
-  padding: 10px;
+  // padding: 10px;
 }
 
 .heading {
   margin: 0 auto;
-  padding: 0 20px;
-  // display: flex;
-  // justify-content: space-between;
+  // padding: 0 20px;
   &Wrap {
     display: flex;
   }
@@ -145,7 +170,7 @@ h4 {
     }
   }
   &Search {
-    padding: 8px 10px 0;
+    padding: 6px 10px 0;
     background-color: $main_color;
     &__form {
     }

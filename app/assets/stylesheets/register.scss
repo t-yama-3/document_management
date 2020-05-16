@@ -1,54 +1,54 @@
-@media screen and (min-width: 380px) {
+@media screen and (max-width: 700px) {
   .register {
-    max-width: 700px;
-    .registerWrap {
-      .register__content {
-        max-width: 100%;
+    &__error {
+      padding: 10px;
+      font-size: 13px;
+    }
+    &__heading {
+      font-size: 18px;
+    }
+    &__form {
+      font-size: 13px;
+      padding: 20px 0;
+      &--th {
+        padding: 20px 0px 0px 5px;
+      }
+      &--td {
+        padding: 20px 5px 0px;
       }
     }
+    &__count {
+      padding: 0px 5px 0px;
+    }  
   }
 }
 
-@media screen and (min-width: 1020px) and (max-width: 1200px) {
+@media screen and (min-width: 700px) {
   .register {
-    min-width: 1020px;
-    .registerWrap {
-      display: flex;
-      .register__content {
-        width: 700px;
+    &__error {
+      padding: 20px;
+    }
+    &__heading {
+      font-size: 24px;
+    }
+    &__form {
+      padding: 20px 0;
+      &--th {
+        padding: 20px 0px 0px 20px;
+      }
+      &--td {
+        padding: 20px 20px 0px;
       }
     }
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .register {
-    width: 1200px;
-    display: flex;
-    justify-content: center;
-    .registerWrap {
-      display: flex;
-      .register__content {
-        width: 700px;
-      }  
-    }
+    &__count {
+      padding: 0px 20px 0px;
+    }  
   }
 }
 
 .register {
-  margin: 0 auto;
-  &__error {
-    padding: 20px;
-  }
-  &__content {
-    // min-width: 700px;
-    min-height: calc(100vh - 76px);
-    margin: 0 auto;
-    background-color: $bg_color;
-  }
   &__heading {
-    font-size: 24px;
-    padding: 30px 30px 0px;
+    padding: 0px 30px;
     color: $text_color;
     text-align: center;
     & i {
@@ -58,17 +58,18 @@
   }
   &__form {
     width: 100%;
-    padding: 20px;
+    padding: 10px 0;
     & table {
       width: 100%;
     }
-    & th {
+    &--th {
       width: 15%;
-      padding: 10px 0px 10px 20px;
+      vertical-align: top;
+      font-weight: bold;
+      color: $doc_color;
     }
-    & td {
+    &--td {
       width: 85%;
-      padding: 10px 20px;
     }
   }
   &__text {
@@ -88,13 +89,11 @@
   &__members {
     padding: 10px 15px;
     background-color: #ffffff;
-    // border: 1px solid #999999;
   }
   &__checkbox {
     line-height: 30px;
   }
   &__count {
-    padding: 0;
     text-align: right;
     font-size: 10px;
   }

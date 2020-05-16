@@ -2,7 +2,7 @@
   .menu {
     display: flex;
     justify-content: space-around;
-    padding: 10px;
+    padding: 10px 5px;
     font-size: 13px;
     &__contents {
       display: none;
@@ -12,9 +12,7 @@
 
 @media screen and (min-width: 700px) and (max-width: 1020px) {
   .menu {
-    // display: flex;
-    // justify-content: space-around;
-    // padding: 10px;
+    padding: 10px;
     font-size: 15px;
     &__contents {
       display: none;
@@ -29,9 +27,6 @@
     min-height: 100%;
   }
   .menu {
-    // display: flex;
-    // justify-content: space-around;
-    // padding: 10px;
     font-size: 15px;
     &__contents {
       display: none;
@@ -90,9 +85,9 @@
 }
 
 .side {
-  padding: 20px 20px 60px;
+  padding: 20px 20px 20px;
   background-color: $side_color;
-  // margin-bottom: 20px;
+  min-height: 194px;
 }
 
 .sideSection {

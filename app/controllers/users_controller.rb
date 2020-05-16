@@ -7,13 +7,13 @@ class UsersController < ApplicationController
   end
 
   def received_mail
-    @add_mail1 = " mailBtn__link--select"
+    @add_class1 = " mainBtn__link--select"
     @messages = Message.where(receiver_id: current_user.id).order('created_at DESC')
     render :mail_index
   end
 
   def send_mail
-    @add_mail2 = " mailBtn__link--select"
+    @add_class2 = " mainBtn__link--select"
     @messages = Message.where(user_id: current_user.id).order('created_at DESC')
     render :mail_index
   end

@@ -1,7 +1,8 @@
-.search
+.main
   = render partial: 'shared/menu'
-  .searchWrap
-    .searchContent
-      .searchContent__title= "\"#{@keyword}\"の検索結果"
-      = render partial: 'shared/documents', locals: {documents: @user_documents}
+  .mainWrap
+    .mainContent
+      .mainSearch
+        .mainSearch__title= "\"#{@keyword}\"の検索結果"
+        = render partial: 'shared/documents', locals: {documents: @user_documents}
     = render partial: 'shared/side'

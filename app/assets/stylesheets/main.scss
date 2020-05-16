@@ -1,16 +1,62 @@
-@media screen and (min-width: 380px) {
+@media screen and (max-width: 700px) {
   .main {
     max-width: 700px;
+    .mainContent {
+      min-height: calc(100vh - 105px - 39px - 194px);
+      padding: 20px 0;
+      &__top {
+        display: none;
+      }
+      .mainContentSection {
+        padding: 20px 5px;
+        &__wrap {
+          font-size: 16px;
+        }
+      }
+      .mainBtn {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1020px) {
+  .main {
+    max-width: 700px;
+    .mainContent {
+      min-height: calc(100vh - 76px - 42px - 194px);
+      padding: 20px;
+      .mainContentSection {
+        padding: 20px;
+        &__wrap {
+          font-size: 18px;
+        }
+      }
+      .mainBtn {
+        font-size: 15px;
+      }
+    }
   }
 }
 
 @media screen and (min-width: 1020px) and (max-width: 1200px) {
   .main {
-    min-width: 1020px;
+    width: 1020px;
     .mainWrap {
       display: flex;
       .mainContent {
+        min-height: calc(100vh - 76px - 42px);
         min-width: 700px;
+        padding: 20px;
+        .mainContentSection {
+          padding: 20px;
+          &__wrap {
+            font-size: 18px;
+          }
+        }
+        .mainBtn {
+          font-size: 15px;
+        }
       }
     }
   }
@@ -24,7 +70,15 @@
     .mainWrap {
       display: flex;
       .mainContent {
+        min-height: calc(100vh - 76px);
         min-width: 700px;
+        padding: 20px;
+        .mainContentSection {
+          padding: 20px;
+        }
+        .mainBtn {
+          font-size: 15px;
+        }
       }  
     }
   }
@@ -35,11 +89,9 @@
 }
 
 .mainContent {
-  min-height: calc(100vh - 76px);
-  padding: 20px;
   background-color: $bg_color;
   &__top {
-    height: 150px;
+    height: 140px;
     background-color: $explain_color;
     margin-bottom: 20px;
     padding: 10px;
@@ -53,8 +105,7 @@
     font-family: 'Hiragino Maru Gothic Pro';
     overflow: scroll;
     &--heading {
-      font-size: 20px;
-      // font-weight: bold;
+      font-size: 18px;
       color: $main_color;
       margin: 5px 0 10px;
     }
@@ -66,7 +117,6 @@
 }
 
 .mainBtn {
-  font-size: 15px;
   display: flex;
   justify-content: space-around;
   &__link {
@@ -94,12 +144,15 @@
   }
 }
 
+.mainSelect {
+  padding: 5px;
+}
+
 .mainContentSection {
-  padding: 20px;
   margin-bottom: 20px;
   background-color: $text_bg_color;
   &__wrap {
-    font-size: 18px;
+    // font-size: 18px;
   }
   &__link {
     display: inline-block;
@@ -136,5 +189,13 @@
     &--lock {
       background-color: $main_color;
     }
+  }
+}
+
+.mainSearch {
+  padding: 5px;
+  &__title {
+    font-size: 18px;
+    margin-bottom: 5px;
   }
 }
