@@ -1,6 +1,7 @@
 class Friend < ApplicationRecord
   belongs_to :user, class_name: :User, foreign_key: 'user_id'
   belongs_to :friend_user, class_name: :User, foreign_key: 'friend_user_id'
+  has_many :messages
 
   def self.list(user_id, status)
     sql = "select origin_friend.id, origin_friend.user_id, origin_friend.friend_user_id,origin_friend.status, select_friends.friend_id as friend_id from friends as origin_friend inner join

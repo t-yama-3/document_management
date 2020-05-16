@@ -15,8 +15,10 @@
         .mainContentSection
           .userContent__title お知らせ
           = render partial: 'shared/information'
-          .userContent__title.userContent__title--next 新着メール
-          = render partial: 'shared/messages_list', locals: {messages: @messages}
+          .userContent__mail
+            = link_to received_mail_users_path, class: :'userContent__link userContent__link--blue' do
+              .userContent__title.userContent__title--next 新着メール
+            = render partial: 'shared/messages_list', locals: {messages: @messages}
       - @user_sections.each do |section|
         .mainContentSection
           .mainContentSection__wrap

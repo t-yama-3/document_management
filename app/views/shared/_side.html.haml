@@ -14,7 +14,10 @@
           = '送信メール'
   .sideSection
     = link_to owner_sections_path, class: :sideSection__heading do
-      = icon 'fas', 'folder-open'
+      - if @owner_sections.length > 0
+        = icon 'fas', 'folder-open'
+      - else
+        = icon 'fas', 'folder'
       管理区分一覧
     - @owner_sections.each do |section|
       .sideSection__title
@@ -23,7 +26,10 @@
           = section.section_name
   .sideSection
     = link_to sections_path, class: :sideSection__heading do
-      = icon 'fas', 'folder-open'
+      - if @participation_sections.length > 0
+        = icon 'fas', 'folder-open'
+      - else
+        = icon 'fas', 'folder'
       参加区分一覧
     - @participation_sections.each do |section|
       .sideSection__title

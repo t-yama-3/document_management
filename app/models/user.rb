@@ -13,4 +13,6 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :friends
   has_many :messages
+
+  validates :nickname, presence: true, length: { maximum: 50 }
 end

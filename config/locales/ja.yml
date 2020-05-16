@@ -1,6 +1,24 @@
 ---
 ja:
   activerecord:
+    attributes:
+      document:
+        title: 'サイト名'
+        note: '説明'
+        src: 'URL'
+        section_id: '区分'
+      section:
+        section_name: '区分名'
+        gist: '主旨'
+        disclosure: '公開設定'
+        participate_users: 'メンバー'
+      comment:
+        body: 'コメント文'
+      profile:
+        introduction: '自己紹介'
+      message:
+        title: 'タイトル'
+        text: '本文'
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

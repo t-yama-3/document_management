@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :move_to_user_registration
-  before_action :set_owner_sections, :set_participation_sections, only: [:new, :edit, :show]
+  before_action :set_owner_sections, :set_participation_sections
   
   def new
     @friend = Friend.find(params[:friend_id])

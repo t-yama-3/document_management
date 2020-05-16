@@ -14,6 +14,10 @@
       %td.register__form--td= form.text_field :section_name, class: :register__text, id: :document_section_name
     %tr
       %th.register__form--th 説明
-      %td.register__form--td= form.text_area :note, class: :'register__text register__text--area'
+      %td.register__form--td= form.text_area :note, class: :'register__text register__text--area', id: :section_gist
+    %tr
+      %th.register__count
+      %td.register__count#gist-count
+        = @document.persisted? && @document.note.present? ? "#{@document.note.length}/1000" : "0/1000"
   .register__submit
     = form.submit '登録する', class: :'register__submit--btn'
