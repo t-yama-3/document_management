@@ -1,7 +1,7 @@
-.main
+.user
   = render partial: 'shared/menu'
-  .mainWrap
-    .mainContent
+  .userWrap
+    .userInfo
       .userContent.userContent__user
         .userContent__wrap
           .userContent__title
@@ -39,8 +39,8 @@
                     = "ダイレクトメッセージを送る"
             - elsif (status = friend_status(@user, current_user)) >= 0
               - if status == 0
-                .userContent__info.userContent__friend-notice
-                  = icon 'fas', 'exclamation-circle', {class: :'userContent__info--mark'}
+                .userContent__friend-notice
+                  = icon 'fas', 'exclamation-circle'
                   = "#{@user.nickname}さんからフレンド申請があります。"
                 .userContent__friend-wrap
                   = button_to friend_path(get_friend_id(@user, current_user)), method: :put, class: :'userContent__friend userContent__friend--consent', id: :user_confirm do

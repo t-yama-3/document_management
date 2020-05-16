@@ -1,14 +1,14 @@
-.main
+.user
   = render partial: 'shared/menu'
-  .mainWrap
-    .mainContent
-      .mainBtn
-        = link_to received_mail_users_path, class: :"mainBtn__link#{@add_class1}" do
-          = icon 'fas', 'inbox'
-          = '受信メール'
-        = link_to send_mail_users_path, class: :"mainBtn__link#{@add_class2}" do
-          = icon 'far', 'paper-plane'
-          = '送信メール'
-      .mainSelect
+  .userWrap
+    .userInfo
+      .mailContent
+        .mailBtn
+          = link_to received_mail_users_path, class: :"mailBtn__link#{@add_mail1}" do
+            = icon 'fas', 'inbox'
+            = '受信メール'
+          = link_to send_mail_users_path, class: :"mailBtn__link#{@add_mail2}" do
+            = icon 'far', 'paper-plane'
+            = '送信メール'
         = render partial: 'shared/messages_list', locals: {messages: @messages}
     = render partial: 'shared/side'

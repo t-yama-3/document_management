@@ -1,8 +1,8 @@
-.main
+.message
   = render partial: 'shared/menu'
-  .mainWrap
-    .mainContent.messageContent#message_view
-      .mainContentSection.messageContent__box
+  .messageWrap
+    .messageContent#message_view
+      .messageContent__box
         .messageContent__heading
           .messageContent__user
             - if @message.read == 0

@@ -1,12 +1,12 @@
-.main
+.user
   = render partial: 'shared/menu'
-  .mainWrap
-    .mainContent
-      .userContent.userContent__info--color
+  .userWrap
+    .userInfo
+      .userContent.userContent__info
         .userContent__title お知らせ
         = render partial: 'shared/information'
       .userContent.userContent__mail
-        = link_to received_mail_users_path, class: :'userContent__link userContent__link--blue' do
+        = link_to received_mail_users_path, class: :'userContent__link' do
           .userContent__title 新着メール
         = render partial: 'shared/messages_list', locals: {messages: @messages}
       .userContent.userContent__user
@@ -25,7 +25,7 @@
           %tr
             %th
               = icon 'fas', 'envelope'
-              = '登録アドレス'
+              = 'メールアドレス'
             %td= current_user.email
       .userContent
         .userContent__title フレンド一覧
