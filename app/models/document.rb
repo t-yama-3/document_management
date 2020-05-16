@@ -4,7 +4,9 @@ class Document < ApplicationRecord
   belongs_to :section, optional: true
   belongs_to :user
 
-  validates :title, :src, :section_id, presence: true
+  validates :title, :src, presence: true, length: { maximum: 255 }
+  validates :note, length: { maximum: 1000 }
+  validates :section_id, presence: true
   
   def self.search_origin(search)
     return Document.all unless search

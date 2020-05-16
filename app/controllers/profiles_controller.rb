@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :move_to_user_registration, except: [:show]
-  before_action :set_owner_sections, :set_participation_sections, only: [:new, :edit, :show]
+  before_action :set_owner_sections, :set_participation_sections
 
   def new
     return redirect_to root_path if current_user.profile.present?
