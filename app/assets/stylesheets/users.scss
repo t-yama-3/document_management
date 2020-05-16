@@ -60,6 +60,14 @@
       margin-top: 15px;
     }
   }
+  &__lists {
+    font-size: 14px;
+    padding: 5px;
+    &--link {
+      text-decoration: none;
+      color: $text_blue;
+    }
+  }
   &__table {
     width: 100%;
     & tr {
