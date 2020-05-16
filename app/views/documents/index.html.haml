@@ -12,7 +12,7 @@
           .mainContent__explain--text ・ブックマークに説明を入れて分類ごとに分けて簡単に登録。
           .mainContent__explain--text ・コメントを入れて他のユーザーとも情報を共有できる。
       - if user_signed_in?
-        .userContent
+        .mainContentSection
           .userContent__title お知らせ
           = render partial: 'shared/information'
           .userContent__title.userContent__title--next 新着メール

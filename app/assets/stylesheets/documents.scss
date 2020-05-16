@@ -1,3 +1,15 @@
+@media screen and (max-width: 700px) {
+  .documentTable {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .documentTable {
+    font-size: 14px;
+  }
+}
+
 .documents {
   &__link {
     text-decoration: none;
@@ -5,12 +17,13 @@
 }
 
 .documentTable {
+  // font-size: 14px;
   &__header {
     font-weight: bold;
   }
   & table {
     width: 100%;
-    font-size: 14px;
+    // font-size: 14px;
     table-layout: fixed;
   }
   & th, td {
@@ -30,10 +43,10 @@
   &__marking {
     width: 10%;
     text-align: center;
-    font-size: 11px;
+    font-size: 12px;
     & i {
       color: #ffd700;
-      font-size: 14px;
+      // font-size: 14px;
     }
   }
   &__section {

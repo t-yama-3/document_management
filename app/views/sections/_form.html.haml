@@ -1,21 +1,21 @@
 = form_with model: section, local: true, class: :register__form do |form|
   %table
     %tr
-      %th 区分名
-      %td= form.text_field :section_name, class: :register__text
+      %th.register__form--th 区分名
+      %td.register__form--td= form.text_field :section_name, class: :register__text
     %tr
-      %th 主旨
-      %td= form.text_area :gist, class: :'register__text register__text--area', id: :section_gist
+      %th.register__form--th 主旨
+      %td.register__form--td= form.text_area :gist, class: :'register__text register__text--area', id: :section_gist
     %tr
       %th.register__count
       %td.register__count#gist-count
         = @section.persisted? && @section.gist.present? ? "#{@section.gist.length}/1000" : "0/1000"
     %tr
-      %th 公開設定
-      %td= form.select :disclosure, Section.disclosures.keys, {prompt: '選択してください'}, class: :register__text
+      %th.register__form--th 公開設定
+      %td.register__form--td= form.select :disclosure, Section.disclosures.keys, {prompt: '選択してください'}, class: :register__text
     %tr
-      %th メンバー
-      %td
+      %th.register__form--th メンバー
+      %td.register__form--td
         .register__members
           = form.collection_check_boxes :participate_user_ids, User.all, :id, :nickname do |b|
             .register__checkbox

@@ -13,5 +13,6 @@
         = link_to public_documents_path, class: :"mainBtn__link#{@add_class3}" do
           = icon 'fas', 'share-alt'
           = '公開コンテンツ'
-      = render partial: 'shared/documents', locals: {documents: @documents}
+      .mainSelect
+        = render partial: 'shared/documents', locals: {documents: @documents}
     = render partial: 'shared/side'

@@ -1,13 +1,13 @@
-.section
+.main
   = render partial: 'shared/menu'
-  .sectionWrap
-    .sectionContent
+  .mainWrap
+    .mainContent
       - if user_signed_in? && @section.user_id == current_user.id
         = link_to "区分編集", edit_section_path(@section.id), class: :sectionContent__link
         = link_to "区分削除", section_path(@section.id), method: :delete, class: :sectionContent__link, data: {confirm: "削除しますか？"}
       - if user_signed_in? && @section.participate_user_ids.include?(current_user.id)
         = link_to "新規サイト登録", new_document_section_path(@section.id), class: :sectionContent__link
-      .sectionContent__box
+      .mainContentSection
         .sectionContent__title
           = icon 'fas', 'folder-open'
           = @section.section_name
