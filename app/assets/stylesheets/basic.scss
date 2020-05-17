@@ -231,8 +231,9 @@ h4 {
 
 .hiddenMenu {
   padding: 15px;
-  background-color: $menu_color;
+  background-color: $main_color;
   position: absolute;
+  z-index: 1;
   width: 100%;
   .hiddenSearch {
     &__input {
