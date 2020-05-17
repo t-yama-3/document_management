@@ -1,142 +1,68 @@
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
   .header {
-    padding: 10px 5px;
-    .heading {
-      max-width: 500px;
-      &Title {
-        // transform: scale(0.8, 1);
-        font-size: 14px;
-        line-height: 24px;
-        &__link {
-          &--sub {
-            display: none;
-          }
-        }
-      }
-      &Search {
-        padding: 5px 10px 0;
-        background-color: $main_color;
-        &__form {
-          max-width: 200px;
-        }
-        &__input {
-          height: 24px;
-          max-width: 150px;
-        }
-      }
-    }
+    padding: 0;
+  }
+  .headerBar {
+    display: flex;
+  }
+  .hiddenMenu {
+    display: none;
+  }
+  .heading {
+    display: none;
   }
 }
 
-@media screen and (min-width: 500px) and (max-width: 700px) {
-  .header {
-    padding: 10px 5px;
-    .heading {
-      width: 700px;
-      &Title {
-        font-size: 16px;
-        line-height: 24px;
-        &__link {
-          &--sub {
-            display: none;
-          }
-        }
-      }
-      &Search {
-        padding: 5px 10px 0;
-        background-color: $main_color;
-        &__form {
-          max-width: 360px;
-        }
-        &__input {
-          height: 24px;
-          max-width: 280px;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 700px) and (max-width: 1020px) {
+@media screen and (min-width: 700px) {
   .header {
     padding: 10px;
-    .heading {
-      width: 700px;
-      padding: 0 20px;
-      display: flex;
-      justify-content: space-between;
-      &Title {
-        font-size: 18px;
-        line-height: 24px;
-        &__link {
-          &--sub {
-            display: none;
-          }
-        }
+  }
+  .headerBar {
+    display: none;
+  }
+  .hiddenMenu {
+    display: none;
+  }
+  .heading {
+    display: flex;
+    width: 700px;
+    .headingTitle {
+      font-size: 20px;
+    }
+    .headingUser {
+      &__nickname {
+        max-width: 100px;
       }
-      &Search {
-        padding: 5px 10px 0;
-        background-color: $main_color;
-        &__form {
-          max-width: 360px;
-        }
-        &__input {
-          height: 24px;
-          max-width: 280px;
-        }
+    }
+    .headingSearch {
+      &__container {
+        width: 90%;
       }
     }
   }
 }
 
-@media screen and (min-width: 1020px) and (max-width: 1200px) {
-  .header {
-    padding: 10px;
-    .heading {
-      max-width: 1020px;
-      width: 1200px;
-      padding: 0 20px;
-      display: flex;
-      justify-content: space-between;
-      &Title {
-        font-size: 24px;
-      }
-      &Search {
-        padding: 5px 10px 0;
-        background-color: $main_color;
-        &__form {
-          width: 360px;
-        }
-        &__input {
-          height: 24px;
-          width: 280px;
-        }
+
+@media screen and (min-width: 1020px) {
+  .heading {
+    width: 1020px;
+    .headingTitle {
+      font-size: 24px;
+    }
+    .headingUser {
+      &__nickname {
+        max-width: 200px;
       }
     }
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .header {
-    padding: 10px;
-    .heading {
-      width: 1200px;
-      padding: 0 20px;
-      display: flex;
-      justify-content: space-between;
-      &Title {
-        font-size: 24px;
-      }
-      &Search {
-        padding: 5px 10px 0;
-        background-color: $main_color;
-        &__form {
-          width: 360px;
-        }
-        &__input {
-          height: 24px;
-          width: 280px;
-        }
+  .heading {
+    width: 1200px;
+    .headingSearch {
+      &__container {
+        width: 80%;
       }
     }
   }
@@ -161,58 +87,50 @@ h4 {
 }
 
 .header {
-  overflow: hidden;
   background-color: $main_color;
-  min-width: 100%;
-  // padding: 10px;
+  position: relative;
 }
 
 .heading {
+  height: 36px;
   margin: 0 auto;
-  // padding: 0 20px;
-  &Wrap {
-    display: flex;
-  }
-  &Title {
-    font-size: 24px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  .headingTitle {
     font-family: 'GlimChe';
     color: #ffffff;
     white-space: nowrap;
     &:hover {
-      // opacity: 0.7;
       color: #dddddd;
     }
     &__link {
       text-decoration: none;
       color: #ffffff;
-      &--sub {
-        color: $bg_color;
-        font-size: 14px;
-        margin-left: 5px;
-      }
       &:hover {
-        // opacity: 0.7;
         color: #dddddd;
       }
     }
   }
-  &Search {
-    padding: 6px 10px 0;
+  .headingSearch {
+    display: inline-block;
+    flex-grow: 1;
     background-color: $main_color;
-    &__form {
-    }
     &__container {
+      margin: 0 auto;
       display: flex;
+      align-items: center;
     }
     &__input {
+      display: inline-block;
+      width: 100%;
       height: 25px;
       padding: 0 5px;
       font-size: 14px;
     }
     &__btn {
-      width: 75px;
+      width: 50px;
       height: 25px;
-      margin-top: 1px;
       margin-left: 5px;
       font-size: 13px;
       color: $main_color;
@@ -228,9 +146,116 @@ h4 {
       }
     }
   }
-  &User {
-    padding: 5px 10px 0 0;
-    // font-size: 18px;
+  .headingUser {
+    height: 25px;
+    color: #ffffff;
+    display: flex;
+    &__btn {
+      display: block;
+      padding: 3px 4pt;
+      margin-left: 5px;
+      border-radius: 4px;
+      font-size: 13px;
+      text-decoration: none;
+      color: $main_color;
+      background-color: #eeeeee;
+      border: solid 1px #777777;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    &__nickname {
+      line-height: 25px;
+      display: block;
+      white-space: nowrap;
+      overflow: scroll;
+      font-size: 14px;
+      text-decoration: none;
+      color: #ffffff;
+      &:hover {
+        color: #dddddd;
+      }
+    }
+  }
+}
+
+.headerBar {
+  align-items: center;
+  height: 56px;
+  padding: 10px;
+  .headerBtn {
+    height: 20px;
+    width: 24px;
+    position: relative;
+    cursor: pointer;
+    & span {
+      display: block;
+      width: 24px;
+      height: 4px;
+      border-radius: 1px;
+      background: #ffffff;
+      position: absolute;
+      top: 8px;
+      &::before, &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 1px;
+        background: #ffffff;
+        position: absolute;
+      }
+      &::before {
+        margin-top: -8px;
+      }
+      &::after {
+        margin-top: 8px;
+      }
+    }
+  }
+  .hiddenTitle {
+    line-height: 24px;
+    font-size: 18px;
+    margin: -2px 0 0 20px;
+    font-family: 'GlimChe';
+    color: #ffffff;
+    &__link {
+      text-decoration: none;
+      color: #ffffff;
+      &:hover {
+        color: #dddddd;
+      }
+    }
+  }
+}
+
+.hiddenMenu {
+  padding: 15px;
+  background-color: $menu_color;
+  position: absolute;
+  width: 100%;
+  .hiddenSearch {
+    &__input {
+      width: calc(100vw - 100px);
+      height: 25px;
+      padding: 5px;
+      font-size: 14px;
+    }
+    &__submit {
+      margin-left: 5px;
+      font-size: 13px;
+      width: 50px;
+      height: 25px;
+      background-color: #eeeeee;
+      color: $main_color;
+      border-radius: 3px;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }  
+  .hiddenUser {
+    padding-top: 20px;
     color: #ffffff;
     &__btn {
       padding: 3px 4pt;
@@ -250,7 +275,6 @@ h4 {
       text-decoration: none;
       color: #ffffff;
       &:hover {
-        // opacity: 0.7;
         color: #dddddd;
       }
     }
@@ -261,6 +285,4 @@ h4 {
   min-width: 100%;
   height: 20px;
   background-color: $main_color;
-  // position: fixed;
-  // bottom: 0;
 }
