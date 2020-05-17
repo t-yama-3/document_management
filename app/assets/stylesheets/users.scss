@@ -8,14 +8,21 @@
     &__info {
       font-size: 14px;
     }
-    // &__link {
-    //   font-size: 12px;
-    // }
+    &__link {
+      &--btn {
+        min-width: 130px;
+      }
+    }
     &__profile {
       font-size: 12px;
-      // &--link {
-      //   font-size: 12px;
-      // }
+    }
+    &__friend {
+      &--consent {
+        margin-left: -5px;
+      }
+      &--refusal {
+        margin-right: -5px;
+      }
     }
   }
   .userMail {
