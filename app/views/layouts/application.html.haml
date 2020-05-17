@@ -10,19 +10,34 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .header
+      .headerBar
+        .headerBtn#three_bar
+          %span
+        .hiddenTitle
+          = link_to root_path, class: :hiddenTitle__link do
+            Bookmark Repository
+      .hiddenMenu#hidden_menu
+        = form_with url: documents_searches_path, method: :get, local: true, class: :hiddenSearch do |f|
+          = f.text_field :keyword, class: :hiddenSearch__input
+          = f.submit '検索', class: :hiddenSearch__submit
+        .hiddenUser
+          - if user_signed_in?
+            = link_to users_path, class: :hiddenUser__nickname do
+              = icon 'fas', 'address-card'
+              = current_user.nickname
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :hiddenUser__btn
+          - else
+            = link_to '新規登録', new_user_registration_path, class: :hiddenUser__btn
+            = link_to 'ログイン', new_user_session_path, class: :hiddenUser__btn
       .heading
-        .headingWrap
-          .headingTitle
-            = link_to root_path, class: :headingTitle__link do
-              Bookmark Repository
-              %span.headingTitle__link--sub WEB管理アプリ
-          .headingSearch
-            = form_with url: documents_searches_path, method: :get, local: true, class: :headingSearch__form do |f|
-              .headingSearch__container
-                .headingSearch__text
-                  = f.text_field :keyword, class: :headingSearch__input
-                .headingSearch__btn
-                  = f.submit "サイト検索", class: :headingSearch__submit
+        .headingTitle
+          = link_to root_path, class: :headingTitle__link do
+            Bookmark Repository
+        = form_with url: documents_searches_path, method: :get, local: true, class: :headingSearch do |f|
+          .headingSearch__container
+            = f.text_field :keyword, class: :headingSearch__input
+            .headingSearch__btn
+              = f.submit "検索", class: :headingSearch__submit
         .headingUser
           - if user_signed_in?
             = link_to users_path, class: :headingUser__nickname do

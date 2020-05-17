@@ -2,10 +2,15 @@
   .menu {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    // height: 42px;
     padding: 10px 5px;
     font-size: 13px;
     &__contents {
       display: none;
+    }
+    &__list {
+      line-height: 22px;
     }
   }
 }
@@ -13,9 +18,13 @@
 @media screen and (min-width: 700px) and (max-width: 1020px) {
   .menu {
     padding: 10px;
+    // height: 42px;
     font-size: 15px;
     &__contents {
       display: none;
+    }
+    &__list {
+      // line-height: 22px;
     }
   }
 }
@@ -49,6 +58,9 @@
     &__contents {
       display: inline-block;
     }
+    &__list {
+      line-height: unset;
+    }
   }
 }
 
@@ -58,6 +70,7 @@
   background-color: $menu_color;
   overflow: scroll;
   &__list {
+    // line-height: 22px;
     display: block;
     text-decoration: none;
     color: #ffffff;
