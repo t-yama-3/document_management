@@ -21,18 +21,17 @@
             = render partial: 'shared/messages_list', locals: {messages: @messages}
       - @user_sections.each do |section|
         .mainContentSection
-          .mainContentSection__wrap
-            = link_to section_path(section.id), class: :mainContentSection__link do
-              = icon 'fas', 'folder'
-              = section.section_name
-            %span.mainContentSection__owner
-              = icon 'fas', 'user-cog'
-              = link_to section.user.nickname, profile_path(section.user_id), class: :'mainContentSection__owner--link'
-            - if section.disclosure_before_type_cast ==  1
-              %span.mainContentSection__disclosure
-                = icon 'fas', 'lock-open'
-            - else
-              %span.mainContentSection__disclosure.mainContentSection__disclosure--lock
-                = icon 'fas', 'lock'
-            = render partial: 'shared/documents', locals: {documents: section.documents.limit(3)}
+          = link_to section_path(section.id), class: :mainContentSection__link do
+            = icon 'fas', 'folder'
+            = section.section_name
+          %span.mainContentSection__owner
+            = icon 'fas', 'user-cog'
+            = link_to section.user.nickname, profile_path(section.user_id), class: :'mainContentSection__owner--link'
+          - if section.disclosure_before_type_cast ==  1
+            %span.mainContentSection__disclosure
+              = icon 'fas', 'lock-open'
+          - else
+            %span.mainContentSection__disclosure.mainContentSection__disclosure--lock
+              = icon 'fas', 'lock'
+          = render partial: 'shared/documents', locals: {documents: section.documents.limit(3)}
     = render partial: 'shared/side'

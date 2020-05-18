@@ -57,7 +57,6 @@
     &--btn {
       display: inline-block;
       padding: 2px 8px;
-      // font-size: 14px;
       color: #ffffff;
       background-color: #008080;
       &:hover {
@@ -78,7 +77,6 @@
     }
   }
   &__lists {
-    // font-size: 14px;
     padding: 5px;
     &--link {
       text-decoration: none;
@@ -88,7 +86,6 @@
   &__table {
     width: 100%;
     & tr {
-      // font-size: 14px;
       border-bottom: 1px solid #999999;
       & th {
         width: 30%;
@@ -101,7 +98,6 @@
     }
   }
   &__profile {
-    // font-size: 14px;
     padding: 5px;
     &--link {
       padding: 5px;
@@ -123,7 +119,6 @@
   &__friend {
     display: inline-block;
     padding: 2px 5px;
-    // font-size: 14px;
     color: #ffffff;
     &--request {
       background-color: #008080;
@@ -160,7 +155,6 @@
     }
     &--no-list {
       padding: 0 10px;
-      // font-size: 14px;
       color: #434da2;
     }
   }
