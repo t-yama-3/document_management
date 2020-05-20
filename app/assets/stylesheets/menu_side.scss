@@ -3,7 +3,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    // height: 42px;
     padding: 10px 5px;
     font-size: 13px;
     &__contents {
@@ -12,49 +11,36 @@
     &__list {
       line-height: 22px;
     }
+    & i {
+      width: 13px;
+    }
   }
 }
 
-@media screen and (min-width: 700px) and (max-width: 1020px) {
+@media screen and (min-width: 700px) {
   .menu {
     padding: 10px;
-    // height: 42px;
     font-size: 15px;
-    &__contents {
-      display: none;
-    }
-    &__list {
-      // line-height: 22px;
+    & i {
+      width: 20px;
     }
   }
 }
 
-@media screen and (min-width: 1020px) and (max-width: 1200px) {
+@media screen and (min-width: 1020px) {
   .side {
     min-width: 320px;
     height: auto;
     min-height: 100%;
-  }
-  .menu {
-    font-size: 15px;
-    &__contents {
-      display: none;
-    }
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .side {
-    min-width: 320px;
-    height: auto;
-    min-height: 100%;
-  }
   .menu {
     display: block;
     min-width: 180px;
     padding: 20px;
     line-height: 32px;
-    font-size: 15px;
     &__contents {
       display: inline-block;
     }
@@ -66,20 +52,15 @@
 
 .menu {
   width: 100%;
-  color: #ffffff;
-  background-color: $menu_color;
+  color: $white_color;
+  background: rgba($menu_color,0.9);
   overflow: scroll;
   &__list {
-    // line-height: 22px;
     display: block;
     text-decoration: none;
-    color: #ffffff;
+    color: $white_color;
     &:hover {
       color: #dddddd;
-    }
-    & i {
-      font-size: 15px;
-      width: 20px;
     }
   }
   &__content {
@@ -87,19 +68,16 @@
     font-size: 14px;
     padding-left: 10px;
     text-decoration: none;
-    color: #ffffff;
+    color: $white_color;
     &:hover {
       color: #dddddd;
-    }
-    & i {
-      width: 20px;
     }
   }
 }
 
 .side {
   padding: 20px 20px 20px;
-  background-color: $side_color;
+  background: rgba($side_color,0.8);
   min-height: 194px;
 }
 
@@ -118,10 +96,12 @@
     }
   }
   &__title {
-    padding: 0px 10px 5px;
+    font-size: 14px;
+    padding: 3px 0px 5px 12px;
+    margin-left: 1.5em;
+    text-indent: -0.64em;
   }
   &__link {
-    font-size: 14px;
     text-decoration: none;
     color: $side_text;
     &:hover {

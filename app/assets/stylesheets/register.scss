@@ -11,11 +11,11 @@
       font-size: 13px;
       padding: 20px 0;
       &--th {
-        width: 18%;
+        width: 24%;
         padding: 20px 0px 0px 10px;
       }
       &--td {
-        width: 82%;
+        width: 76%;
         padding: 20px 10px 0px;
       }
     }
@@ -36,11 +36,11 @@
     &__form {
       padding: 20px 0;
       &--th {
-        width: 15%;
+        width: 18%;
         padding: 20px 0px 0px 20px;
       }
       &--td {
-        width: 85%;
+        width: 82%;
         padding: 20px 20px 0px;
       }
     }
@@ -51,8 +51,12 @@
 }
 
 .register {
+  &__error {
+    background: rgba($bg_color,0.8);
+  }
   &__heading {
     padding: 0px 30px;
+    background: rgba($bg_color,0.8);
     color: $text_color;
     text-align: center;
     & i {
@@ -63,6 +67,7 @@
   &__form {
     width: 100%;
     padding: 10px 0;
+    background: rgba($bg_color,0.8);
     & table {
       width: 100%;
     }
@@ -70,8 +75,6 @@
       vertical-align: top;
       font-weight: bold;
       color: $doc_color;
-    }
-    &--td {
     }
   }
   &__text {

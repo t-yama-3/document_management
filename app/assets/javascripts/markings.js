@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', ()=> {
+$(document).on('turbolinks:load', function() {
   let token = document.getElementsByName("csrf-token")[0].content;
   $.ajax({
     url: "/documents/user_id",

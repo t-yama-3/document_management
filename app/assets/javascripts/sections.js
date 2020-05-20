@@ -1,23 +1,22 @@
-$(document).on('turbolinks:load', ()=> {
+document.addEventListener("turbolinks:load", function() {
   if ($('#document_form').length == 0) { return; }
-  // 区分の選択を行った場合の処理
-  $('#document_section_id').on('change', function(e) {
-    let selectNum = $(this).val();
-    // console.log(selectNum);
+  // 新規コンテンツ登録画面で、区分selectタブを選択した場合の処理
+  document.getElementById('document_section_id').addEventListener('change', function(e) {
+    let selectNum = this.value;
     if (selectNum == "") {
-      $('#document_section_name_tr').show();
+      document.getElementById('document_section_name_tr').removeAttribute('style');
     } else {
-      $('#document_section_name_tr').hide();
+      document.getElementById('document_section_name_tr').style.display = 'none';
     }
   });
 
-  $('#document_section_name').on('input', function(e) {
-    let input = $(this).val();
-    // console.log(input);
+  // 新規コンテンツ登録画面で、新規区分の入力を行った場合の処理
+  document.getElementById('document_section_name').addEventListener('input', function(e) {
+    let input = this.value;
     if (input == "") {
-      $('#document_section_id_tr').show();
+      document.getElementById('document_section_id_tr').removeAttribute('style');
     } else {
-      $('#document_section_id_tr').hide();
+      document.getElementById('document_section_id_tr').style.display = 'none';
     }
   });
 });

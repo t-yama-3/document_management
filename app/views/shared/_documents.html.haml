@@ -6,12 +6,12 @@
         = "WEBサイト名"
       %td.documentTable__header.documentTable__marking
         = icon 'fas', 'thumbs-up'
-        = "good"
+        %span.documentTable__hidden= "good"
       %td.documentTable__header.documentTable__section
-        = icon 'fas', 'folder-open'
-        = "区分名"
+        = icon 'fas', 'folder-open', {class: :documentTable__hidden}
+        = "グループ名"
       %td.documentTable__header.documentTable__nickname
-        = icon 'fas', 'user'
+        = icon 'fas', 'user', {class: :documentTable__hidden}
         = "登録者"
     - documents.each do |document|
       %tr

@@ -1,6 +1,9 @@
 @media screen and (max-width: 700px) {
   .documentTable {
     font-size: 12px;
+    &__hidden {
+      display: none;
+    }
   }
 }
 
@@ -42,7 +45,7 @@
     text-align: center;
     font-size: 12px;
     & i {
-      color: #ffd700;
+      color: $good_color;
     }
   }
   &__section {

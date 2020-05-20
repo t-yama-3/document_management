@@ -2,15 +2,16 @@
   .main {
     max-width: 640px;
     .mainContent {
-      min-height: calc(100vh - 76px - 42px - 194px);
-      padding: 20px 0;
+      min-height: calc(100vh - 56px - 40px - 42px - 194px);
+      padding: 10px 0;
       &__top {
         display: none;
       }
       .mainContentSection {
         padding: 20px 10px;
+        margin-bottom: 10px;
         &__link {
-          font-size: 16px;
+          font-size: 14px;
         }
       }
       .mainBtn {
@@ -18,6 +19,9 @@
         &__link {
           padding: 4px 10px;
         }
+      }
+      .mainSearch {
+        padding: 10px;
       }
     }
   }
@@ -27,10 +31,11 @@
   .main {
     width: 700px;
     .mainContent {
-      min-height: calc(100vh - 76px - 42px - 194px);
+      min-height: calc(100vh - 56px - 40px - 42px - 194px);
       padding: 20px;
       .mainContentSection {
         padding: 20px;
+        margin-bottom: 20px;
         &__link {
           font-size: 18px;
         }
@@ -40,6 +45,12 @@
         &__link {
           padding: 4px 15px;
         }
+        & i {
+          width: 20px;
+        }
+      }
+      .mainSearch {
+        padding: 20px;
       }
     }
   }
@@ -51,7 +62,7 @@
     .mainWrap {
       display: flex;
       .mainContent {
-        min-height: calc(100vh - 76px - 42px);
+        min-height: calc(100vh - 56px - 40px - 42px);
         min-width: 700px;
       }
     }
@@ -65,7 +76,7 @@
     justify-content: center;
     .mainWrap {
       .mainContent {
-        min-height: calc(100vh - 76px);
+        min-height: calc(100vh - 56px - 40px);
       }  
     }
   }
@@ -76,10 +87,10 @@
 }
 
 .mainContent {
-  background-color: $bg_color;
+  background: rgba($bg_color,0.3);
   &__top {
     height: 140px;
-    background-color: $explain_color;
+    background: rgba($explain_color,0.8);
     margin-bottom: 20px;
     padding: 10px;
     display: flex;
@@ -106,9 +117,10 @@
 .mainBtn {
   display: flex;
   justify-content: space-around;
+  background: rgba($bg_color,0.8);
   &__link {
     display: inline-block;
-    margin: 10px 0 20px;
+    margin: 30px 0 10px;
     border-radius: 20px;
     text-decoration: none;
     color: $white_color;
@@ -132,11 +144,11 @@
 
 .mainSelect {
   padding: 10px;
+  background: rgba($text_bg_color,0.8);
 }
 
 .mainContentSection {
-  margin-bottom: 20px;
-  background-color: $text_bg_color;
+  background: rgba($text_bg_color,0.8);
   &__link {
     display: inline-block;
     margin-bottom: 5px;
@@ -176,7 +188,7 @@
 }
 
 .mainSearch {
-  padding: 5px;
+  background: rgba($text_bg_color,0.8);
   &__title {
     font-size: 18px;
     margin-bottom: 5px;

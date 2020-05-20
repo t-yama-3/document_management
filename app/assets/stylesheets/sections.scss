@@ -1,6 +1,9 @@
 @media screen and (max-width: 700px) {
   .sectionTable {
     font-size: 12px;
+    &__hidden {
+      display: none;
+    }
   }
   .sectionContent {
     &__table {
@@ -49,9 +52,7 @@
   }
   &__table {
     padding: 10px;
-    // font-size: 14px;
     &--name {
-      // font-size: 14px;
       font-weight: bold;
     }
     &--link {
@@ -77,20 +78,13 @@
     }
   }
   &__disclosure {
-    // margin-left: 8px;
     padding: 3px;
-    // font-size: 12px;
     & i {
       color: $open_color;
     }
     &--lock i {
       color: $text_blue;
     }
-    // color: #ffffff;
-    // background-color: $open_color;
-    // &--lock {
-    //   background-color: $main_color;
-    // }
   }
   &__members {
     margin-right: 8px;
@@ -121,7 +115,6 @@
     font-weight: bold;
     border-bottom: solid 1px $text_color;
     overflow: scroll;
-    // text-overflow: ellipsis;
     white-space: nowrap;
     -ms-overflow-style: none;
     &::-webkit-scrollbar {
