@@ -1,16 +1,17 @@
 @media screen and (max-width: 700px) {
   .main {
-    max-width: 700px;
+    max-width: 640px;
     .mainContent {
-      min-height: calc(100vh - 76px - 42px - 194px);
-      padding: 20px 0;
+      min-height: calc(100vh - 56px - 40px - 42px - 194px);
+      padding: 10px 0;
       &__top {
         display: none;
       }
       .mainContentSection {
         padding: 20px 10px;
-        &__wrap {
-          font-size: 16px;
+        margin-bottom: 10px;
+        &__link {
+          font-size: 14px;
         }
       }
       .mainBtn {
@@ -19,19 +20,23 @@
           padding: 4px 10px;
         }
       }
+      .mainSearch {
+        padding: 10px;
+      }
     }
   }
 }
 
-@media screen and (min-width: 700px) and (max-width: 1020px) {
+@media screen and (min-width: 700px) {
   .main {
-    max-width: 700px;
+    width: 700px;
     .mainContent {
-      min-height: calc(100vh - 76px - 42px - 194px);
+      min-height: calc(100vh - 56px - 40px - 42px - 194px);
       padding: 20px;
       .mainContentSection {
         padding: 20px;
-        &__wrap {
+        margin-bottom: 20px;
+        &__link {
           font-size: 18px;
         }
       }
@@ -40,32 +45,25 @@
         &__link {
           padding: 4px 15px;
         }
+        & i {
+          width: 20px;
+        }
+      }
+      .mainSearch {
+        padding: 20px;
       }
     }
   }
 }
 
-@media screen and (min-width: 1020px) and (max-width: 1200px) {
+@media screen and (min-width: 1020px) {
   .main {
     width: 1020px;
     .mainWrap {
       display: flex;
       .mainContent {
-        min-height: calc(100vh - 76px - 42px);
+        min-height: calc(100vh - 56px - 40px - 42px);
         min-width: 700px;
-        padding: 20px;
-        .mainContentSection {
-          padding: 20px;
-          &__wrap {
-            font-size: 18px;
-          }
-        }
-        .mainBtn {
-          font-size: 15px;
-          &__link {
-            padding: 4px 15px;
-          }
-        }
       }
     }
   }
@@ -77,20 +75,8 @@
     display: flex;
     justify-content: center;
     .mainWrap {
-      display: flex;
       .mainContent {
-        min-height: calc(100vh - 76px);
-        min-width: 700px;
-        padding: 20px;
-        .mainContentSection {
-          padding: 20px;
-        }
-        .mainBtn {
-          font-size: 15px;
-          &__link {
-            padding: 4px 15px;
-          }
-        }
+        min-height: calc(100vh - 56px - 40px);
       }  
     }
   }
@@ -101,10 +87,10 @@
 }
 
 .mainContent {
-  background-color: $bg_color;
+  background: rgba($bg_color,0.3);
   &__top {
     height: 140px;
-    background-color: $explain_color;
+    background: rgba($explain_color,0.8);
     margin-bottom: 20px;
     padding: 10px;
     display: flex;
@@ -131,15 +117,15 @@
 .mainBtn {
   display: flex;
   justify-content: space-around;
+  background: rgba($bg_color,0.8);
   &__link {
     display: inline-block;
-    // padding: 4px 10px;
-    margin: 10px 0 20px;
+    margin: 30px 0 10px;
     border-radius: 20px;
     text-decoration: none;
-    color: #ffffff;
+    color: $white_color;
     background-color: $menu_color;
-    background-color: #6953a7;
+    background-color: $btn_color;
     box-shadow: 1px 1px 2px #222222;
     &:hover {
       color: #dddddd;
@@ -149,7 +135,7 @@
       background-color: $main_color;
       box-shadow: 1px 1px 2px #222222 inset;
       &:hover {
-        color: #ffffff;
+        color: $white_color;
         opacity: 1.0;
       }
     }
@@ -158,19 +144,16 @@
 
 .mainSelect {
   padding: 10px;
+  background: rgba($text_bg_color,0.8);
 }
 
 .mainContentSection {
-  margin-bottom: 20px;
-  background-color: $text_bg_color;
-  &__wrap {
-    // font-size: 18px;
-  }
+  background: rgba($text_bg_color,0.8);
   &__link {
     display: inline-block;
     margin-bottom: 5px;
     text-decoration: none;
-    color: #0000ff;
+    color: $text_blue;
     &:hover {
       opacity: 0.7;
     }
@@ -181,12 +164,12 @@
   &__owner {
     margin-left: 10px;
     font-size: 13px;
-    color: #ffffff;
+    color: $white_color;
     padding: 2px;
     background-color: $menu_color;
     &--link {
       text-decoration: none;
-      color: #ffffff;
+      color: $white_color;
       &:hover {
         color: #dddddd;
       }
@@ -196,7 +179,7 @@
     margin-left: 8px;
     padding: 3px 5px;
     font-size: 12px;
-    color: #ffffff;
+    color: $white_color;
     background-color: $open_color;
     &--lock {
       background-color: $main_color;
@@ -205,7 +188,7 @@
 }
 
 .mainSearch {
-  padding: 5px;
+  background: rgba($text_bg_color,0.8);
   &__title {
     font-size: 18px;
     margin-bottom: 5px;

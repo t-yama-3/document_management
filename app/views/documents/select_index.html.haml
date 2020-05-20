@@ -6,13 +6,13 @@
       .mainBtn
         = link_to owner_documents_path, class: :"mainBtn__link#{@add_class1}" do
           = icon 'fas', 'map-marked-alt'
-          = '登録コンテンツ'
+          = '登録サイト'
         = link_to participation_documents_path, class: :"mainBtn__link#{@add_class2}" do
           = icon 'fas', 'map-marked'
-          = '参加コンテンツ'
+          = '参加グループ'
         = link_to public_documents_path, class: :"mainBtn__link#{@add_class3}" do
           = icon 'fas', 'share-alt'
-          = '公開コンテンツ'
+          = '公開グループ'
       .mainSelect
         = render partial: 'shared/documents', locals: {documents: @documents}
     = render partial: 'shared/side'

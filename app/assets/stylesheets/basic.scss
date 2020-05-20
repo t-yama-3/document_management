@@ -1,69 +1,88 @@
 @media screen and (max-width: 700px) {
   .header {
     padding: 0;
-  }
-  .headerBar {
-    display: flex;
-  }
-  .hiddenMenu {
-    display: none;
-  }
-  .heading {
-    display: none;
+    .headerBar {
+      display: flex;
+    }
+    .heading {
+      display: none;
+    }
   }
 }
 
 @media screen and (min-width: 700px) {
   .header {
     padding: 10px;
-  }
-  .headerBar {
-    display: none;
-  }
-  .hiddenMenu {
-    display: none;
-  }
-  .heading {
-    display: flex;
-    width: 700px;
-    .headingTitle {
-      font-size: 20px;
+    .headerBar {
+      display: none;
     }
-    .headingUser {
-      &__nickname {
-        max-width: 100px;
+    .heading {
+      display: flex;
+      width: 700px;
+      .headingTitle {
+        font-size: 20px;
+        & i {
+          width: 24px;
+        }
+      }
+      .headingUser {
+        &__nickname {
+          max-width: 100px;
+        }
+      }
+      .headingSearch {
+        &__container {
+          width: 90%;
+        }
       }
     }
-    .headingSearch {
-      &__container {
-        width: 90%;
-      }
+  }
+  .footer {
+    &__image {
+      width: 700px;
     }
   }
 }
 
 
 @media screen and (min-width: 1020px) {
-  .heading {
-    width: 1020px;
-    .headingTitle {
-      font-size: 24px;
-    }
-    .headingUser {
-      &__nickname {
-        max-width: 200px;
+  .header {
+    .heading {
+      width: 1020px;
+      .headingTitle {
+        font-size: 24px;
+        & i {
+          width: 28px;
+        }
       }
+      .headingUser {
+        &__nickname {
+          max-width: 200px;
+        }
+      }
+    }
+  }
+  .footer {
+    &__image {
+      width: 1020px;
     }
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .heading {
-    width: 1200px;
-    .headingSearch {
-      &__container {
-        width: 80%;
+  .header {
+    .heading {
+      width: 1200px;
+      .headingSearch {
+        &__container {
+          width: 80%;
+        }
       }
+    }
+  }
+  .footer {
+    &__image {
+      width: 1200px;
     }
   }
 }
@@ -74,20 +93,29 @@
 
 body {
   min-height: 100%;
-  background-color: $back_color;
-  // font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  // <a href="https://pixabay.com/ja/users/ddzphoto-5605533/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4827988">ddzphoto</a>による<a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4827988">Pixabay</a>からの画像
+  background-image: url('mijas-4827988_1280.jpg');
+  
+  // <a href="https://pixabay.com/ja/users/nuidoithaonguyen-16040547/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5112952">Son Hoa Nguyen</a>による<a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5112952">Pixabay</a>からの画像
+  // background-image: url('mountains-and-hills-5112952_1280');
+  
+  // <a href="https://pixabay.com/ja/users/enriquelopezgarre-3764790/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5009868">enriquelopezgarre</a>による<a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5009868">Pixabay</a>からの画像
+  // background-image: url('landscape-5009868_1280');
+
+  // background-color: $back_color;
+
   font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro',"メイリオ",'Meiryo','Osaka','ＭＳ Ｐゴシック','MS PGothic',sans-serif;;
 }
 
 h4 {
   padding: 5px 15px 0px;
-  color: #ffffff;
+  color: $white_color;
   font-size: 14px;
   font-weight: normal;
 }
 
 .header {
-  background-color: $main_color;
+  background: rgba($main_color,0.85);
   position: relative;
 }
 
@@ -98,24 +126,26 @@ h4 {
   align-items: center;
   padding: 0 20px;
   .headingTitle {
-    font-family: 'GlimChe';
-    color: #ffffff;
+    font-family: $title_font;
+    color: $white_color;
     white-space: nowrap;
     &:hover {
       color: #dddddd;
     }
     &__link {
       text-decoration: none;
-      color: #ffffff;
+      color: $white_color;
       &:hover {
         color: #dddddd;
       }
+    }
+    & i {
+      color: $icon_color;
     }
   }
   .headingSearch {
     display: inline-block;
     flex-grow: 1;
-    background-color: $main_color;
     &__container {
       margin: 0 auto;
       display: flex;
@@ -148,11 +178,13 @@ h4 {
   }
   .headingUser {
     height: 25px;
-    color: #ffffff;
+    color: $white_color;
     display: flex;
     &__btn {
       display: block;
-      padding: 3px 4pt;
+      height: 25px;
+      line-height: 25px;
+      padding: 0px 4pt;
       margin-left: 5px;
       border-radius: 4px;
       font-size: 13px;
@@ -165,15 +197,17 @@ h4 {
       }
     }
     &__nickname {
-      line-height: 25px;
       display: block;
+      line-height: 25px;
       white-space: nowrap;
       overflow: scroll;
       font-size: 14px;
       text-decoration: none;
-      color: #ffffff;
-      &:hover {
-        color: #dddddd;
+      color: $white_color;
+      &--text {
+        &:hover {
+          color: #dddddd;
+        }
       }
     }
   }
@@ -191,9 +225,9 @@ h4 {
     & span {
       display: block;
       width: 24px;
-      height: 4px;
+      height: 3px;
       border-radius: 1px;
-      background: #ffffff;
+      background: $white_color;
       position: absolute;
       top: 8px;
       &::before, &::after {
@@ -202,7 +236,7 @@ h4 {
         width: 100%;
         height: 100%;
         border-radius: 1px;
-        background: #ffffff;
+        background: $white_color;
         position: absolute;
       }
       &::before {
@@ -215,27 +249,33 @@ h4 {
   }
   .hiddenTitle {
     line-height: 24px;
-    font-size: 18px;
+    font-size: 20px;
     margin: -2px 0 0 20px;
-    font-family: 'GlimChe';
-    color: #ffffff;
+    font-family: $title_font;
+    color: $white_color;
     &__link {
       text-decoration: none;
-      color: #ffffff;
+      color: $white_color;
       &:hover {
         color: #dddddd;
       }
+    }
+    & i {
+      color: $icon_color;
+      width: 24px
     }
   }
 }
 
 .hiddenMenu {
-  padding: 15px;
-  background-color: $main_color;
+  display: none;
+  padding: 0 15px 5px;
+  background: rgba($main_color,0.85);
   position: absolute;
   z-index: 1;
   width: 100%;
   .hiddenSearch {
+    margin: 15px 0;
     &__input {
       width: calc(100vw - 100px);
       height: 25px;
@@ -255,11 +295,12 @@ h4 {
       }
     }
   }  
-  .hiddenUser {
-    padding-top: 20px;
-    color: #ffffff;
+  .hiddenContent {
+    padding: 10px 5px;
+    color: $white_color;
+    border-top: 0.5px solid #555555;
     &__btn {
-      padding: 3px 4pt;
+      padding: 5px 4pt;
       border-radius: 4px;
       font-size: 14px;
       text-decoration: none;
@@ -274,7 +315,7 @@ h4 {
       margin-right: 10px;
       font-size: 14px;
       text-decoration: none;
-      color: #ffffff;
+      color: $white_color;
       &:hover {
         color: #dddddd;
       }
@@ -282,8 +323,32 @@ h4 {
   }
 }
 
+.hiddenContent {
+  &__heading {
+    text-decoration: none;
+    font-size: 14px;
+    color: $white_color;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
 .footer {
-  min-width: 100%;
-  height: 20px;
-  background-color: $main_color;
+  height: 40px;
+  background: rgba($main_color,0.85);
+  &__image {
+    margin: 0 auto;
+    padding: 1px 20px;
+    text-align: right;
+    color: $white_color;
+    font-size: 10px;
+    & a {
+      text-decoration: none;
+      color: $white_color;
+      &:hover {
+        color: #dddddd;
+      }
+    }
+  }
 }

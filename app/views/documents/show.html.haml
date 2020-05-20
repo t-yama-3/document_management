@@ -35,7 +35,7 @@
           %th.detailsTable__th サイト名
           %td.detailsTable__td.detailsTable__td--title= @document.title
         %tr
-          %th.detailsTable__th 区分名
+          %th.detailsTable__th グループ名
           - if @document.section.present?
             %td.detailsTable__td
               = link_to @document.section.section_name, section_path(@document.section.id), class: :detailsTable__link

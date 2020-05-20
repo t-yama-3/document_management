@@ -1,9 +1,9 @@
-$(document).on('turbolinks:load', ()=> {
+$(document).on('turbolinks:load', function() {
   if (document.getElementById("message_id") == null) {
     return;
   } else {
     let token = document.getElementsByName("csrf-token")[0].content;
-    let url = location.href ;
+    let url = location.href;
     $.ajax({
       url: url,  // リクエストを送信するURLを指定
       type: "POST",  // HTTPメソッドを指定（デフォルトはGET）

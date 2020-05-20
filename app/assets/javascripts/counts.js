@@ -1,6 +1,8 @@
-$(document).on('turbolinks:load', ()=> {
-  //説明の字数カウントを行う
-  $('#section_gist').on('input', function() {
-    $('#gist-count').text(String($('#section_gist').val().length) + '/1000');
-  });
+document.addEventListener("turbolinks:load", function() {
+  //textarea入力のの字数カウントを行う
+  if (document.getElementById('section_gist') != null) {
+    document.getElementById('section_gist').addEventListener('input', function() {
+      document.getElementById('gist-count').textContent = String(this.value.length) + '/1000'
+    });
+  }
 });

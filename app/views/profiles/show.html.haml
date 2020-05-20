@@ -59,9 +59,9 @@
                 = "#{@user.nickname}さんにフレンド申請を送る"
         .userContent__edit
       .userContent
-        .userContent__title= "#{@user.nickname}さんの管理区分一覧（公開区分のみ）"
+        .userContent__title= "#{@user.nickname}さんの管理グループ（公開グループのみ）"
         = render partial: 'shared/sections', locals: {sections: @user.sections.where(disclosure: 1)}
       .userContent
-        .userContent__title= "#{@user.nickname}さんの登録サイト一覧（公開区分のみ）"
+        .userContent__title= "#{@user.nickname}さんの登録サイト（公開グループのみ）"
         = render partial: 'shared/documents', locals: {documents: Document.user_public(@user.id)}
     = render partial: 'shared/side'

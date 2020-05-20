@@ -18,7 +18,7 @@
         = icon 'fas', 'folder-open'
       - else
         = icon 'fas', 'folder'
-      管理区分一覧
+      管理グループ一覧
     - @owner_sections.each do |section|
       .sideSection__title
         = link_to section_path(section.id), class: :sideSection__link do
@@ -30,7 +30,7 @@
         = icon 'fas', 'folder-open'
       - else
         = icon 'fas', 'folder'
-      参加区分一覧
+      参加グループ一覧
     - @participation_sections.each do |section|
       .sideSection__title
         = link_to section_path(section.id), class: :sideSection__link do

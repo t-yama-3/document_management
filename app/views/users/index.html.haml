@@ -7,7 +7,7 @@
           .userContent__title
             = icon 'fas', 'address-card'
             = 'マイページ'
-          = link_to profile_path(current_user.id), class: :userContent__link do
+          = link_to profile_path(current_user.id), class: :userContent__link, id: :profile_id do
             %span.userContent__link--btn.userContent__link--main
               = icon 'far', 'id-card'
               = 'プロフィール画面確認・編集'
@@ -37,9 +37,9 @@
               = icon 'fas', 'user'
               = User.find(list.friend_id).nickname
       .userContent
-        .userContent__title 管理区分一覧
+        .userContent__title 管理グループ一覧
         = render partial: 'shared/sections', locals: {sections: current_user.sections}
       .userContent
-        .userContent__title 登録文書一覧
+        .userContent__title 登録サイト一覧
         = render partial: 'shared/documents', locals: {documents: current_user.documents}
     = render partial: 'shared/side'

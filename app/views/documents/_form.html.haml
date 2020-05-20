@@ -7,10 +7,10 @@
       %th.register__form--th サイト名
       %td.register__form--td= form.text_field :title, class: :register__text, id: :document_title
     %tr#document_section_id_tr
-      %th.register__form--th 区分選択
-      %td.register__form--td= form.collection_select :section_id, current_user.participate_sections, :id, :section_name, { prompt: '選択（または新規区分を入力）してください' }, { class: :register__text }
+      %th.register__form--th グループ選択
+      %td.register__form--td= form.collection_select :section_id, current_user.participate_sections, :id, :section_name, { prompt: '選択（または新規グループを入力）してください' }, { class: :register__text }
     %tr#document_section_name_tr
-      %th.register__form--th 新規区分
+      %th.register__form--th 新規グループ
       %td.register__form--td= form.text_field :section_name, class: :register__text, id: :document_section_name
     %tr
       %th.register__form--th 説明

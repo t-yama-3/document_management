@@ -1,27 +1,26 @@
-$(document).on('turbolinks:load', ()=> {
-  if ($('#user_confirm') == null) { return; }
-  // 
-  $('#user_confirm_send').on('click', function(e) {
-    let result = confirm('フレンド申請をしますか？');
-    if (result == false) {
-      e.preventDefault();  // デフォルトのイベント（リンクURLへの遷移処理など）を無効にする
-      // e.stopPropagation();  // 現在のイベントのさらなる伝播（DELETEメソッドの実行）を止める
-    }
-  });
+// hamlファイルにconfirmを書いた場合に重複表示されるため（turbolinksが影響か？）回避策としてjavascriptで処理
+document.addEventListener("turbolinks:load", function() {
+  if (document.getElementById('user_confirm_send') != null) {
+    document.getElementById('user_confirm_send').addEventListener('click', function(e) {
+      let result = window.confirm('フレンド申請をしますか？');
+      if (result == false) {
+        e.preventDefault();  // デフォルトのイベント（リンクURLへの遷移処理など）を無効にする
+      }
+    });
+  }
 
-  $('#user_confirm').on('click', function(e) {
-    let result = confirm('受諾通知を送信しますか？');
-    if (result == false) {
-      e.preventDefault();  // デフォルトのイベント（リンクURLへの遷移処理など）を無効にする
-      // e.stopPropagation();  // 現在のイベントのさらなる伝播（DELETEメソッドの実行）を止める
-    }
-  });
-
-  $('#user_confirm_refusal').on('click', function(e) {
-    let result = confirm('申請を拒否しますか？');
-    if (result == false) {
-      e.preventDefault();  // デフォルトのイベント（リンクURLへの遷移処理など）を無効にする
-      // e.stopPropagation();  // 現在のイベントのさらなる伝播（DELETEメソッドの実行）を止める
-    }
-  });
+  if (document.getElementById('user_confirm') != null) {
+    document.getElementById('user_confirm').addEventListener('click', function(e) {
+      let result = window.confirm("受諾通知を送信しますか？");
+      if (result == false) {
+        e.preventDefault();  // デフォルトのイベント（リンクURLへの遷移処理など）を無効にする
+      }
+    });
+    document.getElementById('user_confirm_refusal').addEventListener('click', function(e) {
+      let result = window.confirm("申請を拒否しますか？");
+      if (result == false) {
+        e.preventDefault();  // デフォルトのイベント（リンクURLへの遷移処理など）を無効にする
+      }
+    });
+  }
 });
