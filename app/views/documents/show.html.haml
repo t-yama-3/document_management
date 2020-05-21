@@ -88,7 +88,7 @@
           - @document.comments.each do |comment|
             .detail-comment__wrap
               .detail-comment__left
-                = image_tag 'member_photo_noimage_thumb.png', alt: 'document_photo', class: :'detail-comment__icon'
+                = image_tag '/images/member_photo_noimage_thumb.png', alt: 'document_photo', class: :'detail-comment__icon'
               .detail-comment__right
                 .detail-comment__nickname
                   = link_to comment.user.nickname, profile_path(comment.user.id), class: :'detail-comment__link'
