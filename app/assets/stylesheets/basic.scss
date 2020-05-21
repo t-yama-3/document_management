@@ -8,6 +8,11 @@
       display: none;
     }
   }
+  .footer {
+    &__copyright {
+      font-size: 10px;
+    }
+  }
 }
 
 @media screen and (min-width: 700px) {
@@ -38,8 +43,11 @@
     }
   }
   .footer {
-    &__image {
+    &__wrap {
       width: 700px;
+    }
+    &__copyright {
+      font-size: 12px;
     }
   }
 }
@@ -63,7 +71,7 @@
     }
   }
   .footer {
-    &__image {
+    &__wrap {
       width: 1020px;
     }
   }
@@ -81,7 +89,7 @@
     }
   }
   .footer {
-    &__image {
+    &__wrap {
       width: 1200px;
     }
   }
@@ -337,18 +345,26 @@ h4 {
 .footer {
   height: 40px;
   background: rgba($main_color,0.85);
-  &__image {
+  &__wrap {
     margin: 0 auto;
-    padding: 1px 20px;
-    text-align: right;
     color: $white_color;
+  }
+  &__image {
+    padding: 1px 2px;
+    text-align: right;
     font-size: 10px;
+    color: #dddddd;
     & a {
       text-decoration: none;
-      color: $white_color;
+      color: #dddddd;
       &:hover {
-        color: #dddddd;
+        color: #bbbbbb;
       }
     }
+  }
+  &__copyright {
+    text-align: center;
+    // font-size: 12px;
+    font-family: Helvetica;
   }
 }
