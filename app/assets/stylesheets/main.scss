@@ -117,7 +117,7 @@
 .mainBtn {
   display: flex;
   justify-content: space-around;
-  background: rgba($bg_color,0.8);
+  background: rgba($text_bg_color,0.8);
   &__link {
     display: inline-block;
     margin: 30px 0 10px;
