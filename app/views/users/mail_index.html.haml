@@ -2,6 +2,9 @@
   = render partial: 'shared/menu'
   .mainWrap
     .mainContent
+      .mainContent__title
+        = icon 'fas', 'envelope'
+        = 'メールBOX'
       .mainBtn
         = link_to received_mail_users_path, class: :"mainBtn__link#{@add_class1}" do
           = icon 'fas', 'inbox'

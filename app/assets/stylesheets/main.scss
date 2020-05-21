@@ -4,6 +4,17 @@
     .mainContent {
       min-height: calc(100vh - 56px - 40px - 42px - 194px);
       padding: 10px 0;
+      &__title {
+        width: 240px;
+        font-size: 16px;
+        margin: 0 auto 10px;
+        & i {
+          width: 20px;
+        }
+      }
+      &__return {
+        margin: 0 0 5px 5px;
+      }
       &__top {
         display: none;
       }
@@ -33,6 +44,17 @@
     .mainContent {
       min-height: calc(100vh - 56px - 40px - 42px - 194px);
       padding: 20px;
+      &__title {
+        width: 300px;
+        font-size: 18px;
+        margin: 0 auto 20px;
+        & i {
+          width: 24px;
+        }
+      }
+      &__return {
+        margin: 0 0 10px 0;
+      }
       .mainContentSection {
         padding: 20px;
         margin-bottom: 20px;
@@ -88,6 +110,19 @@
 
 .mainContent {
   background: rgba($bg_color,0.3);
+  &__title {
+    padding: 4px 22px;
+    text-align: center;
+    background-color: $main_color;
+    border-radius: 20px;
+    color: $white_color;
+  }
+  &__return {
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: $main_color;
+    color: white;
+  }
   &__top {
     height: 140px;
     background: rgba($explain_color,0.8);

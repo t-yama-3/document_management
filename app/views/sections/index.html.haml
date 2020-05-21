@@ -2,5 +2,8 @@
   = render partial: 'shared/menu'
   .mainWrap
     .mainContent
+      .mainContent__title
+        = icon 'fas', 'folder-open'
+        = '参加グループ一覧'
       = render partial: 'box', locals: {sections: @participation_sections}
     = render partial: 'shared/side'

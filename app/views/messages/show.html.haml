@@ -2,6 +2,8 @@
   = render partial: 'shared/menu'
   .mainWrap
     .mainContent.messageContent#message_view
+      = link_to received_mail_users_path do
+        .mainContent__return= 'メールBOXに戻る'
       .mainContentSection.messageContent__box
         .messageContent__heading
           .messageContent__user
