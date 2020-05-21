@@ -3,6 +3,9 @@
   = render partial: 'shared/menu'
   .mainWrap
     .mainContent
+      .mainContent__title
+        = icon 'fas', 'network-wired'
+        = '登録サイト一覧'
       .mainBtn
         = link_to owner_documents_path, class: :"mainBtn__link#{@add_class1}" do
           = icon 'fas', 'map-marked-alt'

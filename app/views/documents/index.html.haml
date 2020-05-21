@@ -17,7 +17,7 @@
           = render partial: 'shared/information'
           .userContent__mail
             = link_to received_mail_users_path, class: :'userContent__link userContent__link--blue' do
-              .userContent__title.userContent__title--next 新着メール
+              .userContent__title.userContent__title--next メールBOX
             = render partial: 'shared/messages_list', locals: {messages: @messages}
       - @user_sections.each do |section|
         .mainContentSection

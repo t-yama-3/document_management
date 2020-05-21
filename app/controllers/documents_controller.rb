@@ -8,7 +8,7 @@ class DocumentsController < ApplicationController
     return @user_sections = [] unless user_signed_in?
     sections = current_user.participate_sections + Section.where(user_id: current_user.id)
     @user_sections = (sections.uniq).sort_by!{|ms|ms.created_at}.reverse!
-    @messages = Message.where(user_id: current_user.id).or(Message.where(receiver_id: current_user.id)).order("created_at DESC").limit(10)
+    @messages = Message.where(user_id: current_user.id).or(Message.where(receiver_id: current_user.id)).order("created_at DESC").limit(5)
   end
 
   def new

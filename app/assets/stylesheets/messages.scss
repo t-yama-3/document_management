@@ -5,7 +5,7 @@
     background-color: #c1e4e9;
   }
   #message_unread {
-    color: #dc143c;
+    color: $text_red;
   }
   &__heading {
     display: flex;
