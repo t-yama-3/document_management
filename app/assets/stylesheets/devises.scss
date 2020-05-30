@@ -4,7 +4,8 @@
   margin: 0 auto;
   padding: 25px;
   overflow: scroll;
-  background: rgba($bg_color,0.8);
+  // background: rgba($bg_color,0.8);
+  background-color: $bg_color;
   &__wrap {
     max-width: 360px;
     margin: 0 auto;

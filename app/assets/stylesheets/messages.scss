@@ -1,7 +1,8 @@
 .messageContent {
   font-size: 14px;
   &__box {
-    background: rgba(#c1e4e9,0.8);
+    // background: rgba(#c1e4e9,0.8);
+    background-color: #c1e4e9;
   }
   #message_unread {
     color: $text_red;

@@ -52,11 +52,13 @@
 
 .register {
   &__error {
-    background: rgba($bg_color,0.8);
+    // background: rgba($bg_color,0.8);
+    background-color: $bg_color;
   }
   &__heading {
     padding: 0px 30px;
-    background: rgba($bg_color,0.8);
+    // background: rgba($bg_color,0.8);
+    background-color: $bg_color;
     color: $text_color;
     text-align: center;
     & i {
@@ -67,7 +69,8 @@
   &__form {
     width: 100%;
     padding: 10px 0;
-    background: rgba($bg_color,0.8);
+    // background: rgba($bg_color,0.8);
+    background-color: $bg_color;
     & table {
       width: 100%;
     }

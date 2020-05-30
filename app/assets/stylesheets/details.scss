@@ -100,7 +100,8 @@
 
 .details {
   background-color: $back_color;
-  background: rgba($back_color,0.6);
+  // background: rgba($back_color,0.6);
+  background-color: $back_color;
 }
 
 .detailsContent {
@@ -139,7 +140,8 @@
     line-height: 40px;
     color: $white_color;
     background-color: $menu_color;
-    background: rgba($menu_color,0.85);
+    // background: rgba($menu_color,0.85);
+    background-color: $menu_color;
     display: flex;
     justify-content: space-between;
     &--title {
@@ -159,7 +161,8 @@
     }
   }
   &__area {
-    background: rgba(#cab8d9,0.7);
+    // background: rgba(#cab8d9,0.7);
+    background-color: #cab8d9;
   }
   &__view {
     height: 100%;
@@ -188,13 +191,15 @@
     width: 100%;
     padding: 20px;
     font-size: 14px;
-    background: rgba(#f7f6fb,0.8);
+    // background: rgba(#f7f6fb,0.8);
+    background-color: #f7f6fb;
   }
 }
 
 .detailsSide {
   overflow: scroll;
-  background: rgba($detail_side,0.8);
+  // background: rgba($detail_side,0.8);
+  background-color: $detail_side;
   &__link {
     display: inline-block;
     margin-bottom: 10px;
