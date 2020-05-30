@@ -53,7 +53,8 @@
 .menu {
   width: 100%;
   color: $white_color;
-  background: rgba($menu_color,0.9);
+  // background: rgba($menu_color,0.9);
+  background-color: $menu_color;
   overflow: scroll;
   &__list {
     display: block;
@@ -77,7 +78,8 @@
 
 .side {
   padding: 20px 20px 20px;
-  background: rgba($side_color,0.8);
+  // background: rgba($side_color,0.8);
+  background-color: $side_color;
   min-height: 194px;
 }
 

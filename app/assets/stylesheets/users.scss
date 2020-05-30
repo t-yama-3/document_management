@@ -48,7 +48,8 @@
 .userContent {
   margin-bottom: 20px;
   background-color: #ffffff;
-  background: rgba($white_color,0.8);
+  // background: rgba($white_color,0.8);
+  background-color: $white_color;
   &__wrap {
     display: flex;
     justify-content: space-between;
@@ -145,7 +146,8 @@
     padding: 5px;
     font-weight: bold;
     &--color {
-      background: rgba($user_color,0.8);
+      // background: rgba($user_color,0.8);
+      background-color: $user_color;
     }
     &--link {
       color: $text_blue;

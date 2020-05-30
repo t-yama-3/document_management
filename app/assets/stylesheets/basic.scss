@@ -102,7 +102,7 @@
 body {
   min-height: 100%;
   // <a href="https://pixabay.com/ja/users/ddzphoto-5605533/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4827988">ddzphoto</a>による<a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4827988">Pixabay</a>からの画像
-  background-image: url('/images/mijas-4827988_1280.jpg');
+  // background-image: url('/images/mijas-4827988_1280.jpg');
   
   // <a href="https://pixabay.com/ja/users/nuidoithaonguyen-16040547/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5112952">Son Hoa Nguyen</a>による<a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5112952">Pixabay</a>からの画像
   // background-image: url('/images/mountains-and-hills-5112952_1280');
@@ -110,7 +110,7 @@ body {
   // <a href="https://pixabay.com/ja/users/enriquelopezgarre-3764790/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5009868">enriquelopezgarre</a>による<a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5009868">Pixabay</a>からの画像
   // background-image: url('/images/landscape-5009868_1280');
 
-  // background-color: $back_color;
+  background-color: $back_color;
 
   font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro',"メイリオ",'Meiryo','Osaka','ＭＳ Ｐゴシック','MS PGothic',sans-serif;;
 }
@@ -123,7 +123,8 @@ h4 {
 }
 
 .header {
-  background: rgba($main_color,0.85);
+  // background: rgba($main_color,0.85);
+  background-color: $main_color;
   position: relative;
 }
 
@@ -278,7 +279,8 @@ h4 {
 .hiddenMenu {
   display: none;
   padding: 0 15px 5px;
-  background: rgba($main_color,0.85);
+  // background: rgba($main_color,0.85);
+  background-color: $main_color;
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -344,7 +346,8 @@ h4 {
 
 .footer {
   height: 40px;
-  background: rgba($main_color,0.85);
+  // background: rgba($main_color,0.85);
+  background-color: $main_color;
   &__wrap {
     margin: 0 auto;
     color: $white_color;
