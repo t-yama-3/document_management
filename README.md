@@ -23,6 +23,10 @@
 
 ![2181478e48e23dba729eae9af6f50148](https://user-images.githubusercontent.com/58378333/87249932-f73af580-c49c-11ea-81b9-3c56bfa2d2b7.png)
 
+## Registration
+
+![a95c15917bc3b5701fc12af88d8777f5](https://user-images.githubusercontent.com/58378333/87251054-f22d7480-c4a3-11ea-8a6a-ba137a59b374.png)
+
 ## Responsive Design
 スマートフォンでも閲覧できるように、レスポンシブデザインを採用しています.
 ダイレクトメール機能では、既読・未読の表示がされます。
@@ -40,76 +44,6 @@ Ruby on Rails / MySQL / Github / AWS / Visual Studio Code
 ## DB設計
 
 <img width="954" alt="スクリーンショット 2020-07-12 23 54 42" src="https://user-images.githubusercontent.com/58378333/87249628-1afd3c00-c49b-11ea-88a1-3136a96257f5.png">
-
-### usersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|nickname|string|null: false, index: true|
-|email|string|null: false, unique: true|
-|password|string|null: false|
-
-#### Association
-- has_many :documents, dependent: :destroy
-- has_many :comments, dependent: :destroy
-- has_many :sections
-- has_many :user_sections, dependent: :destroy
-- has_many :participate_sections, through: :user_sections, source: :section
-
-### sectionsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|section_name|string|null: false|
-|ancestry|string||
-|gist|text||
-|disclosure|integer|null: false|
-|user|references|null: false, foreign_key: true|
-
-#### Association
-- belongs_to :user
-- has_many :documents
-- has_many :user_sections
-- has_many :participate_users, through: :user_sections, source: :user
-
-### documentsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|title|string||
-|note|text||
-|alt|text||
-|src|string||
-|section|references|null: false, foreign_key: true|
-|user|references|null: false, foreign_key: true|
-
-#### Association
-- has_many :comments, dependent: :destroy
-- belongs_to :section, optional: true
-- belongs_to :user
-
-### user_sectionsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user|references|null: false, foreign_key: true|
-|section|references|null: false, foreign_key: true|
-
-#### Association
-- belongs_to :user
-- belongs_to :section
-
-### commentsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|body|text||
-|document|references|null: false, foreign_key: true|
-|user|references|null: false, foreign_key: true|
-
-#### Association
-- belongs_to :document
-- belongs_to :user
 
 ## アクセス制限
 
