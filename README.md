@@ -1,8 +1,32 @@
-# README
+# Document Management
+
+
+
+## Image
+
+### Top Page
 
 ![ed8bf7af37b2e414e15d2dce91d76975](https://user-images.githubusercontent.com/58378333/87249378-bdb4bb00-c499-11ea-98b3-a124189299e5.png)
 
+## Contents Page
 
+![2db5ae03859b1988b37d0dda38adc6c7](https://user-images.githubusercontent.com/58378333/87249750-f6ee2a80-c49b-11ea-8bdf-fcdeacf77280.png)
+
+
+## アプリケーション概要
+
+### 基本情報
+本アプリは、WEBページの登録及び表示を行うブックマークツールです。
+ブックマークにメモを残すことで、後からの検索を容易にできるとともに、会社内や友人同士で共有することで、WEBサイトの効率的な利用をサポートすることを目的としています。
+
+#### <主な機能＞
+
+|機能|概要|
+|---|---|
+|WEBページ登録|WEBページの登録・編集・削除のほか、検索・閲覧などができる|
+|グループ作成|テーマごとにメンバーを指定してグループの作成・編集ができる|
+|コメント投稿・いいねボタン|閲覧権限があれば、コメント投稿、いいねボタンの使用ができる|
+|友人申請・メッセージ送信|友人申請が承認されれば、ダイレクトメッセージの送受信ができる|
 
 # DocumentManager DB設計
 
@@ -79,45 +103,3 @@
 - belongs_to :document
 - belongs_to :user
 
-
-# 追加予定機能（実装優先順）
-
-## お気に入り機能
-- markings table
-
-|Column|Type|Options|
-|user|references|null: false, foreign_key: true|
-|document|references|null: false, foreign_key: true|
-
-## 友人登録機能（メッセージ機能）
-- friends table
-
-|Column|Type|Options|
-|user|references|null: false, foreign_key: true|
-|friend_user_id|references|null: false, foreign_key: { to_table: :users }|
-|status|integer|null: false|
-
-request = 0:申請状態、1:承諾状態、2:拒否状態、3:絶縁状態
-（解消はレコードを削除するのみ）
-
-- messages table
-
-|Column|Type|Options|
-|text|text|null: false|
-|friend|references|null: false, foreign_key: true|
-|user|references|null: false, foreign_key: true|
-
-## 自己紹介ページ
-- profiles table
-
-|Column|Type|Options|
-|introduction|text|null: true|
-|prefecture|integer|null: true|
-|private|integer|null: true|
-|user|references|null: false, foreign_key: true|
-
-(要検討)private = 0(null): ニックネーム・自己紹介・所在地, 1: 0+所属区分・管理区分・登録サイト, 2: 1+友人一覧
-
-## 詳細な検索機能
-## 未読・既読の判定
-## 新着お知らせ機能
