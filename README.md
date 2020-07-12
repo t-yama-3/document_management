@@ -1,18 +1,5 @@
 # Document Management
 
-
-
-## Image
-
-### Top Page
-
-![ed8bf7af37b2e414e15d2dce91d76975](https://user-images.githubusercontent.com/58378333/87249378-bdb4bb00-c499-11ea-98b3-a124189299e5.png)
-
-## Contents Page
-
-![2db5ae03859b1988b37d0dda38adc6c7](https://user-images.githubusercontent.com/58378333/87249750-f6ee2a80-c49b-11ea-8bdf-fcdeacf77280.png)
-
-
 ## アプリケーション概要
 
 ### 基本情報
@@ -27,6 +14,24 @@
 |グループ作成|テーマごとにメンバーを指定してグループの作成・編集ができる|
 |コメント投稿・いいねボタン|閲覧権限があれば、コメント投稿、いいねボタンの使用ができる|
 |友人申請・メッセージ送信|友人申請が承認されれば、ダイレクトメッセージの送受信ができる|
+
+## Image
+
+### Top Page
+
+![ed8bf7af37b2e414e15d2dce91d76975](https://user-images.githubusercontent.com/58378333/87249378-bdb4bb00-c499-11ea-98b3-a124189299e5.png)
+
+## Contents Page
+
+![2181478e48e23dba729eae9af6f50148](https://user-images.githubusercontent.com/58378333/87249932-f73af580-c49c-11ea-81b9-3c56bfa2d2b7.png)
+
+## Responsive Design
+
+![43ea821f6985ea87d9bbffdacd799ea0](https://user-images.githubusercontent.com/58378333/87250103-e343c380-c49d-11ea-8ef1-1c6f3847c0a8.png)
+
+![5c779bb3e498f03a1fdddbd0d748e4f2](https://user-images.githubusercontent.com/58378333/87250166-2140e780-c49e-11ea-90d2-67c9864c2d4d.png)
+
+![24737adc4b42e8f886c643b0580bf034](https://user-images.githubusercontent.com/58378333/87250212-54837680-c49e-11ea-90f0-a0a8c6386fad.png)
 
 # DocumentManager DB設計
 
