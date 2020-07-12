@@ -21,6 +21,8 @@
 
 ## Contents Page
 
+他のメンバーの登録情報に、コメントを投稿することで情報の共有ができます。
+
 ![2181478e48e23dba729eae9af6f50148](https://user-images.githubusercontent.com/58378333/87249932-f73af580-c49c-11ea-81b9-3c56bfa2d2b7.png)
 
 ## Responsive Design
@@ -38,6 +40,8 @@
 </p>
 
 ## Registration
+
+グループ、参加者、公開範囲を指定してサイトの登録を行います。
 
 ![a95c15917bc3b5701fc12af88d8777f5](https://user-images.githubusercontent.com/58378333/87251054-f22d7480-c4a3-11ea-8a6a-ba137a59b374.png)
 
