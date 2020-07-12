@@ -27,6 +27,10 @@
 
 ## Responsive Design
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/58378333/87250103-e343c380-c49d-11ea-8ef1-1c6f3847c0a8.png" width=40%>
+</p>
+
 ![43ea821f6985ea87d9bbffdacd799ea0](https://user-images.githubusercontent.com/58378333/87250103-e343c380-c49d-11ea-8ef1-1c6f3847c0a8.png)
 
 ![5c779bb3e498f03a1fdddbd0d748e4f2](https://user-images.githubusercontent.com/58378333/87250166-2140e780-c49e-11ea-90d2-67c9864c2d4d.png)
