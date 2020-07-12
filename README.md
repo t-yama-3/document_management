@@ -28,8 +28,15 @@
 ダイレクトメール機能では、既読・未読の表示がされます。
 
 <p align="center">
+  <img src="https://user-images.githubusercontent.com/58378333/87250103-e343c380-c49d-11ea-8ef1-1c6f3847c0a8.png" width=30%>___<img src="https://user-images.githubusercontent.com/58378333/87250166-2140e780-c49e-11ea-90d2-67c9864c2d4d.png" width=30%>___<img src="https://user-images.githubusercontent.com/58378333/87256558-bc51b580-c4ce-11ea-843f-a150d24f494f.png" width=30%>
+</p>
+
+
+
+<p align="center">
   <img src="https://user-images.githubusercontent.com/58378333/87250103-e343c380-c49d-11ea-8ef1-1c6f3847c0a8.png" width=30%>___<img src="https://user-images.githubusercontent.com/58378333/87250166-2140e780-c49e-11ea-90d2-67c9864c2d4d.png" width=30%>___<img src="https://user-images.githubusercontent.com/58378333/87250212-54837680-c49e-11ea-90f0-a0a8c6386fad.png" width=30%>
 </p>
+
 
 ## Registration
 
