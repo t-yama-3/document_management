@@ -37,11 +37,6 @@ URL http://3.113.77.116/
 ## 開発状況
 Ruby on Rails / MySQL / Github / AWS / Visual Studio Code
 
-## DocumentManager DB設計
-
-<img width="954" alt="スクリーンショット 2020-07-12 23 54 42" src="https://user-images.githubusercontent.com/58378333/87249628-1afd3c00-c49b-11ea-88a1-3136a96257f5.png">
-
-
 ## アクセス制限
 
 |対象画面・機能|ログインしていない|サイト登録者|グループ管理者|グループメンバー|その他|備考|
@@ -61,7 +56,11 @@ Ruby on Rails / MySQL / Github / AWS / Visual Studio Code
 |索引機能（非公開情報）|×|○|○|○|×|検索結果にはアクセス可能な情報のみ表示|
 |索引機能（公開情報）|○|○|○|○|○|公開情報は誰でも閲覧可|
 
-## usersテーブル
+## DocumentManager DB設計
+
+<img width="954" alt="スクリーンショット 2020-07-12 23 54 42" src="https://user-images.githubusercontent.com/58378333/87249628-1afd3c00-c49b-11ea-88a1-3136a96257f5.png">
+
+### usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -69,14 +68,14 @@ Ruby on Rails / MySQL / Github / AWS / Visual Studio Code
 |email|string|null: false, unique: true|
 |password|string|null: false|
 
-### Association
+#### Association
 - has_many :documents, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - has_many :sections
 - has_many :user_sections, dependent: :destroy
 - has_many :participate_sections, through: :user_sections, source: :section
 
-## sectionsテーブル
+### sectionsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -86,13 +85,13 @@ Ruby on Rails / MySQL / Github / AWS / Visual Studio Code
 |disclosure|integer|null: false|
 |user|references|null: false, foreign_key: true|
 
-### Association
+#### Association
 - belongs_to :user
 - has_many :documents
 - has_many :user_sections
 - has_many :participate_users, through: :user_sections, source: :user
 
-## documentsテーブル
+### documentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -103,23 +102,23 @@ Ruby on Rails / MySQL / Github / AWS / Visual Studio Code
 |section|references|null: false, foreign_key: true|
 |user|references|null: false, foreign_key: true|
 
-### Association
+#### Association
 - has_many :comments, dependent: :destroy
 - belongs_to :section, optional: true
 - belongs_to :user
 
-## user_sectionsテーブル
+### user_sectionsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
 |section|references|null: false, foreign_key: true|
 
-### Association
+#### Association
 - belongs_to :user
 - belongs_to :section
 
-## commentsテーブル
+### commentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -127,7 +126,7 @@ Ruby on Rails / MySQL / Github / AWS / Visual Studio Code
 |document|references|null: false, foreign_key: true|
 |user|references|null: false, foreign_key: true|
 
-### Association
+#### Association
 - belongs_to :document
 - belongs_to :user
 
