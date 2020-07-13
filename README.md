@@ -4,13 +4,13 @@
 
 ![ed8bf7af37b2e414e15d2dce91d76975](https://user-images.githubusercontent.com/58378333/87249378-bdb4bb00-c499-11ea-98b3-a124189299e5.png)
 
-## アプリケーション概要
+## Summary
 
-### 基本情報
+### Introduction
 本アプリは、WEBページの登録及び表示を行うブックマークツールです。<br>
 ブックマークにメモを残すことで、後からの検索を容易にできるとともに、会社内や友人同士で共有することで、WEBサイトの効率的な利用をサポートすることを目的としています。
 
-### 主な機能
+### Feature
 
 |機能|概要|
 |---|---|
@@ -45,19 +45,19 @@
 
 ![a95c15917bc3b5701fc12af88d8777f5](https://user-images.githubusercontent.com/58378333/87251054-f22d7480-c4a3-11ea-8a6a-ba137a59b374.png)
 
-## 接続情報
+## Link
 URL http://3.113.77.116/
 
-## 開発状況
+## Programming Language
 Ruby on Rails / MySQL / Github / AWS / Visual Studio Code
 
-## DB設計
+## DB Design
 
 <img width="954" alt="スクリーンショット 2020-07-12 23 54 42" src="https://user-images.githubusercontent.com/58378333/87249628-1afd3c00-c49b-11ea-88a1-3136a96257f5.png">
 
-## アクセス制限
+## Access Restriction
 
-|対象画面・機能|ログインしていない|サイト登録者|グループ管理者|グループメンバー|その他|
+|対象画面・機能|未ログイン|サイト登録者|グループ管理者|グループメンバー|その他|
 |----|---|---|---|---|---|
 |トップページ閲覧|○|○|○|○|○||
 |参加グループ一覧の閲覧|×|○|○|○|○|
