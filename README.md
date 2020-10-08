@@ -62,7 +62,7 @@ Github / AWS / Visual Studio Code
 <br>
 
 ## DB Design
-ユーザーテーブル（users）とグループテーブル（sections）間は、１対多の関係と多対多の関係を有しています。
+ユーザーテーブル（users）とグループテーブル（sections）間は、１対多の関係と多対多の関係を有しています。<br>
 本アプリのER図は、次のとおりです。
 <br>
 
