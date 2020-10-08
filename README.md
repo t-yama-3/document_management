@@ -50,14 +50,6 @@
 
 <br>
 
-## Registration
-
-グループ、参加者、公開範囲を指定してサイトの登録を行います。
-
-![a95c15917bc3b5701fc12af88d8777f5](https://user-images.githubusercontent.com/58378333/87251054-f22d7480-c4a3-11ea-8a6a-ba137a59b374.png)
-
-<br>
-
 ## Link
 URL http://3.113.77.116/
 
