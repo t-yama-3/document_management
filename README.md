@@ -56,7 +56,7 @@ URL http://3.113.77.116/
 <br>
 
 ## Programming Language
-Ruby on Rails / MySQL / JavaScript (jQuery) / HTML
+Ruby on Rails / MySQL / JavaScript (jQuery) / HTML<br>
 Github / AWS / Visual Studio Code
 
 <br>
