@@ -6,7 +6,7 @@
 
 ![ed8bf7af37b2e414e15d2dce91d76975](https://user-images.githubusercontent.com/58378333/87249378-bdb4bb00-c499-11ea-98b3-a124189299e5.png)
 
-<br><br>
+<br>
 
 ## Summary
 
@@ -28,7 +28,7 @@
 
 ![2181478e48e23dba729eae9af6f50148](https://user-images.githubusercontent.com/58378333/87249932-f73af580-c49c-11ea-81b9-3c56bfa2d2b7.png)
 
-<br><br>
+<br>
 
 ## Responsive Design
 スマートフォンでも閲覧できるように、レスポンシブデザインを採用しています。<br>
@@ -37,7 +37,7 @@
   <img src="https://user-images.githubusercontent.com/58378333/87250103-e343c380-c49d-11ea-8ef1-1c6f3847c0a8.png" width=30%>___<img src="https://user-images.githubusercontent.com/58378333/87250166-2140e780-c49e-11ea-90d2-67c9864c2d4d.png" width=30%>___<img src="https://user-images.githubusercontent.com/58378333/87256558-bc51b580-c4ce-11ea-843f-a150d24f494f.png" width=30%>
 </p>
 
-<br><br>
+<br>
 
 ## Direct Mail
 友人登録を行うことで、ダイレクトメールの送受信をすることができます。<br>
@@ -47,7 +47,7 @@
   <img src="https://user-images.githubusercontent.com/58378333/87256606-1d798900-c4cf-11ea-85dc-ef74e726c467.png" width=30%>___<img src="https://user-images.githubusercontent.com/58378333/87250212-54837680-c49e-11ea-90f0-a0a8c6386fad.png" width=30%>___<img src="https://user-images.githubusercontent.com/58378333/87256651-9082ff80-c4cf-11ea-9a07-1a182c287aad.png" width=30%>
 </p>
 
-<br><br>
+<br>
 
 ## Registration
 
@@ -55,15 +55,23 @@
 
 ![a95c15917bc3b5701fc12af88d8777f5](https://user-images.githubusercontent.com/58378333/87251054-f22d7480-c4a3-11ea-8a6a-ba137a59b374.png)
 
+<br>
+
 ## Link
 URL http://3.113.77.116/
+
+<br>
 
 ## Programming Language
 Ruby on Rails / MySQL / Github / AWS / Visual Studio Code
 
+<br>
+
 ## DB Design
 
 <img width="954" alt="スクリーンショット 2020-07-12 23 54 42" src="https://user-images.githubusercontent.com/58378333/87249628-1afd3c00-c49b-11ea-88a1-3136a96257f5.png">
+
+<br>
 
 ## Access Restriction
 
