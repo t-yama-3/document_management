@@ -56,11 +56,14 @@ URL http://3.113.77.116/
 <br>
 
 ## Programming Language
-Ruby on Rails / MySQL / Github / AWS / Visual Studio Code
+Ruby on Rails / MySQL / JavaScript (jQuery) / HTML
+Github / AWS / Visual Studio Code
 
 <br>
 
 ## DB Design
+ユーザーテーブル（users）とグループテーブル（sections）間は、１対多の関係と多対多の関係を有しています。
+<br>
 
 <img width="954" alt="スクリーンショット 2020-07-12 23 54 42" src="https://user-images.githubusercontent.com/58378333/87249628-1afd3c00-c49b-11ea-88a1-3136a96257f5.png">
 
